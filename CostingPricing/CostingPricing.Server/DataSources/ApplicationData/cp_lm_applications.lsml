@@ -1,0 +1,1115 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ServiceApplication
+  Name="LightSwitchServiceApplication" xmlns="http://schemas.microsoft.com/LightSwitch/2010/xaml/model">
+  <ServiceApplication.Attributes>
+    <Partial />
+  </ServiceApplication.Attributes>
+  <EntityType
+    Name="cp_lm_application">
+    <EntityType.Attributes>
+      <CreatedModifiedPropertiesEnabled />
+    </EntityType.Attributes>
+    <EntityType.Methods>
+      <EntityMethod
+        Name="Delete">
+        <EntityMethod.Attributes>
+          <Generated />
+        </EntityMethod.Attributes>
+      </EntityMethod>
+    </EntityType.Methods>
+    <EntityType.Properties>
+      <KeyProperty
+        Name="Id"
+        PropertyType=":Int32">
+        <KeyProperty.Attributes>
+          <Required />
+          <NotSearchable />
+        </KeyProperty.Attributes>
+      </KeyProperty>
+      <NavigationProperty
+        Name="cp_lu_applicant"
+        Association="cp_lm_application_cp_lu_applicant"
+        FromEnd="cp_lm_application"
+        ToEnd="cp_lu_applicant">
+        <NavigationProperty.Attributes>
+          <DisplayName
+            Value="Applicant" />
+        </NavigationProperty.Attributes>
+      </NavigationProperty>
+      <EntityProperty
+        Name="drug_name"
+        PropertyType=":String?">
+        <EntityProperty.Attributes>
+          <MaxLength
+            Value="255" />
+          <DisplayName
+            Value="Drug Name" />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <EntityProperty
+        Name="application_number"
+        PropertyType=":String?">
+        <EntityProperty.Attributes>
+          <MaxLength
+            Value="255" />
+          <DisplayName
+            Value="Application Number" />
+          <IncludeInUniqueIndex />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <NavigationProperty
+        Name="excipients"
+        Association="cp_lm_application_cp_lm_excipient_cost"
+        FromEnd="cp_lm_application"
+        ToEnd="cp_lm_excipient_cost">
+        <NavigationProperty.Attributes>
+          <DisplayName
+            Value="Excipients" />
+        </NavigationProperty.Attributes>
+      </NavigationProperty>
+      <NavigationProperty
+        Name="apis"
+        Association="cp_lm_application_cp_lm_api_cost"
+        FromEnd="cp_lm_application"
+        ToEnd="cp_lm_api_cost">
+        <NavigationProperty.Attributes>
+          <DisplayName
+            Value="APIs" />
+        </NavigationProperty.Attributes>
+      </NavigationProperty>
+      <NavigationProperty
+        Name="capsule_blister_packs_hgs"
+        Association="cp_lm_application_cp_lm_pm_capsule_blister_packs"
+        FromEnd="cp_lm_application"
+        ToEnd="cp_lm_pm_capsule_blister_packs_hg">
+        <NavigationProperty.Attributes>
+          <DisplayName
+            Value="PM Capsule Blister Packs Hard Gelatin" />
+        </NavigationProperty.Attributes>
+      </NavigationProperty>
+      <NavigationProperty
+        Name="capsule_blister_packs_sgs"
+        Association="cp_lm_application_cp_lm_pm_capsule_blister_packs1"
+        FromEnd="cp_lm_application"
+        ToEnd="cp_lm_pm_capsule_blister_packs_sg">
+        <NavigationProperty.Attributes>
+          <DisplayName
+            Value="PM Capsule Blister Packs Soft Gelatin" />
+        </NavigationProperty.Attributes>
+      </NavigationProperty>
+      <NavigationProperty
+        Name="capsule_bottle_pack_hgs"
+        Association="cp_lm_application_cp_lm_pm_capsule_bottle_pack_h"
+        FromEnd="cp_lm_application"
+        ToEnd="cp_lm_pm_capsule_bottle_pack_hg">
+        <NavigationProperty.Attributes>
+          <DisplayName
+            Value="PM Capsule Botlle Pack Hard Gelatin" />
+        </NavigationProperty.Attributes>
+      </NavigationProperty>
+      <NavigationProperty
+        Name="capsule_bottle_pack_sgs"
+        Association="cp_lm_application_cp_lm_pm_capsule_bottle_pack_s"
+        FromEnd="cp_lm_application"
+        ToEnd="cp_lm_pm_capsule_bottle_pack_sg">
+        <NavigationProperty.Attributes>
+          <DisplayName
+            Value="PM Capsule Botlle Pack Soft Gelatin" />
+        </NavigationProperty.Attributes>
+      </NavigationProperty>
+      <NavigationProperty
+        Name="eye_ear_nasal_drops"
+        Association="cp_lm_application_cp_lm_pm_eye_ear_nasal_drop"
+        FromEnd="cp_lm_application"
+        ToEnd="cp_lm_pm_eye_ear_nasal_drop">
+        <NavigationProperty.Attributes>
+          <DisplayName
+            Value="PM Eye/Ear/Nasal Drops" />
+        </NavigationProperty.Attributes>
+      </NavigationProperty>
+      <NavigationProperty
+        Name="infusions"
+        Association="cp_lm_application_cp_lm_pm_infusion"
+        FromEnd="cp_lm_application"
+        ToEnd="cp_lm_pm_infusion">
+        <NavigationProperty.Attributes>
+          <DisplayName
+            Value="PM Infusions" />
+        </NavigationProperty.Attributes>
+      </NavigationProperty>
+      <NavigationProperty
+        Name="injections"
+        Association="cp_lm_application_cp_lm_pm_injection"
+        FromEnd="cp_lm_application"
+        ToEnd="cp_lm_pm_injection">
+        <NavigationProperty.Attributes>
+          <DisplayName
+            Value="PM Injections" />
+        </NavigationProperty.Attributes>
+      </NavigationProperty>
+      <NavigationProperty
+        Name="ointment_gel_creams"
+        Association="cp_lm_application_cp_lm_pm_ointment_gel_cream"
+        FromEnd="cp_lm_application"
+        ToEnd="cp_lm_pm_ointment_gel_cream">
+        <NavigationProperty.Attributes>
+          <DisplayName
+            Value="PM Ointment/Gel/Cream" />
+        </NavigationProperty.Attributes>
+      </NavigationProperty>
+      <NavigationProperty
+        Name="patches"
+        Association="cp_lm_application_cp_lm_pm_patch"
+        FromEnd="cp_lm_application"
+        ToEnd="cp_lm_pm_patch">
+        <NavigationProperty.Attributes>
+          <DisplayName
+            Value="PM Patches" />
+        </NavigationProperty.Attributes>
+      </NavigationProperty>
+      <NavigationProperty
+        Name="sachets"
+        Association="cp_lm_application_cp_lm_pm_sachet"
+        FromEnd="cp_lm_application"
+        ToEnd="cp_lm_pm_sachet">
+        <NavigationProperty.Attributes>
+          <DisplayName
+            Value="PM Sachets" />
+        </NavigationProperty.Attributes>
+      </NavigationProperty>
+      <NavigationProperty
+        Name="spray_inhalers"
+        Association="cp_lm_application_cp_lm_pm_spray_inhaler"
+        FromEnd="cp_lm_application"
+        ToEnd="cp_lm_pm_spray_inhaler">
+        <NavigationProperty.Attributes>
+          <DisplayName
+            Value="PM Spary Inhalers" />
+        </NavigationProperty.Attributes>
+      </NavigationProperty>
+      <NavigationProperty
+        Name="syrups"
+        Association="cp_lm_application_cp_lm_pm_syrup"
+        FromEnd="cp_lm_application"
+        ToEnd="cp_lm_pm_syrup">
+        <NavigationProperty.Attributes>
+          <DisplayName
+            Value="PM Syrups" />
+        </NavigationProperty.Attributes>
+      </NavigationProperty>
+      <NavigationProperty
+        Name="tablets_blister_packs"
+        Association="cp_lm_application_cp_lm_pm_tablets_blister_pack"
+        FromEnd="cp_lm_application"
+        ToEnd="cp_lm_pm_tablets_blister_pack">
+        <NavigationProperty.Attributes>
+          <DisplayName
+            Value="PM Tablet Blister Pack" />
+        </NavigationProperty.Attributes>
+      </NavigationProperty>
+      <NavigationProperty
+        Name="tablets_bottle_packs"
+        Association="cp_lm_application_cp_lm_pm_tablets_bottle_pack"
+        FromEnd="cp_lm_application"
+        ToEnd="cp_lm_pm_tablets_bottle_pack">
+        <NavigationProperty.Attributes>
+          <DisplayName
+            Value="PM Tablet Bottle Pack" />
+        </NavigationProperty.Attributes>
+      </NavigationProperty>
+      <EntityProperty
+        Name="CreatedBy"
+        IsReadOnly="True"
+        PropertyType=":Person?">
+        <EntityProperty.Attributes>
+          <Generated />
+          <NotSearchable />
+          <MaxLength
+            Value="255" />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <EntityProperty
+        Name="Created"
+        IsReadOnly="True"
+        PropertyType=":DateTimeOffset?">
+        <EntityProperty.Attributes>
+          <Generated />
+          <NotSearchable />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <EntityProperty
+        Name="ModifiedBy"
+        IsReadOnly="True"
+        PropertyType=":Person?">
+        <EntityProperty.Attributes>
+          <Generated />
+          <NotSearchable />
+          <MaxLength
+            Value="255" />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <EntityProperty
+        Name="Modified"
+        IsReadOnly="True"
+        PropertyType=":DateTimeOffset?">
+        <EntityProperty.Attributes>
+          <Generated />
+          <NotSearchable />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <EntityProperty
+        Name="RowVersion"
+        PropertyType=":RowVersion">
+        <EntityProperty.Attributes>
+          <Hidden />
+          <UseForConcurrency />
+          <Generated />
+          <NotSearchable />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+    </EntityType.Properties>
+  </EntityType>
+  <EntityContainer
+    Name="ApplicationData">
+    <EntityContainer.Attributes>
+      <Partial />
+    </EntityContainer.Attributes>
+    <EntitySet
+      Name="cp_lm_applications"
+      CanDelete="True"
+      CanInsert="True"
+      CanUpdate="True"
+      EntityType="cp_lm_application" />
+    <QueryOperation
+      Name="cp_lm_applications_Single"
+      ReturnType="cp_lm_application">
+      <QueryOperation.Attributes>
+        <Generated />
+        <Description
+          Value="Returns the entity whose identity is specified by the parameter(s)." />
+      </QueryOperation.Attributes>
+      <QueryOperation.FilterExpression>
+        <QueryFilterExpressionTree>
+          <BinaryExpression
+            NodeType="Equal">
+            <BinaryExpression.Left>
+              <ChainExpression>
+                <MemberExpression
+                  Member="Id" />
+              </ChainExpression>
+            </BinaryExpression.Left>
+            <BinaryExpression.Right>
+              <ParameterExpression
+                Parameter="Id" />
+            </BinaryExpression.Right>
+          </BinaryExpression>
+        </QueryFilterExpressionTree>
+      </QueryOperation.FilterExpression>
+      <QueryOperation.Source>
+        <QuerySourceExpressionTree>
+          <MemberExpression
+            Member="cp_lm_applications" />
+        </QuerySourceExpressionTree>
+      </QueryOperation.Source>
+      <QueryOperationParameter
+        Name="Id"
+        ParameterType=":Int32?">
+        <QueryOperationParameter.Attributes>
+          <Description
+            Value="The value of the 'Id' key property of the entity to retrieve." />
+        </QueryOperationParameter.Attributes>
+      </QueryOperationParameter>
+    </QueryOperation>
+    <QueryOperation
+      Name="cp_lm_applications_SingleOrDefault"
+      ReturnType="cp_lm_application">
+      <QueryOperation.Attributes>
+        <Generated />
+        <Description
+          Value="Returns the entity whose identity is specified by the parameter(s) or null if no such entity exists." />
+      </QueryOperation.Attributes>
+      <QueryOperation.FilterExpression>
+        <QueryFilterExpressionTree>
+          <BinaryExpression
+            NodeType="Equal">
+            <BinaryExpression.Left>
+              <ChainExpression>
+                <MemberExpression
+                  Member="Id" />
+              </ChainExpression>
+            </BinaryExpression.Left>
+            <BinaryExpression.Right>
+              <ParameterExpression
+                Parameter="Id" />
+            </BinaryExpression.Right>
+          </BinaryExpression>
+        </QueryFilterExpressionTree>
+      </QueryOperation.FilterExpression>
+      <QueryOperation.Source>
+        <QuerySourceExpressionTree>
+          <MemberExpression
+            Member="cp_lm_applications" />
+        </QuerySourceExpressionTree>
+      </QueryOperation.Source>
+      <QueryOperationParameter
+        Name="Id"
+        ParameterType=":Int32?">
+        <QueryOperationParameter.Attributes>
+          <Description
+            Value="The value of the 'Id' key property of the entity to retrieve." />
+        </QueryOperationParameter.Attributes>
+      </QueryOperationParameter>
+    </QueryOperation>
+    <AssociationSet
+      Name="cp_lm_application_cp_lm_excipient_costs"
+      Association="cp_lm_application_cp_lm_excipient_cost">
+      <AssociationSetEnd
+        Name="cp_lm_application"
+        EntitySet="cp_lm_applications" />
+      <AssociationSetEnd
+        Name="cp_lm_excipient_cost"
+        EntitySet="cp_lm_excipient_costs" />
+    </AssociationSet>
+    <AssociationSet
+      Name="cp_lm_application_cp_lm_api_costs"
+      Association="cp_lm_application_cp_lm_api_cost">
+      <AssociationSetEnd
+        Name="cp_lm_application"
+        EntitySet="cp_lm_applications" />
+      <AssociationSetEnd
+        Name="cp_lm_api_cost"
+        EntitySet="cp_lm_api_costs" />
+    </AssociationSet>
+    <AssociationSet
+      Name="cp_lm_application_cp_lm_pm_capsule_blister_packsSet"
+      Association="cp_lm_application_cp_lm_pm_capsule_blister_packs">
+      <AssociationSetEnd
+        Name="cp_lm_application"
+        EntitySet="cp_lm_applications" />
+      <AssociationSetEnd
+        Name="cp_lm_pm_capsule_blister_packs_hg"
+        EntitySet="cp_lm_pm_capsule_blister_packs_hgs" />
+    </AssociationSet>
+    <AssociationSet
+      Name="cp_lm_application_cp_lm_pm_capsule_blister_packs1Set"
+      Association="cp_lm_application_cp_lm_pm_capsule_blister_packs1">
+      <AssociationSetEnd
+        Name="cp_lm_application"
+        EntitySet="cp_lm_applications" />
+      <AssociationSetEnd
+        Name="cp_lm_pm_capsule_blister_packs_sg"
+        EntitySet="cp_lm_pm_capsule_blister_packs_sgs" />
+    </AssociationSet>
+    <AssociationSet
+      Name="cp_lm_application_cp_lm_pm_capsule_bottle_pack_hSet"
+      Association="cp_lm_application_cp_lm_pm_capsule_bottle_pack_h">
+      <AssociationSetEnd
+        Name="cp_lm_application"
+        EntitySet="cp_lm_applications" />
+      <AssociationSetEnd
+        Name="cp_lm_pm_capsule_bottle_pack_hg"
+        EntitySet="cp_lm_pm_capsule_bottle_pack_hgs" />
+    </AssociationSet>
+    <AssociationSet
+      Name="cp_lm_application_cp_lm_pm_capsule_bottle_pack_sSet"
+      Association="cp_lm_application_cp_lm_pm_capsule_bottle_pack_s">
+      <AssociationSetEnd
+        Name="cp_lm_application"
+        EntitySet="cp_lm_applications" />
+      <AssociationSetEnd
+        Name="cp_lm_pm_capsule_bottle_pack_sg"
+        EntitySet="cp_lm_pm_capsule_bottle_pack_sgs" />
+    </AssociationSet>
+    <AssociationSet
+      Name="cp_lm_application_cp_lm_pm_eye_ear_nasal_drops"
+      Association="cp_lm_application_cp_lm_pm_eye_ear_nasal_drop">
+      <AssociationSetEnd
+        Name="cp_lm_application"
+        EntitySet="cp_lm_applications" />
+      <AssociationSetEnd
+        Name="cp_lm_pm_eye_ear_nasal_drop"
+        EntitySet="cp_lm_pm_eye_ear_nasal_drops" />
+    </AssociationSet>
+    <AssociationSet
+      Name="cp_lm_application_cp_lm_pm_infusions"
+      Association="cp_lm_application_cp_lm_pm_infusion">
+      <AssociationSetEnd
+        Name="cp_lm_application"
+        EntitySet="cp_lm_applications" />
+      <AssociationSetEnd
+        Name="cp_lm_pm_infusion"
+        EntitySet="cp_lm_pm_infusions" />
+    </AssociationSet>
+    <AssociationSet
+      Name="cp_lm_application_cp_lm_pm_injections"
+      Association="cp_lm_application_cp_lm_pm_injection">
+      <AssociationSetEnd
+        Name="cp_lm_application"
+        EntitySet="cp_lm_applications" />
+      <AssociationSetEnd
+        Name="cp_lm_pm_injection"
+        EntitySet="cp_lm_pm_injections" />
+    </AssociationSet>
+    <AssociationSet
+      Name="cp_lm_application_cp_lm_pm_ointment_gel_creams"
+      Association="cp_lm_application_cp_lm_pm_ointment_gel_cream">
+      <AssociationSetEnd
+        Name="cp_lm_application"
+        EntitySet="cp_lm_applications" />
+      <AssociationSetEnd
+        Name="cp_lm_pm_ointment_gel_cream"
+        EntitySet="cp_lm_pm_ointment_gel_creams" />
+    </AssociationSet>
+    <AssociationSet
+      Name="cp_lm_application_cp_lm_pm_patches"
+      Association="cp_lm_application_cp_lm_pm_patch">
+      <AssociationSetEnd
+        Name="cp_lm_application"
+        EntitySet="cp_lm_applications" />
+      <AssociationSetEnd
+        Name="cp_lm_pm_patch"
+        EntitySet="cp_lm_pm_patches" />
+    </AssociationSet>
+    <AssociationSet
+      Name="cp_lm_application_cp_lm_pm_sachets"
+      Association="cp_lm_application_cp_lm_pm_sachet">
+      <AssociationSetEnd
+        Name="cp_lm_application"
+        EntitySet="cp_lm_applications" />
+      <AssociationSetEnd
+        Name="cp_lm_pm_sachet"
+        EntitySet="cp_lm_pm_sachets" />
+    </AssociationSet>
+    <AssociationSet
+      Name="cp_lm_application_cp_lm_pm_spray_inhalers"
+      Association="cp_lm_application_cp_lm_pm_spray_inhaler">
+      <AssociationSetEnd
+        Name="cp_lm_application"
+        EntitySet="cp_lm_applications" />
+      <AssociationSetEnd
+        Name="cp_lm_pm_spray_inhaler"
+        EntitySet="cp_lm_pm_spray_inhalers" />
+    </AssociationSet>
+    <AssociationSet
+      Name="cp_lm_application_cp_lm_pm_syrups"
+      Association="cp_lm_application_cp_lm_pm_syrup">
+      <AssociationSetEnd
+        Name="cp_lm_application"
+        EntitySet="cp_lm_applications" />
+      <AssociationSetEnd
+        Name="cp_lm_pm_syrup"
+        EntitySet="cp_lm_pm_syrups" />
+    </AssociationSet>
+    <AssociationSet
+      Name="cp_lm_application_cp_lm_pm_tablets_blister_packs"
+      Association="cp_lm_application_cp_lm_pm_tablets_blister_pack">
+      <AssociationSetEnd
+        Name="cp_lm_application"
+        EntitySet="cp_lm_applications" />
+      <AssociationSetEnd
+        Name="cp_lm_pm_tablets_blister_pack"
+        EntitySet="cp_lm_pm_tablets_blister_packs" />
+    </AssociationSet>
+    <AssociationSet
+      Name="cp_lm_application_cp_lm_pm_tablets_bottle_packs"
+      Association="cp_lm_application_cp_lm_pm_tablets_bottle_pack">
+      <AssociationSetEnd
+        Name="cp_lm_application"
+        EntitySet="cp_lm_applications" />
+      <AssociationSetEnd
+        Name="cp_lm_pm_tablets_bottle_pack"
+        EntitySet="cp_lm_pm_tablets_bottle_packs" />
+    </AssociationSet>
+  </EntityContainer>
+  <DataService
+    Name="ApplicationDataMapping">
+    <DataService.Attributes>
+      <Partial />
+    </DataService.Attributes>
+    <EntitySetMapping
+      EntitySet="cp_lm_applications">
+      <EntitySetMapping.Attributes>
+        <SsdlForeignKeyProperty
+          Name="cp_lm_application_cp_lu_applicant"
+          Nullable="True"
+          Type="int" />
+      </EntitySetMapping.Attributes>
+    </EntitySetMapping>
+    <AssociationSetMapping
+      AssociationSet="cp_lm_application_cp_lm_excipient_costs">
+      <AssociationSetMapping.Attributes>
+        <SsdlAssociationSet
+          Name="cp_lm_application_cp_lm_excipients" />
+        <SsdlAssociationSetEnd
+          End="ApplicationData/Members[cp_lm_application_cp_lm_excipient_costs]/Members[cp_lm_application]">
+          <SsdlAssociationSetEnd.Attributes>
+            <SsdlPropertyRef
+              Name="Id" />
+          </SsdlAssociationSetEnd.Attributes>
+        </SsdlAssociationSetEnd>
+        <SsdlAssociationSetEnd
+          End="ApplicationData/Members[cp_lm_application_cp_lm_excipient_costs]/Members[cp_lm_excipient_cost]">
+          <SsdlAssociationSetEnd.Attributes>
+            <SsdlPropertyRef
+              Name="cp_lm_application_cp_lm_excipient" />
+          </SsdlAssociationSetEnd.Attributes>
+        </SsdlAssociationSetEnd>
+      </AssociationSetMapping.Attributes>
+    </AssociationSetMapping>
+    <AssociationSetMapping
+      AssociationSet="cp_lm_application_cp_lm_api_costs">
+      <AssociationSetMapping.Attributes>
+        <SsdlAssociationSet
+          Name="cp_lm_application_cp_lm_apis" />
+        <SsdlAssociationSetEnd
+          End="ApplicationData/Members[cp_lm_application_cp_lm_api_costs]/Members[cp_lm_application]">
+          <SsdlAssociationSetEnd.Attributes>
+            <SsdlPropertyRef
+              Name="Id" />
+          </SsdlAssociationSetEnd.Attributes>
+        </SsdlAssociationSetEnd>
+        <SsdlAssociationSetEnd
+          End="ApplicationData/Members[cp_lm_application_cp_lm_api_costs]/Members[cp_lm_api_cost]">
+          <SsdlAssociationSetEnd.Attributes>
+            <SsdlPropertyRef
+              Name="cp_lm_application_cp_lm_api" />
+          </SsdlAssociationSetEnd.Attributes>
+        </SsdlAssociationSetEnd>
+      </AssociationSetMapping.Attributes>
+    </AssociationSetMapping>
+    <AssociationSetMapping
+      AssociationSet="cp_lm_application_cp_lm_pm_capsule_blister_packsSet">
+      <AssociationSetMapping.Attributes>
+        <SsdlAssociationSet
+          Name="cp_lm_application_cp_lm_pm_capsule_blister_packsSet" />
+        <SsdlAssociationSetEnd
+          End="ApplicationData/Members[cp_lm_application_cp_lm_pm_capsule_blister_packsSet]/Members[cp_lm_application]">
+          <SsdlAssociationSetEnd.Attributes>
+            <SsdlPropertyRef
+              Name="Id" />
+          </SsdlAssociationSetEnd.Attributes>
+        </SsdlAssociationSetEnd>
+        <SsdlAssociationSetEnd
+          End="ApplicationData/Members[cp_lm_application_cp_lm_pm_capsule_blister_packsSet]/Members[cp_lm_pm_capsule_blister_packs_hg]">
+          <SsdlAssociationSetEnd.Attributes>
+            <SsdlPropertyRef
+              Name="cp_lm_application_cp_lm_pm_capsule_blister_packs" />
+          </SsdlAssociationSetEnd.Attributes>
+        </SsdlAssociationSetEnd>
+      </AssociationSetMapping.Attributes>
+    </AssociationSetMapping>
+    <AssociationSetMapping
+      AssociationSet="cp_lm_application_cp_lm_pm_capsule_blister_packs1Set">
+      <AssociationSetMapping.Attributes>
+        <SsdlAssociationSet
+          Name="cp_lm_application_cp_lm_pm_capsule_blister_packs1Set" />
+        <SsdlAssociationSetEnd
+          End="ApplicationData/Members[cp_lm_application_cp_lm_pm_capsule_blister_packs1Set]/Members[cp_lm_application]">
+          <SsdlAssociationSetEnd.Attributes>
+            <SsdlPropertyRef
+              Name="Id" />
+          </SsdlAssociationSetEnd.Attributes>
+        </SsdlAssociationSetEnd>
+        <SsdlAssociationSetEnd
+          End="ApplicationData/Members[cp_lm_application_cp_lm_pm_capsule_blister_packs1Set]/Members[cp_lm_pm_capsule_blister_packs_sg]">
+          <SsdlAssociationSetEnd.Attributes>
+            <SsdlPropertyRef
+              Name="cp_lm_application_cp_lm_pm_capsule_blister_packs1" />
+          </SsdlAssociationSetEnd.Attributes>
+        </SsdlAssociationSetEnd>
+      </AssociationSetMapping.Attributes>
+    </AssociationSetMapping>
+    <AssociationSetMapping
+      AssociationSet="cp_lm_application_cp_lm_pm_capsule_bottle_pack_hSet">
+      <AssociationSetMapping.Attributes>
+        <SsdlAssociationSet
+          Name="cp_lm_application_cp_lm_pm_capsule_bottle_pack_hSet" />
+        <SsdlAssociationSetEnd
+          End="ApplicationData/Members[cp_lm_application_cp_lm_pm_capsule_bottle_pack_hSet]/Members[cp_lm_application]">
+          <SsdlAssociationSetEnd.Attributes>
+            <SsdlPropertyRef
+              Name="Id" />
+          </SsdlAssociationSetEnd.Attributes>
+        </SsdlAssociationSetEnd>
+        <SsdlAssociationSetEnd
+          End="ApplicationData/Members[cp_lm_application_cp_lm_pm_capsule_bottle_pack_hSet]/Members[cp_lm_pm_capsule_bottle_pack_hg]">
+          <SsdlAssociationSetEnd.Attributes>
+            <SsdlPropertyRef
+              Name="cp_lm_application_cp_lm_pm_capsule_bottle_pack_h" />
+          </SsdlAssociationSetEnd.Attributes>
+        </SsdlAssociationSetEnd>
+      </AssociationSetMapping.Attributes>
+    </AssociationSetMapping>
+    <AssociationSetMapping
+      AssociationSet="cp_lm_application_cp_lm_pm_capsule_bottle_pack_sSet">
+      <AssociationSetMapping.Attributes>
+        <SsdlAssociationSet
+          Name="cp_lm_application_cp_lm_pm_capsule_bottle_pack_sSet" />
+        <SsdlAssociationSetEnd
+          End="ApplicationData/Members[cp_lm_application_cp_lm_pm_capsule_bottle_pack_sSet]/Members[cp_lm_application]">
+          <SsdlAssociationSetEnd.Attributes>
+            <SsdlPropertyRef
+              Name="Id" />
+          </SsdlAssociationSetEnd.Attributes>
+        </SsdlAssociationSetEnd>
+        <SsdlAssociationSetEnd
+          End="ApplicationData/Members[cp_lm_application_cp_lm_pm_capsule_bottle_pack_sSet]/Members[cp_lm_pm_capsule_bottle_pack_sg]">
+          <SsdlAssociationSetEnd.Attributes>
+            <SsdlPropertyRef
+              Name="cp_lm_application_cp_lm_pm_capsule_bottle_pack_s" />
+          </SsdlAssociationSetEnd.Attributes>
+        </SsdlAssociationSetEnd>
+      </AssociationSetMapping.Attributes>
+    </AssociationSetMapping>
+    <AssociationSetMapping
+      AssociationSet="cp_lm_application_cp_lm_pm_eye_ear_nasal_drops">
+      <AssociationSetMapping.Attributes>
+        <SsdlAssociationSet
+          Name="cp_lm_application_cp_lm_pm_eye_ear_nasal_drops" />
+        <SsdlAssociationSetEnd
+          End="ApplicationData/Members[cp_lm_application_cp_lm_pm_eye_ear_nasal_drops]/Members[cp_lm_application]">
+          <SsdlAssociationSetEnd.Attributes>
+            <SsdlPropertyRef
+              Name="Id" />
+          </SsdlAssociationSetEnd.Attributes>
+        </SsdlAssociationSetEnd>
+        <SsdlAssociationSetEnd
+          End="ApplicationData/Members[cp_lm_application_cp_lm_pm_eye_ear_nasal_drops]/Members[cp_lm_pm_eye_ear_nasal_drop]">
+          <SsdlAssociationSetEnd.Attributes>
+            <SsdlPropertyRef
+              Name="cp_lm_application_cp_lm_pm_eye_ear_nasal_drop" />
+          </SsdlAssociationSetEnd.Attributes>
+        </SsdlAssociationSetEnd>
+      </AssociationSetMapping.Attributes>
+    </AssociationSetMapping>
+    <AssociationSetMapping
+      AssociationSet="cp_lm_application_cp_lm_pm_infusions">
+      <AssociationSetMapping.Attributes>
+        <SsdlAssociationSet
+          Name="cp_lm_application_cp_lm_pm_infusions" />
+        <SsdlAssociationSetEnd
+          End="ApplicationData/Members[cp_lm_application_cp_lm_pm_infusions]/Members[cp_lm_application]">
+          <SsdlAssociationSetEnd.Attributes>
+            <SsdlPropertyRef
+              Name="Id" />
+          </SsdlAssociationSetEnd.Attributes>
+        </SsdlAssociationSetEnd>
+        <SsdlAssociationSetEnd
+          End="ApplicationData/Members[cp_lm_application_cp_lm_pm_infusions]/Members[cp_lm_pm_infusion]">
+          <SsdlAssociationSetEnd.Attributes>
+            <SsdlPropertyRef
+              Name="cp_lm_application_cp_lm_pm_infusion" />
+          </SsdlAssociationSetEnd.Attributes>
+        </SsdlAssociationSetEnd>
+      </AssociationSetMapping.Attributes>
+    </AssociationSetMapping>
+    <AssociationSetMapping
+      AssociationSet="cp_lm_application_cp_lm_pm_injections">
+      <AssociationSetMapping.Attributes>
+        <SsdlAssociationSet
+          Name="cp_lm_application_cp_lm_pm_injections" />
+        <SsdlAssociationSetEnd
+          End="ApplicationData/Members[cp_lm_application_cp_lm_pm_injections]/Members[cp_lm_application]">
+          <SsdlAssociationSetEnd.Attributes>
+            <SsdlPropertyRef
+              Name="Id" />
+          </SsdlAssociationSetEnd.Attributes>
+        </SsdlAssociationSetEnd>
+        <SsdlAssociationSetEnd
+          End="ApplicationData/Members[cp_lm_application_cp_lm_pm_injections]/Members[cp_lm_pm_injection]">
+          <SsdlAssociationSetEnd.Attributes>
+            <SsdlPropertyRef
+              Name="cp_lm_application_cp_lm_pm_injection" />
+          </SsdlAssociationSetEnd.Attributes>
+        </SsdlAssociationSetEnd>
+      </AssociationSetMapping.Attributes>
+    </AssociationSetMapping>
+    <AssociationSetMapping
+      AssociationSet="cp_lm_application_cp_lm_pm_ointment_gel_creams">
+      <AssociationSetMapping.Attributes>
+        <SsdlAssociationSet
+          Name="cp_lm_application_cp_lm_pm_ointment_gel_creams" />
+        <SsdlAssociationSetEnd
+          End="ApplicationData/Members[cp_lm_application_cp_lm_pm_ointment_gel_creams]/Members[cp_lm_application]">
+          <SsdlAssociationSetEnd.Attributes>
+            <SsdlPropertyRef
+              Name="Id" />
+          </SsdlAssociationSetEnd.Attributes>
+        </SsdlAssociationSetEnd>
+        <SsdlAssociationSetEnd
+          End="ApplicationData/Members[cp_lm_application_cp_lm_pm_ointment_gel_creams]/Members[cp_lm_pm_ointment_gel_cream]">
+          <SsdlAssociationSetEnd.Attributes>
+            <SsdlPropertyRef
+              Name="cp_lm_application_cp_lm_pm_ointment_gel_cream" />
+          </SsdlAssociationSetEnd.Attributes>
+        </SsdlAssociationSetEnd>
+      </AssociationSetMapping.Attributes>
+    </AssociationSetMapping>
+    <AssociationSetMapping
+      AssociationSet="cp_lm_application_cp_lm_pm_patches">
+      <AssociationSetMapping.Attributes>
+        <SsdlAssociationSet
+          Name="cp_lm_application_cp_lm_pm_patches" />
+        <SsdlAssociationSetEnd
+          End="ApplicationData/Members[cp_lm_application_cp_lm_pm_patches]/Members[cp_lm_application]">
+          <SsdlAssociationSetEnd.Attributes>
+            <SsdlPropertyRef
+              Name="Id" />
+          </SsdlAssociationSetEnd.Attributes>
+        </SsdlAssociationSetEnd>
+        <SsdlAssociationSetEnd
+          End="ApplicationData/Members[cp_lm_application_cp_lm_pm_patches]/Members[cp_lm_pm_patch]">
+          <SsdlAssociationSetEnd.Attributes>
+            <SsdlPropertyRef
+              Name="cp_lm_application_cp_lm_pm_patch" />
+          </SsdlAssociationSetEnd.Attributes>
+        </SsdlAssociationSetEnd>
+      </AssociationSetMapping.Attributes>
+    </AssociationSetMapping>
+    <AssociationSetMapping
+      AssociationSet="cp_lm_application_cp_lm_pm_sachets">
+      <AssociationSetMapping.Attributes>
+        <SsdlAssociationSet
+          Name="cp_lm_application_cp_lm_pm_sachets" />
+        <SsdlAssociationSetEnd
+          End="ApplicationData/Members[cp_lm_application_cp_lm_pm_sachets]/Members[cp_lm_application]">
+          <SsdlAssociationSetEnd.Attributes>
+            <SsdlPropertyRef
+              Name="Id" />
+          </SsdlAssociationSetEnd.Attributes>
+        </SsdlAssociationSetEnd>
+        <SsdlAssociationSetEnd
+          End="ApplicationData/Members[cp_lm_application_cp_lm_pm_sachets]/Members[cp_lm_pm_sachet]">
+          <SsdlAssociationSetEnd.Attributes>
+            <SsdlPropertyRef
+              Name="cp_lm_application_cp_lm_pm_sachet" />
+          </SsdlAssociationSetEnd.Attributes>
+        </SsdlAssociationSetEnd>
+      </AssociationSetMapping.Attributes>
+    </AssociationSetMapping>
+    <AssociationSetMapping
+      AssociationSet="cp_lm_application_cp_lm_pm_spray_inhalers">
+      <AssociationSetMapping.Attributes>
+        <SsdlAssociationSet
+          Name="cp_lm_application_cp_lm_pm_spray_inhalers" />
+        <SsdlAssociationSetEnd
+          End="ApplicationData/Members[cp_lm_application_cp_lm_pm_spray_inhalers]/Members[cp_lm_application]">
+          <SsdlAssociationSetEnd.Attributes>
+            <SsdlPropertyRef
+              Name="Id" />
+          </SsdlAssociationSetEnd.Attributes>
+        </SsdlAssociationSetEnd>
+        <SsdlAssociationSetEnd
+          End="ApplicationData/Members[cp_lm_application_cp_lm_pm_spray_inhalers]/Members[cp_lm_pm_spray_inhaler]">
+          <SsdlAssociationSetEnd.Attributes>
+            <SsdlPropertyRef
+              Name="cp_lm_application_cp_lm_pm_spray_inhaler" />
+          </SsdlAssociationSetEnd.Attributes>
+        </SsdlAssociationSetEnd>
+      </AssociationSetMapping.Attributes>
+    </AssociationSetMapping>
+    <AssociationSetMapping
+      AssociationSet="cp_lm_application_cp_lm_pm_syrups">
+      <AssociationSetMapping.Attributes>
+        <SsdlAssociationSet
+          Name="cp_lm_application_cp_lm_pm_syrups" />
+        <SsdlAssociationSetEnd
+          End="ApplicationData/Members[cp_lm_application_cp_lm_pm_syrups]/Members[cp_lm_application]">
+          <SsdlAssociationSetEnd.Attributes>
+            <SsdlPropertyRef
+              Name="Id" />
+          </SsdlAssociationSetEnd.Attributes>
+        </SsdlAssociationSetEnd>
+        <SsdlAssociationSetEnd
+          End="ApplicationData/Members[cp_lm_application_cp_lm_pm_syrups]/Members[cp_lm_pm_syrup]">
+          <SsdlAssociationSetEnd.Attributes>
+            <SsdlPropertyRef
+              Name="cp_lm_application_cp_lm_pm_syrup" />
+          </SsdlAssociationSetEnd.Attributes>
+        </SsdlAssociationSetEnd>
+      </AssociationSetMapping.Attributes>
+    </AssociationSetMapping>
+    <AssociationSetMapping
+      AssociationSet="cp_lm_application_cp_lm_pm_tablets_blister_packs">
+      <AssociationSetMapping.Attributes>
+        <SsdlAssociationSet
+          Name="cp_lm_application_cp_lm_pm_tablets_blister_packs" />
+        <SsdlAssociationSetEnd
+          End="ApplicationData/Members[cp_lm_application_cp_lm_pm_tablets_blister_packs]/Members[cp_lm_application]">
+          <SsdlAssociationSetEnd.Attributes>
+            <SsdlPropertyRef
+              Name="Id" />
+          </SsdlAssociationSetEnd.Attributes>
+        </SsdlAssociationSetEnd>
+        <SsdlAssociationSetEnd
+          End="ApplicationData/Members[cp_lm_application_cp_lm_pm_tablets_blister_packs]/Members[cp_lm_pm_tablets_blister_pack]">
+          <SsdlAssociationSetEnd.Attributes>
+            <SsdlPropertyRef
+              Name="cp_lm_application_cp_lm_pm_tablets_blister_pack" />
+          </SsdlAssociationSetEnd.Attributes>
+        </SsdlAssociationSetEnd>
+      </AssociationSetMapping.Attributes>
+    </AssociationSetMapping>
+    <AssociationSetMapping
+      AssociationSet="cp_lm_application_cp_lm_pm_tablets_bottle_packs">
+      <AssociationSetMapping.Attributes>
+        <SsdlAssociationSet
+          Name="cp_lm_application_cp_lm_pm_tablets_bottle_packs" />
+        <SsdlAssociationSetEnd
+          End="ApplicationData/Members[cp_lm_application_cp_lm_pm_tablets_bottle_packs]/Members[cp_lm_application]">
+          <SsdlAssociationSetEnd.Attributes>
+            <SsdlPropertyRef
+              Name="Id" />
+          </SsdlAssociationSetEnd.Attributes>
+        </SsdlAssociationSetEnd>
+        <SsdlAssociationSetEnd
+          End="ApplicationData/Members[cp_lm_application_cp_lm_pm_tablets_bottle_packs]/Members[cp_lm_pm_tablets_bottle_pack]">
+          <SsdlAssociationSetEnd.Attributes>
+            <SsdlPropertyRef
+              Name="cp_lm_application_cp_lm_pm_tablets_bottle_pack" />
+          </SsdlAssociationSetEnd.Attributes>
+        </SsdlAssociationSetEnd>
+      </AssociationSetMapping.Attributes>
+    </AssociationSetMapping>
+  </DataService>
+  <Association
+    Name="cp_lm_application_cp_lm_excipient_cost">
+    <AssociationEnd
+      Name="cp_lm_application"
+      EntityType="cp_lm_application">
+      <AssociationEnd.Attributes>
+        <DeleteRule
+          Action="Restrict" />
+      </AssociationEnd.Attributes>
+    </AssociationEnd>
+    <AssociationEnd
+      Name="cp_lm_excipient_cost"
+      Multiplicity="Many"
+      EntityType="cp_lm_excipient_cost" />
+  </Association>
+  <Association
+    Name="cp_lm_application_cp_lm_api_cost">
+    <AssociationEnd
+      Name="cp_lm_application"
+      EntityType="cp_lm_application">
+      <AssociationEnd.Attributes>
+        <DeleteRule
+          Action="Restrict" />
+      </AssociationEnd.Attributes>
+    </AssociationEnd>
+    <AssociationEnd
+      Name="cp_lm_api_cost"
+      Multiplicity="Many"
+      EntityType="cp_lm_api_cost" />
+  </Association>
+  <Association
+    Name="cp_lm_application_cp_lm_pm_capsule_blister_packs">
+    <AssociationEnd
+      Name="cp_lm_application"
+      EntityType="cp_lm_application">
+      <AssociationEnd.Attributes>
+        <DeleteRule
+          Action="Restrict" />
+      </AssociationEnd.Attributes>
+    </AssociationEnd>
+    <AssociationEnd
+      Name="cp_lm_pm_capsule_blister_packs_hg"
+      Multiplicity="Many"
+      EntityType="cp_lm_pm_capsule_blister_packs_hg" />
+  </Association>
+  <Association
+    Name="cp_lm_application_cp_lm_pm_capsule_blister_packs1">
+    <AssociationEnd
+      Name="cp_lm_application"
+      EntityType="cp_lm_application">
+      <AssociationEnd.Attributes>
+        <DeleteRule
+          Action="Restrict" />
+      </AssociationEnd.Attributes>
+    </AssociationEnd>
+    <AssociationEnd
+      Name="cp_lm_pm_capsule_blister_packs_sg"
+      Multiplicity="Many"
+      EntityType="cp_lm_pm_capsule_blister_packs_sg" />
+  </Association>
+  <Association
+    Name="cp_lm_application_cp_lm_pm_capsule_bottle_pack_h">
+    <AssociationEnd
+      Name="cp_lm_application"
+      EntityType="cp_lm_application">
+      <AssociationEnd.Attributes>
+        <DeleteRule
+          Action="Restrict" />
+      </AssociationEnd.Attributes>
+    </AssociationEnd>
+    <AssociationEnd
+      Name="cp_lm_pm_capsule_bottle_pack_hg"
+      Multiplicity="Many"
+      EntityType="cp_lm_pm_capsule_bottle_pack_hg" />
+  </Association>
+  <Association
+    Name="cp_lm_application_cp_lm_pm_capsule_bottle_pack_s">
+    <AssociationEnd
+      Name="cp_lm_application"
+      EntityType="cp_lm_application">
+      <AssociationEnd.Attributes>
+        <DeleteRule
+          Action="Restrict" />
+      </AssociationEnd.Attributes>
+    </AssociationEnd>
+    <AssociationEnd
+      Name="cp_lm_pm_capsule_bottle_pack_sg"
+      Multiplicity="Many"
+      EntityType="cp_lm_pm_capsule_bottle_pack_sg" />
+  </Association>
+  <Association
+    Name="cp_lm_application_cp_lm_pm_eye_ear_nasal_drop">
+    <AssociationEnd
+      Name="cp_lm_application"
+      EntityType="cp_lm_application">
+      <AssociationEnd.Attributes>
+        <DeleteRule
+          Action="Restrict" />
+      </AssociationEnd.Attributes>
+    </AssociationEnd>
+    <AssociationEnd
+      Name="cp_lm_pm_eye_ear_nasal_drop"
+      Multiplicity="Many"
+      EntityType="cp_lm_pm_eye_ear_nasal_drop" />
+  </Association>
+  <Association
+    Name="cp_lm_application_cp_lm_pm_infusion">
+    <AssociationEnd
+      Name="cp_lm_application"
+      EntityType="cp_lm_application">
+      <AssociationEnd.Attributes>
+        <DeleteRule
+          Action="Restrict" />
+      </AssociationEnd.Attributes>
+    </AssociationEnd>
+    <AssociationEnd
+      Name="cp_lm_pm_infusion"
+      Multiplicity="Many"
+      EntityType="cp_lm_pm_infusion" />
+  </Association>
+  <Association
+    Name="cp_lm_application_cp_lm_pm_injection">
+    <AssociationEnd
+      Name="cp_lm_application"
+      EntityType="cp_lm_application">
+      <AssociationEnd.Attributes>
+        <DeleteRule
+          Action="Restrict" />
+      </AssociationEnd.Attributes>
+    </AssociationEnd>
+    <AssociationEnd
+      Name="cp_lm_pm_injection"
+      Multiplicity="Many"
+      EntityType="cp_lm_pm_injection" />
+  </Association>
+  <Association
+    Name="cp_lm_application_cp_lm_pm_ointment_gel_cream">
+    <AssociationEnd
+      Name="cp_lm_application"
+      EntityType="cp_lm_application">
+      <AssociationEnd.Attributes>
+        <DeleteRule
+          Action="Restrict" />
+      </AssociationEnd.Attributes>
+    </AssociationEnd>
+    <AssociationEnd
+      Name="cp_lm_pm_ointment_gel_cream"
+      Multiplicity="Many"
+      EntityType="cp_lm_pm_ointment_gel_cream" />
+  </Association>
+  <Association
+    Name="cp_lm_application_cp_lm_pm_patch">
+    <AssociationEnd
+      Name="cp_lm_application"
+      EntityType="cp_lm_application">
+      <AssociationEnd.Attributes>
+        <DeleteRule
+          Action="Restrict" />
+      </AssociationEnd.Attributes>
+    </AssociationEnd>
+    <AssociationEnd
+      Name="cp_lm_pm_patch"
+      Multiplicity="Many"
+      EntityType="cp_lm_pm_patch" />
+  </Association>
+  <Association
+    Name="cp_lm_application_cp_lm_pm_sachet">
+    <AssociationEnd
+      Name="cp_lm_application"
+      EntityType="cp_lm_application">
+      <AssociationEnd.Attributes>
+        <DeleteRule
+          Action="Restrict" />
+      </AssociationEnd.Attributes>
+    </AssociationEnd>
+    <AssociationEnd
+      Name="cp_lm_pm_sachet"
+      Multiplicity="Many"
+      EntityType="cp_lm_pm_sachet" />
+  </Association>
+  <Association
+    Name="cp_lm_application_cp_lm_pm_spray_inhaler">
+    <AssociationEnd
+      Name="cp_lm_application"
+      EntityType="cp_lm_application">
+      <AssociationEnd.Attributes>
+        <DeleteRule
+          Action="Restrict" />
+      </AssociationEnd.Attributes>
+    </AssociationEnd>
+    <AssociationEnd
+      Name="cp_lm_pm_spray_inhaler"
+      Multiplicity="Many"
+      EntityType="cp_lm_pm_spray_inhaler" />
+  </Association>
+  <Association
+    Name="cp_lm_application_cp_lm_pm_syrup">
+    <AssociationEnd
+      Name="cp_lm_application"
+      EntityType="cp_lm_application">
+      <AssociationEnd.Attributes>
+        <DeleteRule
+          Action="Restrict" />
+      </AssociationEnd.Attributes>
+    </AssociationEnd>
+    <AssociationEnd
+      Name="cp_lm_pm_syrup"
+      Multiplicity="Many"
+      EntityType="cp_lm_pm_syrup" />
+  </Association>
+  <Association
+    Name="cp_lm_application_cp_lm_pm_tablets_blister_pack">
+    <AssociationEnd
+      Name="cp_lm_application"
+      EntityType="cp_lm_application">
+      <AssociationEnd.Attributes>
+        <DeleteRule
+          Action="Restrict" />
+      </AssociationEnd.Attributes>
+    </AssociationEnd>
+    <AssociationEnd
+      Name="cp_lm_pm_tablets_blister_pack"
+      Multiplicity="Many"
+      EntityType="cp_lm_pm_tablets_blister_pack" />
+  </Association>
+  <Association
+    Name="cp_lm_application_cp_lm_pm_tablets_bottle_pack">
+    <AssociationEnd
+      Name="cp_lm_application"
+      EntityType="cp_lm_application">
+      <AssociationEnd.Attributes>
+        <DeleteRule
+          Action="Restrict" />
+      </AssociationEnd.Attributes>
+    </AssociationEnd>
+    <AssociationEnd
+      Name="cp_lm_pm_tablets_bottle_pack"
+      Multiplicity="Many"
+      EntityType="cp_lm_pm_tablets_bottle_pack" />
+  </Association>
+</ServiceApplication>

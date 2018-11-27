@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application
+  Name="LightSwitchApplication.CostingPricing.DesktopClient" xmlns="http://schemas.microsoft.com/LightSwitch/2010/xaml/model">
+  <Application.Attributes>
+    <Partial />
+  </Application.Attributes>
+  <EntityType>
+    <EntityType.Attributes>
+      <Proxy
+        Target="ServiceInterface:cp_lm_excipient_cost" />
+    </EntityType.Attributes>
+    <EntityType.Properties>
+      <EntityProperty>
+        <EntityProperty.Attributes>
+          <Computed />
+          <Proxy
+            Target="LightSwitchServiceApplication:cp_lm_excipient_cost/Properties[total_import_price_comp_auto]" />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <EntityProperty>
+        <EntityProperty.Attributes>
+          <Computed />
+          <Proxy
+            Target="LightSwitchServiceApplication:cp_lm_excipient_cost/Properties[total_import_levies_pkr_comp_auto]" />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <EntityProperty>
+        <EntityProperty.Attributes>
+          <Computed />
+          <Proxy
+            Target="LightSwitchServiceApplication:cp_lm_excipient_cost/Properties[landed_cost_pkr_comp_auto]" />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <EntityProperty>
+        <EntityProperty.Attributes>
+          <Computed />
+          <Proxy
+            Target="LightSwitchServiceApplication:cp_lm_excipient_cost/Properties[landed_cost_per_unit_pkr_comp_auto]" />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <EntityProperty>
+        <EntityProperty.Attributes>
+          <Computed />
+          <Proxy
+            Target="LightSwitchServiceApplication:cp_lm_excipient_cost/Properties[income_tax_amount_pkr_comp]" />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <EntityProperty>
+        <EntityProperty.Attributes>
+          <Computed />
+          <Proxy
+            Target="LightSwitchServiceApplication:cp_lm_excipient_cost/Properties[custom_duty_amount_pkr_comp]" />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <EntityProperty>
+        <EntityProperty.Attributes>
+          <Computed />
+          <Proxy
+            Target="LightSwitchServiceApplication:cp_lm_excipient_cost/Properties[total_import_price_pkr_comp]" />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+    </EntityType.Properties>
+  </EntityType>
+</Application>
