@@ -234,6 +234,9 @@
       <Link>UserCode\Shared\cp_lm_excipient_cost.lsml.cs</Link>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Screens\Applications\NewApplication.lsml.cs">
+      <DependentUpon>NewApplication.lsml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <LightSwitchModel Include="Properties\Client.lsml">
@@ -245,11 +248,20 @@
     <None Include="Properties\OutOfBrowserSettings.xml" />
     <ClientResource Include="Properties\Config.xml" />
     <LightSwitchModel Include="Properties\Proxies.lsml" />
-    <LightSwitchModel Include="Screens\cp_lm_applicationsListDetail.lsml" />
+    <LightSwitchModel Include="Screens\AddEditScreens\Lookup Tables\APIList.lsml" />
+    <LightSwitchModel Include="Screens\AddEditScreens\Lookup Tables\ExcipientList.lsml" />
+    <LightSwitchModel Include="Screens\AddEditScreens\Lookup Tables\ApplicantsList.lsml" />
+    <LightSwitchModel Include="Screens\AddEditScreens\Lookup Tables\CountriesList.lsml" />
+    <LightSwitchModel Include="Screens\AddEditScreens\Lookup Tables\CurrenciesList.lsml" />
+    <LightSwitchModel Include="Screens\AddEditScreens\Lookup Tables\DrugsList.lsml" />
+    <LightSwitchModel Include="Screens\AddEditScreens\Lookup Tables\SourceManufacturerList.lsml" />
+    <LightSwitchModel Include="Screens\AddEditScreens\Lookup Tables\SuppliersList.lsml" />
+    <LightSwitchModel Include="Screens\Applications\NewApplication.lsml" />
+    <LightSwitchModel Include="Screens\Applications\ApplicationListDetail.lsml" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Screens\AddEditScreens\Lookup Tables\" />
     <Folder Include="Screens\AddEditScreens\Packaging Material\" />
+    <Folder Include="Screens\New Data\" />
   </ItemGroup>
   <ItemGroup>
     <_ClientBuildFile Include="default.htm">

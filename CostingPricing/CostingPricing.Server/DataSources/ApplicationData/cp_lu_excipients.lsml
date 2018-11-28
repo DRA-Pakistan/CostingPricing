@@ -8,6 +8,8 @@
     Name="cp_lu_excipient">
     <EntityType.Attributes>
       <CreatedModifiedPropertiesEnabled />
+      <DisplayName
+        Value="Excipient" />
     </EntityType.Attributes>
     <EntityType.Methods>
       <EntityMethod

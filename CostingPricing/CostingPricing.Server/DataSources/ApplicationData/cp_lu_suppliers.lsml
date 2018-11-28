@@ -9,7 +9,7 @@
     <EntityType.Attributes>
       <CreatedModifiedPropertiesEnabled />
       <DisplayName
-        Value="Suppliers" />
+        Value="Supplier" />
     </EntityType.Attributes>
     <EntityType.Methods>
       <EntityMethod
@@ -39,17 +39,16 @@
             Value="Supplier Name" />
         </EntityProperty.Attributes>
       </EntityProperty>
-      <EntityProperty
+      <NavigationProperty
         Name="country"
-        PropertyType=":String">
-        <EntityProperty.Attributes>
-          <Required />
-          <MaxLength
-            Value="255" />
+        Association="cp_lu_supplier_cp_lu_country"
+        FromEnd="cp_lu_supplier"
+        ToEnd="cp_lu_country">
+        <NavigationProperty.Attributes>
           <DisplayName
             Value="Country" />
-        </EntityProperty.Attributes>
-      </EntityProperty>
+        </NavigationProperty.Attributes>
+      </NavigationProperty>
       <EntityProperty
         Name="CreatedBy"
         IsReadOnly="True"
@@ -194,4 +193,19 @@
       </QueryOperationParameter>
     </QueryOperation>
   </EntityContainer>
+  <DataService
+    Name="ApplicationDataMapping">
+    <DataService.Attributes>
+      <Partial />
+    </DataService.Attributes>
+    <EntitySetMapping
+      EntitySet="cp_lu_suppliers">
+      <EntitySetMapping.Attributes>
+        <SsdlForeignKeyProperty
+          Name="cp_lu_supplier_cp_lu_country"
+          Nullable="False"
+          Type="int" />
+      </EntitySetMapping.Attributes>
+    </EntitySetMapping>
+  </DataService>
 </ServiceApplication>

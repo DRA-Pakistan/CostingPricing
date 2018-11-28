@@ -8,6 +8,8 @@
     Name="cp_lu_api">
     <EntityType.Attributes>
       <CreatedModifiedPropertiesEnabled />
+      <DisplayName
+        Value="API" />
     </EntityType.Attributes>
     <EntityType.Methods>
       <EntityMethod

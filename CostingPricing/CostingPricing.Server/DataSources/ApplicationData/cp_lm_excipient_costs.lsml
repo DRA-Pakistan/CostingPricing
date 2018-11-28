@@ -9,7 +9,7 @@
     <EntityType.Attributes>
       <CreatedModifiedPropertiesEnabled />
       <DisplayName
-        Value="Excipients" />
+        Value="Excipient Cost" />
     </EntityType.Attributes>
     <EntityType.Methods>
       <EntityMethod

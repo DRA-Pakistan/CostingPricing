@@ -8,6 +8,8 @@
     Name="cp_lu_country">
     <EntityType.Attributes>
       <CreatedModifiedPropertiesEnabled />
+      <DisplayName
+        Value="Country" />
     </EntityType.Attributes>
     <EntityType.Methods>
       <EntityMethod
@@ -35,15 +37,16 @@
             Value="255" />
         </EntityProperty.Attributes>
       </EntityProperty>
-      <EntityProperty
-        Name="mfg_name"
-        PropertyType=":String">
-        <EntityProperty.Attributes>
-          <Required />
-          <MaxLength
-            Value="255" />
-        </EntityProperty.Attributes>
-      </EntityProperty>
+      <NavigationProperty
+        Name="cp_lu_source_manufacturers"
+        Association="cp_lu_source_manufacturer_cp_lu_country"
+        FromEnd="cp_lu_country"
+        ToEnd="cp_lu_source_manufacturer" />
+      <NavigationProperty
+        Name="cp_lu_suppliers"
+        Association="cp_lu_supplier_cp_lu_country"
+        FromEnd="cp_lu_country"
+        ToEnd="cp_lu_supplier" />
       <EntityProperty
         Name="CreatedBy"
         IsReadOnly="True"
@@ -187,5 +190,105 @@
         </QueryOperationParameter.Attributes>
       </QueryOperationParameter>
     </QueryOperation>
+    <AssociationSet
+      Name="cp_lu_source_manufacturer_cp_lu_countries"
+      Association="cp_lu_source_manufacturer_cp_lu_country">
+      <AssociationSetEnd
+        Name="cp_lu_source_manufacturer"
+        EntitySet="cp_lu_source_manufacturers" />
+      <AssociationSetEnd
+        Name="cp_lu_country"
+        EntitySet="cp_lu_countries" />
+    </AssociationSet>
+    <AssociationSet
+      Name="cp_lu_supplier_cp_lu_countries"
+      Association="cp_lu_supplier_cp_lu_country">
+      <AssociationSetEnd
+        Name="cp_lu_supplier"
+        EntitySet="cp_lu_suppliers" />
+      <AssociationSetEnd
+        Name="cp_lu_country"
+        EntitySet="cp_lu_countries" />
+    </AssociationSet>
   </EntityContainer>
+  <Association
+    Name="cp_lu_source_manufacturer_cp_lu_country">
+    <AssociationEnd
+      Name="cp_lu_source_manufacturer"
+      Multiplicity="Many"
+      EntityType="cp_lu_source_manufacturer" />
+    <AssociationEnd
+      Name="cp_lu_country"
+      Multiplicity="One"
+      EntityType="cp_lu_country">
+      <AssociationEnd.Attributes>
+        <DeleteRule
+          Action="Restrict" />
+      </AssociationEnd.Attributes>
+    </AssociationEnd>
+  </Association>
+  <DataService
+    Name="ApplicationDataMapping">
+    <DataService.Attributes>
+      <Partial />
+    </DataService.Attributes>
+    <AssociationSetMapping
+      AssociationSet="cp_lu_source_manufacturer_cp_lu_countries">
+      <AssociationSetMapping.Attributes>
+        <SsdlAssociationSet
+          Name="cp_lu_source_manufacturer_cp_lu_countries" />
+        <SsdlAssociationSetEnd
+          End="ApplicationData/Members[cp_lu_source_manufacturer_cp_lu_countries]/Members[cp_lu_source_manufacturer]">
+          <SsdlAssociationSetEnd.Attributes>
+            <SsdlPropertyRef
+              Name="cp_lu_source_manufacturer_cp_lu_country" />
+          </SsdlAssociationSetEnd.Attributes>
+        </SsdlAssociationSetEnd>
+        <SsdlAssociationSetEnd
+          End="ApplicationData/Members[cp_lu_source_manufacturer_cp_lu_countries]/Members[cp_lu_country]">
+          <SsdlAssociationSetEnd.Attributes>
+            <SsdlPropertyRef
+              Name="Id" />
+          </SsdlAssociationSetEnd.Attributes>
+        </SsdlAssociationSetEnd>
+      </AssociationSetMapping.Attributes>
+    </AssociationSetMapping>
+    <AssociationSetMapping
+      AssociationSet="cp_lu_supplier_cp_lu_countries">
+      <AssociationSetMapping.Attributes>
+        <SsdlAssociationSet
+          Name="cp_lu_supplier_cp_lu_countries" />
+        <SsdlAssociationSetEnd
+          End="ApplicationData/Members[cp_lu_supplier_cp_lu_countries]/Members[cp_lu_supplier]">
+          <SsdlAssociationSetEnd.Attributes>
+            <SsdlPropertyRef
+              Name="cp_lu_supplier_cp_lu_country" />
+          </SsdlAssociationSetEnd.Attributes>
+        </SsdlAssociationSetEnd>
+        <SsdlAssociationSetEnd
+          End="ApplicationData/Members[cp_lu_supplier_cp_lu_countries]/Members[cp_lu_country]">
+          <SsdlAssociationSetEnd.Attributes>
+            <SsdlPropertyRef
+              Name="Id" />
+          </SsdlAssociationSetEnd.Attributes>
+        </SsdlAssociationSetEnd>
+      </AssociationSetMapping.Attributes>
+    </AssociationSetMapping>
+  </DataService>
+  <Association
+    Name="cp_lu_supplier_cp_lu_country">
+    <AssociationEnd
+      Name="cp_lu_supplier"
+      Multiplicity="Many"
+      EntityType="cp_lu_supplier" />
+    <AssociationEnd
+      Name="cp_lu_country"
+      Multiplicity="One"
+      EntityType="cp_lu_country">
+      <AssociationEnd.Attributes>
+        <DeleteRule
+          Action="Restrict" />
+      </AssociationEnd.Attributes>
+    </AssociationEnd>
+  </Association>
 </ServiceApplication>

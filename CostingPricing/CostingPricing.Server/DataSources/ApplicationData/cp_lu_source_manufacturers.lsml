@@ -35,17 +35,20 @@
           <Required />
           <MaxLength
             Value="255" />
+          <DisplayName
+            Value="Manufacturer Name" />
         </EntityProperty.Attributes>
       </EntityProperty>
-      <EntityProperty
+      <NavigationProperty
         Name="country"
-        PropertyType=":String">
-        <EntityProperty.Attributes>
-          <Required />
-          <MaxLength
-            Value="255" />
-        </EntityProperty.Attributes>
-      </EntityProperty>
+        Association="cp_lu_source_manufacturer_cp_lu_country"
+        FromEnd="cp_lu_source_manufacturer"
+        ToEnd="cp_lu_country">
+        <NavigationProperty.Attributes>
+          <DisplayName
+            Value="Country" />
+        </NavigationProperty.Attributes>
+      </NavigationProperty>
       <EntityProperty
         Name="CreatedBy"
         IsReadOnly="True"
@@ -190,4 +193,19 @@
       </QueryOperationParameter>
     </QueryOperation>
   </EntityContainer>
+  <DataService
+    Name="ApplicationDataMapping">
+    <DataService.Attributes>
+      <Partial />
+    </DataService.Attributes>
+    <EntitySetMapping
+      EntitySet="cp_lu_source_manufacturers">
+      <EntitySetMapping.Attributes>
+        <SsdlForeignKeyProperty
+          Name="cp_lu_source_manufacturer_cp_lu_country"
+          Nullable="False"
+          Type="int" />
+      </EntitySetMapping.Attributes>
+    </EntitySetMapping>
+  </DataService>
 </ServiceApplication>

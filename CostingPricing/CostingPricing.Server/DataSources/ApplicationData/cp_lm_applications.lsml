@@ -8,6 +8,8 @@
     Name="cp_lm_application">
     <EntityType.Attributes>
       <CreatedModifiedPropertiesEnabled />
+      <DisplayName
+        Value="Application" />
     </EntityType.Attributes>
     <EntityType.Methods>
       <EntityMethod
@@ -36,16 +38,16 @@
             Value="Applicant" />
         </NavigationProperty.Attributes>
       </NavigationProperty>
-      <EntityProperty
-        Name="drug_name"
-        PropertyType=":String?">
-        <EntityProperty.Attributes>
-          <MaxLength
-            Value="255" />
+      <NavigationProperty
+        Name="drug"
+        Association="cp_lm_application_cp_lu_drug"
+        FromEnd="cp_lm_application"
+        ToEnd="cp_lu_drug">
+        <NavigationProperty.Attributes>
           <DisplayName
-            Value="Drug Name" />
-        </EntityProperty.Attributes>
-      </EntityProperty>
+            Value="Drug" />
+        </NavigationProperty.Attributes>
+      </NavigationProperty>
       <EntityProperty
         Name="application_number"
         PropertyType=":String?">
@@ -532,6 +534,10 @@
         <SsdlForeignKeyProperty
           Name="cp_lm_application_cp_lu_applicant"
           Nullable="True"
+          Type="int" />
+        <SsdlForeignKeyProperty
+          Name="cp_lm_application_cp_lu_drug"
+          Nullable="False"
           Type="int" />
       </EntitySetMapping.Attributes>
     </EntitySetMapping>

@@ -8,6 +8,8 @@
     Name="cp_lu_currency">
     <EntityType.Attributes>
       <CreatedModifiedPropertiesEnabled />
+      <DisplayName
+        Value="Currency" />
     </EntityType.Attributes>
     <EntityType.Methods>
       <EntityMethod

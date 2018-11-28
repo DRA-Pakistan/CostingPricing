@@ -37,20 +37,74 @@
   </GlobalAttributeGroup>
   <Application.Commands>
     <ApplicationCommand
-      Name="ScreenCommandShowcp_lm_applicationsListDetail"
-      Target="!module/Methods[Showcp_lm_applicationsListDetail]" />
+      Name="ScreenCommandShowAPIList"
+      Target="!module/Methods[ShowAPIList]" />
+    <ApplicationCommand
+      Name="ScreenCommandShowExcipientList"
+      Target="!module/Methods[ShowExcipientList]" />
+    <ApplicationCommand
+      Name="ScreenCommandShowApplicantsList"
+      Target="!module/Methods[ShowApplicantsList]" />
+    <ApplicationCommand
+      Name="ScreenCommandShowCountriesList"
+      Target="!module/Methods[ShowCountriesList]" />
+    <ApplicationCommand
+      Name="ScreenCommandShowCurrenciesList"
+      Target="!module/Methods[ShowCurrenciesList]" />
+    <ApplicationCommand
+      Name="ScreenCommandShowDrugsList"
+      Target="!module/Methods[ShowDrugsList]" />
+    <ApplicationCommand
+      Name="ScreenCommandShowSourceManufacturerList"
+      Target="!module/Methods[ShowSourceManufacturerList]" />
+    <ApplicationCommand
+      Name="ScreenCommandShowSuppliersList"
+      Target="!module/Methods[ShowSuppliersList]" />
+    <ApplicationCommand
+      Name="ScreenCommandShowNewApplication"
+      Target="!module/Methods[ShowNewApplication]" />
+    <ApplicationCommand
+      Name="ScreenCommandShowApplicationListDetail"
+      Target="!module/Methods[ShowApplicationListDetail]" />
   </Application.Commands>
   <Application.NavigationItems>
     <ApplicationNavigationGroup
       Name="Tasks"
-      DefaultItem="!module/NavigationItems[Tasks]/Children[cp_lm_applicationsListDetail]">
+      DefaultItem="!module/NavigationItems[Tasks]/Children[APIList]">
       <ApplicationNavigationGroup.Attributes>
         <DisplayName
           Value="Tasks" />
       </ApplicationNavigationGroup.Attributes>
       <ApplicationNavigationLink
-        Name="cp_lm_applicationsListDetail"
-        Command="!module/Commands[ScreenCommandShowcp_lm_applicationsListDetail]" />
+        Name="APIList"
+        Command="!module/Commands[ScreenCommandShowAPIList]" />
+      <ApplicationNavigationLink
+        Name="ExcipientList"
+        Command="!module/Commands[ScreenCommandShowExcipientList]" />
+      <ApplicationNavigationLink
+        Name="ApplicantsList"
+        Command="!module/Commands[ScreenCommandShowApplicantsList]" />
+      <ApplicationNavigationLink
+        Name="CountriesList"
+        Command="!module/Commands[ScreenCommandShowCountriesList]" />
+      <ApplicationNavigationLink
+        Name="CurrenciesList"
+        Command="!module/Commands[ScreenCommandShowCurrenciesList]" />
+      <ApplicationNavigationLink
+        Name="DrugsList"
+        Command="!module/Commands[ScreenCommandShowDrugsList]" />
+      <ApplicationNavigationLink
+        Name="SourceManufacturerList"
+        Command="!module/Commands[ScreenCommandShowSourceManufacturerList]" />
+      <ApplicationNavigationLink
+        Name="SuppliersList"
+        Command="!module/Commands[ScreenCommandShowSuppliersList]" />
+      <ApplicationNavigationLink
+        Name="NewApplication"
+        Command="!module/Commands[ScreenCommandShowNewApplication]" />
+      <ApplicationNavigationLink
+        Name="ApplicationListDetail"
+        Command="!module/Commands[ScreenCommandShowApplicationListDetail]" />
     </ApplicationNavigationGroup>
     <ApplicationNavigationGroup
       Name="Administration">

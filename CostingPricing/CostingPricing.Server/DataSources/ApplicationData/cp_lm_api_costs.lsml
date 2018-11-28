@@ -8,6 +8,8 @@
     Name="cp_lm_api_cost">
     <EntityType.Attributes>
       <CreatedModifiedPropertiesEnabled />
+      <DisplayName
+        Value="API Cost" />
     </EntityType.Attributes>
     <EntityType.Methods>
       <EntityMethod

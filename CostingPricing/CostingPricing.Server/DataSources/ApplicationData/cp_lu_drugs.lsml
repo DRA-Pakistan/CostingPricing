@@ -9,7 +9,7 @@
     <EntityType.Attributes>
       <CreatedModifiedPropertiesEnabled />
       <DisplayName
-        Value="Drugs" />
+        Value="Drug" />
     </EntityType.Attributes>
     <EntityType.Methods>
       <EntityMethod
@@ -61,6 +61,11 @@
             Value="Registration Number" />
         </EntityProperty.Attributes>
       </EntityProperty>
+      <NavigationProperty
+        Name="cp_lm_applications"
+        Association="cp_lm_application_cp_lu_drug"
+        FromEnd="cp_lu_drug"
+        ToEnd="cp_lm_application" />
       <EntityProperty
         Name="CreatedBy"
         IsReadOnly="True"
@@ -204,5 +209,58 @@
         </QueryOperationParameter.Attributes>
       </QueryOperationParameter>
     </QueryOperation>
+    <AssociationSet
+      Name="cp_lm_application_cp_lu_drugs"
+      Association="cp_lm_application_cp_lu_drug">
+      <AssociationSetEnd
+        Name="cp_lm_application"
+        EntitySet="cp_lm_applications" />
+      <AssociationSetEnd
+        Name="cp_lu_drug"
+        EntitySet="cp_lu_drugs" />
+    </AssociationSet>
   </EntityContainer>
+  <Association
+    Name="cp_lm_application_cp_lu_drug">
+    <AssociationEnd
+      Name="cp_lm_application"
+      Multiplicity="Many"
+      EntityType="cp_lm_application" />
+    <AssociationEnd
+      Name="cp_lu_drug"
+      Multiplicity="One"
+      EntityType="cp_lu_drug">
+      <AssociationEnd.Attributes>
+        <DeleteRule
+          Action="Restrict" />
+      </AssociationEnd.Attributes>
+    </AssociationEnd>
+  </Association>
+  <DataService
+    Name="ApplicationDataMapping">
+    <DataService.Attributes>
+      <Partial />
+    </DataService.Attributes>
+    <AssociationSetMapping
+      AssociationSet="cp_lm_application_cp_lu_drugs">
+      <AssociationSetMapping.Attributes>
+        <SsdlAssociationSet
+          Name="cp_lm_application_cp_lu_drugs" />
+        <SsdlAssociationSetEnd
+          End="ApplicationData/Members[cp_lm_application_cp_lu_drugs]/Members[cp_lm_application]">
+          <SsdlAssociationSetEnd.Attributes>
+            <SsdlPropertyRef
+              Name="cp_lm_application_cp_lu_drug" />
+          </SsdlAssociationSetEnd.Attributes>
+        </SsdlAssociationSetEnd>
+        <SsdlAssociationSetEnd
+          End="ApplicationData/Members[cp_lm_application_cp_lu_drugs]/Members[cp_lu_drug]">
+          <SsdlAssociationSetEnd.Attributes>
+            <SsdlPropertyRef
+              Name="Id" />
+          </SsdlAssociationSetEnd.Attributes>
+        </SsdlAssociationSetEnd>
+      </AssociationSetMapping.Attributes>
+    </AssociationSetMapping>
+  </DataService>
 </ServiceApplication>

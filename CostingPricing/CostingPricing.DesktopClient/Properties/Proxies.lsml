@@ -184,12 +184,6 @@
         Target="ServiceInterface:cp_lm_application_cp_lm_pm_infusion" />
     </Association.Attributes>
   </Association>
-  <EntityType>
-    <EntityType.Attributes>
-      <Proxy
-        Target="ServiceInterface:cp_lm_application" />
-    </EntityType.Attributes>
-  </EntityType>
   <Association>
     <Association.Attributes>
       <Proxy
@@ -260,6 +254,30 @@
     <Association.Attributes>
       <Proxy
         Target="ServiceInterface:cp_lm_excipient_cost_cp_lu_excipient" />
+    </Association.Attributes>
+  </Association>
+  <Association>
+    <Association.Attributes>
+      <Proxy
+        Target="ServiceInterface:cp_lu_source_manufacturer_cp_lu_country" />
+    </Association.Attributes>
+  </Association>
+  <Association>
+    <Association.Attributes>
+      <Proxy
+        Target="ServiceInterface:cp_lu_supplier_cp_lu_country" />
+    </Association.Attributes>
+  </Association>
+  <EntityType>
+    <EntityType.Attributes>
+      <Proxy
+        Target="ServiceInterface:cp_lm_application" />
+    </EntityType.Attributes>
+  </EntityType>
+  <Association>
+    <Association.Attributes>
+      <Proxy
+        Target="ServiceInterface:cp_lm_application_cp_lu_drug" />
     </Association.Attributes>
   </Association>
 </Application>

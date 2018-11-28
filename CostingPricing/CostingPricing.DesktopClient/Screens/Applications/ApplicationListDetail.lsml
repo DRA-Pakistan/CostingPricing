@@ -5,10 +5,12 @@
     <Partial />
   </Application.Attributes>
   <Screen
-    Name="cp_lm_applicationsListDetail">
+    Name="ApplicationListDetail">
     <Screen.Attributes>
       <SaveChangesTo
         EntityContainer="ApplicationData" />
+      <DisplayName
+        Value="Applications List" />
     </Screen.Attributes>
     <Screen.RootContentItem>
       <ContentItem
@@ -23,20 +25,19 @@
             Name="ListColumn"
             Kind="Group">
             <ContentItem
-              Name="cp_lm_applicationList"
+              Name="cp_lm_applications"
               Kind="Collection"
-              DataType="CollectionView$cp_lm_application"
-              View="Microsoft.LightSwitch.RichClient:List">
+              DataType="CollectionView$cp_lm_application">
               <ContentItem.DataSource>
                 <ScreenExpressionTree>
                   <ChainExpression>
                     <MemberExpression
-                      Member="cp_lm_applicationsListDetail/Properties[cp_lm_applications]" />
+                      Member="ApplicationListDetail/Properties[cp_lm_applications]" />
                   </ChainExpression>
                 </ScreenExpressionTree>
               </ContentItem.DataSource>
               <ContentItem
-                Name="RowTemplate"
+                Name="cp_lm_applicationsTemplate"
                 Kind="Details"
                 DataType="cp_lm_application">
                 <ContentItem.DataSource>
@@ -57,7 +58,7 @@
                     </ScreenExpressionTree>
                   </ContentItem.DataSource>
                   <ContentItem
-                    Name="RowTemplate1"
+                    Name="cp_lu_applicant2"
                     Kind="Details"
                     DataType="cp_lu_applicant">
                     <ContentItem.DataSource>
@@ -68,17 +69,27 @@
                   </ContentItem>
                 </ContentItem>
                 <ContentItem
-                  Name="drug_name"
-                  Kind="Value"
-                  DataType=":String?">
+                  Name="drug1"
+                  Kind="Details"
+                  DataType="cp_lu_drug">
                   <ContentItem.DataSource>
                     <ScreenExpressionTree>
                       <ChainExpression>
                         <MemberExpression
-                          Member="cp_lm_application/Properties[drug_name]" />
+                          Member="cp_lm_application/Properties[drug]" />
                       </ChainExpression>
                     </ScreenExpressionTree>
                   </ContentItem.DataSource>
+                  <ContentItem
+                    Name="cp_lu_drug1"
+                    Kind="Details"
+                    DataType="cp_lu_drug">
+                    <ContentItem.DataSource>
+                      <ScreenExpressionTree>
+                        <ChainExpression />
+                      </ScreenExpressionTree>
+                    </ContentItem.DataSource>
+                  </ContentItem>
                 </ContentItem>
                 <ContentItem
                   Name="application_number"
@@ -93,58 +104,18 @@
                     </ScreenExpressionTree>
                   </ContentItem.DataSource>
                 </ContentItem>
-                <ContentItem
-                  Name="CreatedBy"
-                  Kind="Value"
-                  DataType=":Person?">
-                  <ContentItem.DataSource>
+                <ContentItem.PropertySources>
+                  <ControlPropertySource
+                    Property="Microsoft.LightSwitch.RichClient:RootControl/Properties[BrowseOnly]">
                     <ScreenExpressionTree>
                       <ChainExpression>
-                        <MemberExpression
-                          Member="cp_lm_application/Properties[CreatedBy]" />
+                        <ConstantExpression
+                          Value="True"
+                          ResultType=":Boolean" />
                       </ChainExpression>
                     </ScreenExpressionTree>
-                  </ContentItem.DataSource>
-                </ContentItem>
-                <ContentItem
-                  Name="Created"
-                  Kind="Value"
-                  DataType=":DateTimeOffset?">
-                  <ContentItem.DataSource>
-                    <ScreenExpressionTree>
-                      <ChainExpression>
-                        <MemberExpression
-                          Member="cp_lm_application/Properties[Created]" />
-                      </ChainExpression>
-                    </ScreenExpressionTree>
-                  </ContentItem.DataSource>
-                </ContentItem>
-                <ContentItem
-                  Name="ModifiedBy"
-                  Kind="Value"
-                  DataType=":Person?">
-                  <ContentItem.DataSource>
-                    <ScreenExpressionTree>
-                      <ChainExpression>
-                        <MemberExpression
-                          Member="cp_lm_application/Properties[ModifiedBy]" />
-                      </ChainExpression>
-                    </ScreenExpressionTree>
-                  </ContentItem.DataSource>
-                </ContentItem>
-                <ContentItem
-                  Name="Modified"
-                  Kind="Value"
-                  DataType=":DateTimeOffset?">
-                  <ContentItem.DataSource>
-                    <ScreenExpressionTree>
-                      <ChainExpression>
-                        <MemberExpression
-                          Member="cp_lm_application/Properties[Modified]" />
-                      </ChainExpression>
-                    </ScreenExpressionTree>
-                  </ContentItem.DataSource>
-                </ContentItem>
+                  </ControlPropertySource>
+                </ContentItem.PropertySources>
               </ContentItem>
               <ContentItem.CommandItems>
                 <ContentItem
@@ -154,7 +125,7 @@
                     <ScreenExpressionTree>
                       <ChainExpression>
                         <MemberExpression
-                          Member="cp_lm_applicationsListDetail/Properties[cp_lm_applications]" />
+                          Member="ApplicationListDetail/Properties[cp_lm_applications]" />
                         <CallExpression
                           Target="AddAndEditNew" />
                       </ChainExpression>
@@ -168,7 +139,7 @@
                     <ScreenExpressionTree>
                       <ChainExpression>
                         <MemberExpression
-                          Member="cp_lm_applicationsListDetail/Properties[cp_lm_applications]" />
+                          Member="ApplicationListDetail/Properties[cp_lm_applications]" />
                         <CallExpression
                           Target="EditSelected" />
                       </ChainExpression>
@@ -182,7 +153,7 @@
                     <ScreenExpressionTree>
                       <ChainExpression>
                         <MemberExpression
-                          Member="cp_lm_applicationsListDetail/Properties[cp_lm_applications]" />
+                          Member="ApplicationListDetail/Properties[cp_lm_applications]" />
                         <CallExpression
                           Target="DeleteSelected" />
                       </ChainExpression>
@@ -190,28 +161,6 @@
                   </ContentItem.DataSource>
                 </ContentItem>
               </ContentItem.CommandItems>
-              <ContentItem.PropertySources>
-                <ControlPropertySource
-                  Property="Microsoft.LightSwitch.RichClient:RootControl/Properties[AttachedLabelPosition]">
-                  <ScreenExpressionTree>
-                    <ChainExpression>
-                      <ConstantExpression
-                        Value="Collapsed"
-                        ResultType=":String" />
-                    </ChainExpression>
-                  </ScreenExpressionTree>
-                </ControlPropertySource>
-                <ControlPropertySource
-                  Property="Microsoft.LightSwitch.RichClient:RootControl/Properties[VerticalAlignment]">
-                  <ScreenExpressionTree>
-                    <ChainExpression>
-                      <ConstantExpression
-                        Value="Stretch"
-                        ResultType=":String" />
-                    </ChainExpression>
-                  </ScreenExpressionTree>
-                </ControlPropertySource>
-              </ContentItem.PropertySources>
             </ContentItem>
             <ContentItem.PropertySources>
               <ControlPropertySource
@@ -241,52 +190,17 @@
                 <ScreenExpressionTree>
                   <ChainExpression>
                     <MemberExpression
-                      Member="cp_lm_applicationsListDetail/Properties[cp_lm_applications]" />
+                      Member="ApplicationListDetail/Properties[cp_lm_applications]" />
                     <MemberExpression
                       Member="SelectedItem" />
                   </ChainExpression>
                 </ScreenExpressionTree>
               </ContentItem.DataSource>
               <ContentItem
-                Name="cp_lu_applicant1"
-                Kind="Details"
-                DataType="cp_lu_applicant">
-                <ContentItem.DataSource>
-                  <ScreenExpressionTree>
-                    <ChainExpression>
-                      <MemberExpression
-                        Member="cp_lm_application/Properties[cp_lu_applicant]" />
-                    </ChainExpression>
-                  </ScreenExpressionTree>
-                </ContentItem.DataSource>
-                <ContentItem
-                  Name="RowTemplate2"
-                  Kind="Details"
-                  DataType="cp_lu_applicant">
-                  <ContentItem.DataSource>
-                    <ScreenExpressionTree>
-                      <ChainExpression />
-                    </ScreenExpressionTree>
-                  </ContentItem.DataSource>
-                </ContentItem>
-              </ContentItem>
-              <ContentItem
-                Name="drug_name1"
-                Kind="Value"
-                DataType=":String?">
-                <ContentItem.DataSource>
-                  <ScreenExpressionTree>
-                    <ChainExpression>
-                      <MemberExpression
-                        Member="cp_lm_application/Properties[drug_name]" />
-                    </ChainExpression>
-                  </ScreenExpressionTree>
-                </ContentItem.DataSource>
-              </ContentItem>
-              <ContentItem
                 Name="application_number1"
                 Kind="Value"
-                DataType=":String?">
+                DataType=":String?"
+                View="Microsoft.LightSwitch.RichClient:Label">
                 <ContentItem.DataSource>
                   <ScreenExpressionTree>
                     <ChainExpression>
@@ -295,6 +209,70 @@
                     </ChainExpression>
                   </ScreenExpressionTree>
                 </ContentItem.DataSource>
+                <ContentItem.PropertySources>
+                  <ControlPropertySource
+                    Property="Microsoft.LightSwitch.RichClient:RootControl/Properties[FontStyle]">
+                    <ScreenExpressionTree>
+                      <ChainExpression>
+                        <ConstantExpression
+                          Value="Strong"
+                          ResultType=":String" />
+                      </ChainExpression>
+                    </ScreenExpressionTree>
+                  </ControlPropertySource>
+                </ContentItem.PropertySources>
+              </ContentItem>
+              <ContentItem
+                Name="cp_lu_applicant1"
+                Kind="Details"
+                DataType="cp_lu_applicant"
+                View="Microsoft.LightSwitch.RichClient:Summary">
+                <ContentItem.DataSource>
+                  <ScreenExpressionTree>
+                    <ChainExpression>
+                      <MemberExpression
+                        Member="cp_lm_application/Properties[cp_lu_applicant]" />
+                    </ChainExpression>
+                  </ScreenExpressionTree>
+                </ContentItem.DataSource>
+                <ContentItem.PropertySources>
+                  <ControlPropertySource
+                    Property="Microsoft.LightSwitch.RichClient:RootControl/Properties[FontStyle]">
+                    <ScreenExpressionTree>
+                      <ChainExpression>
+                        <ConstantExpression
+                          Value="Strong"
+                          ResultType=":String" />
+                      </ChainExpression>
+                    </ScreenExpressionTree>
+                  </ControlPropertySource>
+                </ContentItem.PropertySources>
+              </ContentItem>
+              <ContentItem
+                Name="drug"
+                Kind="Details"
+                DataType="cp_lu_drug"
+                View="Microsoft.LightSwitch.RichClient:Summary">
+                <ContentItem.DataSource>
+                  <ScreenExpressionTree>
+                    <ChainExpression>
+                      <MemberExpression
+                        Member="cp_lm_application/Properties[drug]" />
+                    </ChainExpression>
+                  </ScreenExpressionTree>
+                </ContentItem.DataSource>
+                <ContentItem.PropertySources>
+                  <ControlPropertySource
+                    Property="Microsoft.LightSwitch.RichClient:RootControl/Properties[FontStyle]">
+                    <ScreenExpressionTree>
+                      <ChainExpression>
+                        <ConstantExpression
+                          Value="Strong"
+                          ResultType=":String" />
+                      </ChainExpression>
+                    </ScreenExpressionTree>
+                  </ControlPropertySource>
+                </ContentItem.PropertySources>
               </ContentItem>
               <ContentItem
                 Name="CreatedBy1"
@@ -370,11 +348,15 @@
                 Kind="Collection"
                 DataType="CollectionView$cp_lm_excipient_cost"
                 View="Microsoft.LightSwitch.RichClient:DataGrid">
+                <ContentItem.Attributes>
+                  <DisplayName
+                    Value="Excipeints Costs" />
+                </ContentItem.Attributes>
                 <ContentItem.DataSource>
                   <ScreenExpressionTree>
                     <ChainExpression>
                       <MemberExpression
-                        Member="cp_lm_applicationsListDetail/Properties[excipients]" />
+                        Member="ApplicationListDetail/Properties[excipients]" />
                     </ChainExpression>
                   </ScreenExpressionTree>
                 </ContentItem.DataSource>
@@ -887,7 +869,7 @@
                       <ScreenExpressionTree>
                         <ChainExpression>
                           <MemberExpression
-                            Member="cp_lm_applicationsListDetail/Properties[excipients]" />
+                            Member="ApplicationListDetail/Properties[excipients]" />
                           <CallExpression
                             Target="AddAndEditNew" />
                         </ChainExpression>
@@ -901,7 +883,7 @@
                       <ScreenExpressionTree>
                         <ChainExpression>
                           <MemberExpression
-                            Member="cp_lm_applicationsListDetail/Properties[excipients]" />
+                            Member="ApplicationListDetail/Properties[excipients]" />
                           <CallExpression
                             Target="EditSelected" />
                         </ChainExpression>
@@ -915,7 +897,7 @@
                       <ScreenExpressionTree>
                         <ChainExpression>
                           <MemberExpression
-                            Member="cp_lm_applicationsListDetail/Properties[excipients]" />
+                            Member="ApplicationListDetail/Properties[excipients]" />
                           <CallExpression
                             Target="DeleteSelected" />
                         </ChainExpression>
@@ -929,11 +911,15 @@
                 Kind="Collection"
                 DataType="CollectionView$cp_lm_api_cost"
                 View="Microsoft.LightSwitch.RichClient:DataGrid">
+                <ContentItem.Attributes>
+                  <DisplayName
+                    Value="API Costs" />
+                </ContentItem.Attributes>
                 <ContentItem.DataSource>
                   <ScreenExpressionTree>
                     <ChainExpression>
                       <MemberExpression
-                        Member="cp_lm_applicationsListDetail/Properties[apis]" />
+                        Member="ApplicationListDetail/Properties[apis]" />
                     </ChainExpression>
                   </ScreenExpressionTree>
                 </ContentItem.DataSource>
@@ -1446,7 +1432,7 @@
                       <ScreenExpressionTree>
                         <ChainExpression>
                           <MemberExpression
-                            Member="cp_lm_applicationsListDetail/Properties[apis]" />
+                            Member="ApplicationListDetail/Properties[apis]" />
                           <CallExpression
                             Target="AddAndEditNew" />
                         </ChainExpression>
@@ -1460,7 +1446,7 @@
                       <ScreenExpressionTree>
                         <ChainExpression>
                           <MemberExpression
-                            Member="cp_lm_applicationsListDetail/Properties[apis]" />
+                            Member="ApplicationListDetail/Properties[apis]" />
                           <CallExpression
                             Target="EditSelected" />
                         </ChainExpression>
@@ -1474,7 +1460,7 @@
                       <ScreenExpressionTree>
                         <ChainExpression>
                           <MemberExpression
-                            Member="cp_lm_applicationsListDetail/Properties[apis]" />
+                            Member="ApplicationListDetail/Properties[apis]" />
                           <CallExpression
                             Target="DeleteSelected" />
                         </ChainExpression>
@@ -1488,11 +1474,15 @@
                 Kind="Collection"
                 DataType="CollectionView$cp_lm_pm_capsule_blister_packs_hg"
                 View="Microsoft.LightSwitch.RichClient:DataGrid">
+                <ContentItem.Attributes>
+                  <DisplayName
+                    Value="Capsule Blister Packs HGS" />
+                </ContentItem.Attributes>
                 <ContentItem.DataSource>
                   <ScreenExpressionTree>
                     <ChainExpression>
                       <MemberExpression
-                        Member="cp_lm_applicationsListDetail/Properties[capsule_blister_packs_hgs]" />
+                        Member="ApplicationListDetail/Properties[capsule_blister_packs_hgs]" />
                     </ChainExpression>
                   </ScreenExpressionTree>
                 </ContentItem.DataSource>
@@ -1635,58 +1625,6 @@
                       </ScreenExpressionTree>
                     </ContentItem.DataSource>
                   </ContentItem>
-                  <ContentItem
-                    Name="CreatedBy4"
-                    Kind="Value"
-                    DataType=":Person?">
-                    <ContentItem.DataSource>
-                      <ScreenExpressionTree>
-                        <ChainExpression>
-                          <MemberExpression
-                            Member="cp_lm_pm_capsule_blister_packs_hg/Properties[CreatedBy]" />
-                        </ChainExpression>
-                      </ScreenExpressionTree>
-                    </ContentItem.DataSource>
-                  </ContentItem>
-                  <ContentItem
-                    Name="Created4"
-                    Kind="Value"
-                    DataType=":DateTimeOffset?">
-                    <ContentItem.DataSource>
-                      <ScreenExpressionTree>
-                        <ChainExpression>
-                          <MemberExpression
-                            Member="cp_lm_pm_capsule_blister_packs_hg/Properties[Created]" />
-                        </ChainExpression>
-                      </ScreenExpressionTree>
-                    </ContentItem.DataSource>
-                  </ContentItem>
-                  <ContentItem
-                    Name="ModifiedBy4"
-                    Kind="Value"
-                    DataType=":Person?">
-                    <ContentItem.DataSource>
-                      <ScreenExpressionTree>
-                        <ChainExpression>
-                          <MemberExpression
-                            Member="cp_lm_pm_capsule_blister_packs_hg/Properties[ModifiedBy]" />
-                        </ChainExpression>
-                      </ScreenExpressionTree>
-                    </ContentItem.DataSource>
-                  </ContentItem>
-                  <ContentItem
-                    Name="Modified4"
-                    Kind="Value"
-                    DataType=":DateTimeOffset?">
-                    <ContentItem.DataSource>
-                      <ScreenExpressionTree>
-                        <ChainExpression>
-                          <MemberExpression
-                            Member="cp_lm_pm_capsule_blister_packs_hg/Properties[Modified]" />
-                        </ChainExpression>
-                      </ScreenExpressionTree>
-                    </ContentItem.DataSource>
-                  </ContentItem>
                 </ContentItem>
                 <ContentItem.CommandItems>
                   <ContentItem
@@ -1696,7 +1634,7 @@
                       <ScreenExpressionTree>
                         <ChainExpression>
                           <MemberExpression
-                            Member="cp_lm_applicationsListDetail/Properties[capsule_blister_packs_hgs]" />
+                            Member="ApplicationListDetail/Properties[capsule_blister_packs_hgs]" />
                           <CallExpression
                             Target="AddAndEditNew" />
                         </ChainExpression>
@@ -1710,7 +1648,7 @@
                       <ScreenExpressionTree>
                         <ChainExpression>
                           <MemberExpression
-                            Member="cp_lm_applicationsListDetail/Properties[capsule_blister_packs_hgs]" />
+                            Member="ApplicationListDetail/Properties[capsule_blister_packs_hgs]" />
                           <CallExpression
                             Target="EditSelected" />
                         </ChainExpression>
@@ -1724,7 +1662,7 @@
                       <ScreenExpressionTree>
                         <ChainExpression>
                           <MemberExpression
-                            Member="cp_lm_applicationsListDetail/Properties[capsule_blister_packs_hgs]" />
+                            Member="ApplicationListDetail/Properties[capsule_blister_packs_hgs]" />
                           <CallExpression
                             Target="DeleteSelected" />
                         </ChainExpression>
@@ -1738,11 +1676,15 @@
                 Kind="Collection"
                 DataType="CollectionView$cp_lm_pm_capsule_blister_packs_sg"
                 View="Microsoft.LightSwitch.RichClient:DataGrid">
+                <ContentItem.Attributes>
+                  <DisplayName
+                    Value="Capsule Blister Packs SGS" />
+                </ContentItem.Attributes>
                 <ContentItem.DataSource>
                   <ScreenExpressionTree>
                     <ChainExpression>
                       <MemberExpression
-                        Member="cp_lm_applicationsListDetail/Properties[capsule_blister_packs_sgs]" />
+                        Member="ApplicationListDetail/Properties[capsule_blister_packs_sgs]" />
                     </ChainExpression>
                   </ScreenExpressionTree>
                 </ContentItem.DataSource>
@@ -1885,58 +1827,6 @@
                       </ScreenExpressionTree>
                     </ContentItem.DataSource>
                   </ContentItem>
-                  <ContentItem
-                    Name="CreatedBy5"
-                    Kind="Value"
-                    DataType=":Person?">
-                    <ContentItem.DataSource>
-                      <ScreenExpressionTree>
-                        <ChainExpression>
-                          <MemberExpression
-                            Member="cp_lm_pm_capsule_blister_packs_sg/Properties[CreatedBy]" />
-                        </ChainExpression>
-                      </ScreenExpressionTree>
-                    </ContentItem.DataSource>
-                  </ContentItem>
-                  <ContentItem
-                    Name="Created5"
-                    Kind="Value"
-                    DataType=":DateTimeOffset?">
-                    <ContentItem.DataSource>
-                      <ScreenExpressionTree>
-                        <ChainExpression>
-                          <MemberExpression
-                            Member="cp_lm_pm_capsule_blister_packs_sg/Properties[Created]" />
-                        </ChainExpression>
-                      </ScreenExpressionTree>
-                    </ContentItem.DataSource>
-                  </ContentItem>
-                  <ContentItem
-                    Name="ModifiedBy5"
-                    Kind="Value"
-                    DataType=":Person?">
-                    <ContentItem.DataSource>
-                      <ScreenExpressionTree>
-                        <ChainExpression>
-                          <MemberExpression
-                            Member="cp_lm_pm_capsule_blister_packs_sg/Properties[ModifiedBy]" />
-                        </ChainExpression>
-                      </ScreenExpressionTree>
-                    </ContentItem.DataSource>
-                  </ContentItem>
-                  <ContentItem
-                    Name="Modified5"
-                    Kind="Value"
-                    DataType=":DateTimeOffset?">
-                    <ContentItem.DataSource>
-                      <ScreenExpressionTree>
-                        <ChainExpression>
-                          <MemberExpression
-                            Member="cp_lm_pm_capsule_blister_packs_sg/Properties[Modified]" />
-                        </ChainExpression>
-                      </ScreenExpressionTree>
-                    </ContentItem.DataSource>
-                  </ContentItem>
                 </ContentItem>
                 <ContentItem.CommandItems>
                   <ContentItem
@@ -1946,7 +1836,7 @@
                       <ScreenExpressionTree>
                         <ChainExpression>
                           <MemberExpression
-                            Member="cp_lm_applicationsListDetail/Properties[capsule_blister_packs_sgs]" />
+                            Member="ApplicationListDetail/Properties[capsule_blister_packs_sgs]" />
                           <CallExpression
                             Target="AddAndEditNew" />
                         </ChainExpression>
@@ -1960,7 +1850,7 @@
                       <ScreenExpressionTree>
                         <ChainExpression>
                           <MemberExpression
-                            Member="cp_lm_applicationsListDetail/Properties[capsule_blister_packs_sgs]" />
+                            Member="ApplicationListDetail/Properties[capsule_blister_packs_sgs]" />
                           <CallExpression
                             Target="EditSelected" />
                         </ChainExpression>
@@ -1974,7 +1864,7 @@
                       <ScreenExpressionTree>
                         <ChainExpression>
                           <MemberExpression
-                            Member="cp_lm_applicationsListDetail/Properties[capsule_blister_packs_sgs]" />
+                            Member="ApplicationListDetail/Properties[capsule_blister_packs_sgs]" />
                           <CallExpression
                             Target="DeleteSelected" />
                         </ChainExpression>
@@ -1988,11 +1878,15 @@
                 Kind="Collection"
                 DataType="CollectionView$cp_lm_pm_capsule_bottle_pack_hg"
                 View="Microsoft.LightSwitch.RichClient:DataGrid">
+                <ContentItem.Attributes>
+                  <DisplayName
+                    Value="Caspule Bottle Packs HGS" />
+                </ContentItem.Attributes>
                 <ContentItem.DataSource>
                   <ScreenExpressionTree>
                     <ChainExpression>
                       <MemberExpression
-                        Member="cp_lm_applicationsListDetail/Properties[capsule_bottle_pack_hgs]" />
+                        Member="ApplicationListDetail/Properties[capsule_bottle_pack_hgs]" />
                     </ChainExpression>
                   </ScreenExpressionTree>
                 </ContentItem.DataSource>
@@ -2161,58 +2055,6 @@
                       </ScreenExpressionTree>
                     </ContentItem.DataSource>
                   </ContentItem>
-                  <ContentItem
-                    Name="CreatedBy6"
-                    Kind="Value"
-                    DataType=":Person?">
-                    <ContentItem.DataSource>
-                      <ScreenExpressionTree>
-                        <ChainExpression>
-                          <MemberExpression
-                            Member="cp_lm_pm_capsule_bottle_pack_hg/Properties[CreatedBy]" />
-                        </ChainExpression>
-                      </ScreenExpressionTree>
-                    </ContentItem.DataSource>
-                  </ContentItem>
-                  <ContentItem
-                    Name="Created6"
-                    Kind="Value"
-                    DataType=":DateTimeOffset?">
-                    <ContentItem.DataSource>
-                      <ScreenExpressionTree>
-                        <ChainExpression>
-                          <MemberExpression
-                            Member="cp_lm_pm_capsule_bottle_pack_hg/Properties[Created]" />
-                        </ChainExpression>
-                      </ScreenExpressionTree>
-                    </ContentItem.DataSource>
-                  </ContentItem>
-                  <ContentItem
-                    Name="ModifiedBy6"
-                    Kind="Value"
-                    DataType=":Person?">
-                    <ContentItem.DataSource>
-                      <ScreenExpressionTree>
-                        <ChainExpression>
-                          <MemberExpression
-                            Member="cp_lm_pm_capsule_bottle_pack_hg/Properties[ModifiedBy]" />
-                        </ChainExpression>
-                      </ScreenExpressionTree>
-                    </ContentItem.DataSource>
-                  </ContentItem>
-                  <ContentItem
-                    Name="Modified6"
-                    Kind="Value"
-                    DataType=":DateTimeOffset?">
-                    <ContentItem.DataSource>
-                      <ScreenExpressionTree>
-                        <ChainExpression>
-                          <MemberExpression
-                            Member="cp_lm_pm_capsule_bottle_pack_hg/Properties[Modified]" />
-                        </ChainExpression>
-                      </ScreenExpressionTree>
-                    </ContentItem.DataSource>
-                  </ContentItem>
                 </ContentItem>
                 <ContentItem.CommandItems>
                   <ContentItem
@@ -2222,7 +2064,7 @@
                       <ScreenExpressionTree>
                         <ChainExpression>
                           <MemberExpression
-                            Member="cp_lm_applicationsListDetail/Properties[capsule_bottle_pack_hgs]" />
+                            Member="ApplicationListDetail/Properties[capsule_bottle_pack_hgs]" />
                           <CallExpression
                             Target="AddAndEditNew" />
                         </ChainExpression>
@@ -2236,7 +2078,7 @@
                       <ScreenExpressionTree>
                         <ChainExpression>
                           <MemberExpression
-                            Member="cp_lm_applicationsListDetail/Properties[capsule_bottle_pack_hgs]" />
+                            Member="ApplicationListDetail/Properties[capsule_bottle_pack_hgs]" />
                           <CallExpression
                             Target="EditSelected" />
                         </ChainExpression>
@@ -2250,7 +2092,7 @@
                       <ScreenExpressionTree>
                         <ChainExpression>
                           <MemberExpression
-                            Member="cp_lm_applicationsListDetail/Properties[capsule_bottle_pack_hgs]" />
+                            Member="ApplicationListDetail/Properties[capsule_bottle_pack_hgs]" />
                           <CallExpression
                             Target="DeleteSelected" />
                         </ChainExpression>
@@ -2264,11 +2106,15 @@
                 Kind="Collection"
                 DataType="CollectionView$cp_lm_pm_capsule_bottle_pack_sg"
                 View="Microsoft.LightSwitch.RichClient:DataGrid">
+                <ContentItem.Attributes>
+                  <DisplayName
+                    Value="Capsule Bottle Packs SGS" />
+                </ContentItem.Attributes>
                 <ContentItem.DataSource>
                   <ScreenExpressionTree>
                     <ChainExpression>
                       <MemberExpression
-                        Member="cp_lm_applicationsListDetail/Properties[capsule_bottle_pack_sgs]" />
+                        Member="ApplicationListDetail/Properties[capsule_bottle_pack_sgs]" />
                     </ChainExpression>
                   </ScreenExpressionTree>
                 </ContentItem.DataSource>
@@ -2437,58 +2283,6 @@
                       </ScreenExpressionTree>
                     </ContentItem.DataSource>
                   </ContentItem>
-                  <ContentItem
-                    Name="CreatedBy7"
-                    Kind="Value"
-                    DataType=":Person?">
-                    <ContentItem.DataSource>
-                      <ScreenExpressionTree>
-                        <ChainExpression>
-                          <MemberExpression
-                            Member="cp_lm_pm_capsule_bottle_pack_sg/Properties[CreatedBy]" />
-                        </ChainExpression>
-                      </ScreenExpressionTree>
-                    </ContentItem.DataSource>
-                  </ContentItem>
-                  <ContentItem
-                    Name="Created7"
-                    Kind="Value"
-                    DataType=":DateTimeOffset?">
-                    <ContentItem.DataSource>
-                      <ScreenExpressionTree>
-                        <ChainExpression>
-                          <MemberExpression
-                            Member="cp_lm_pm_capsule_bottle_pack_sg/Properties[Created]" />
-                        </ChainExpression>
-                      </ScreenExpressionTree>
-                    </ContentItem.DataSource>
-                  </ContentItem>
-                  <ContentItem
-                    Name="ModifiedBy7"
-                    Kind="Value"
-                    DataType=":Person?">
-                    <ContentItem.DataSource>
-                      <ScreenExpressionTree>
-                        <ChainExpression>
-                          <MemberExpression
-                            Member="cp_lm_pm_capsule_bottle_pack_sg/Properties[ModifiedBy]" />
-                        </ChainExpression>
-                      </ScreenExpressionTree>
-                    </ContentItem.DataSource>
-                  </ContentItem>
-                  <ContentItem
-                    Name="Modified7"
-                    Kind="Value"
-                    DataType=":DateTimeOffset?">
-                    <ContentItem.DataSource>
-                      <ScreenExpressionTree>
-                        <ChainExpression>
-                          <MemberExpression
-                            Member="cp_lm_pm_capsule_bottle_pack_sg/Properties[Modified]" />
-                        </ChainExpression>
-                      </ScreenExpressionTree>
-                    </ContentItem.DataSource>
-                  </ContentItem>
                 </ContentItem>
                 <ContentItem.CommandItems>
                   <ContentItem
@@ -2498,7 +2292,7 @@
                       <ScreenExpressionTree>
                         <ChainExpression>
                           <MemberExpression
-                            Member="cp_lm_applicationsListDetail/Properties[capsule_bottle_pack_sgs]" />
+                            Member="ApplicationListDetail/Properties[capsule_bottle_pack_sgs]" />
                           <CallExpression
                             Target="AddAndEditNew" />
                         </ChainExpression>
@@ -2512,7 +2306,7 @@
                       <ScreenExpressionTree>
                         <ChainExpression>
                           <MemberExpression
-                            Member="cp_lm_applicationsListDetail/Properties[capsule_bottle_pack_sgs]" />
+                            Member="ApplicationListDetail/Properties[capsule_bottle_pack_sgs]" />
                           <CallExpression
                             Target="EditSelected" />
                         </ChainExpression>
@@ -2526,7 +2320,7 @@
                       <ScreenExpressionTree>
                         <ChainExpression>
                           <MemberExpression
-                            Member="cp_lm_applicationsListDetail/Properties[capsule_bottle_pack_sgs]" />
+                            Member="ApplicationListDetail/Properties[capsule_bottle_pack_sgs]" />
                           <CallExpression
                             Target="DeleteSelected" />
                         </ChainExpression>
@@ -2540,11 +2334,15 @@
                 Kind="Collection"
                 DataType="CollectionView$cp_lm_pm_eye_ear_nasal_drop"
                 View="Microsoft.LightSwitch.RichClient:DataGrid">
+                <ContentItem.Attributes>
+                  <DisplayName
+                    Value="Eye/Ear/Nasal Drops" />
+                </ContentItem.Attributes>
                 <ContentItem.DataSource>
                   <ScreenExpressionTree>
                     <ChainExpression>
                       <MemberExpression
-                        Member="cp_lm_applicationsListDetail/Properties[eye_ear_nasal_drops]" />
+                        Member="ApplicationListDetail/Properties[eye_ear_nasal_drops]" />
                     </ChainExpression>
                   </ScreenExpressionTree>
                 </ContentItem.DataSource>
@@ -2674,58 +2472,6 @@
                       </ScreenExpressionTree>
                     </ContentItem.DataSource>
                   </ContentItem>
-                  <ContentItem
-                    Name="CreatedBy8"
-                    Kind="Value"
-                    DataType=":Person?">
-                    <ContentItem.DataSource>
-                      <ScreenExpressionTree>
-                        <ChainExpression>
-                          <MemberExpression
-                            Member="cp_lm_pm_eye_ear_nasal_drop/Properties[CreatedBy]" />
-                        </ChainExpression>
-                      </ScreenExpressionTree>
-                    </ContentItem.DataSource>
-                  </ContentItem>
-                  <ContentItem
-                    Name="Created8"
-                    Kind="Value"
-                    DataType=":DateTimeOffset?">
-                    <ContentItem.DataSource>
-                      <ScreenExpressionTree>
-                        <ChainExpression>
-                          <MemberExpression
-                            Member="cp_lm_pm_eye_ear_nasal_drop/Properties[Created]" />
-                        </ChainExpression>
-                      </ScreenExpressionTree>
-                    </ContentItem.DataSource>
-                  </ContentItem>
-                  <ContentItem
-                    Name="ModifiedBy8"
-                    Kind="Value"
-                    DataType=":Person?">
-                    <ContentItem.DataSource>
-                      <ScreenExpressionTree>
-                        <ChainExpression>
-                          <MemberExpression
-                            Member="cp_lm_pm_eye_ear_nasal_drop/Properties[ModifiedBy]" />
-                        </ChainExpression>
-                      </ScreenExpressionTree>
-                    </ContentItem.DataSource>
-                  </ContentItem>
-                  <ContentItem
-                    Name="Modified8"
-                    Kind="Value"
-                    DataType=":DateTimeOffset?">
-                    <ContentItem.DataSource>
-                      <ScreenExpressionTree>
-                        <ChainExpression>
-                          <MemberExpression
-                            Member="cp_lm_pm_eye_ear_nasal_drop/Properties[Modified]" />
-                        </ChainExpression>
-                      </ScreenExpressionTree>
-                    </ContentItem.DataSource>
-                  </ContentItem>
                 </ContentItem>
                 <ContentItem.CommandItems>
                   <ContentItem
@@ -2735,7 +2481,7 @@
                       <ScreenExpressionTree>
                         <ChainExpression>
                           <MemberExpression
-                            Member="cp_lm_applicationsListDetail/Properties[eye_ear_nasal_drops]" />
+                            Member="ApplicationListDetail/Properties[eye_ear_nasal_drops]" />
                           <CallExpression
                             Target="AddAndEditNew" />
                         </ChainExpression>
@@ -2749,7 +2495,7 @@
                       <ScreenExpressionTree>
                         <ChainExpression>
                           <MemberExpression
-                            Member="cp_lm_applicationsListDetail/Properties[eye_ear_nasal_drops]" />
+                            Member="ApplicationListDetail/Properties[eye_ear_nasal_drops]" />
                           <CallExpression
                             Target="EditSelected" />
                         </ChainExpression>
@@ -2763,7 +2509,7 @@
                       <ScreenExpressionTree>
                         <ChainExpression>
                           <MemberExpression
-                            Member="cp_lm_applicationsListDetail/Properties[eye_ear_nasal_drops]" />
+                            Member="ApplicationListDetail/Properties[eye_ear_nasal_drops]" />
                           <CallExpression
                             Target="DeleteSelected" />
                         </ChainExpression>
@@ -2777,11 +2523,15 @@
                 Kind="Collection"
                 DataType="CollectionView$cp_lm_pm_infusion"
                 View="Microsoft.LightSwitch.RichClient:DataGrid">
+                <ContentItem.Attributes>
+                  <DisplayName
+                    Value="Infusions" />
+                </ContentItem.Attributes>
                 <ContentItem.DataSource>
                   <ScreenExpressionTree>
                     <ChainExpression>
                       <MemberExpression
-                        Member="cp_lm_applicationsListDetail/Properties[infusions]" />
+                        Member="ApplicationListDetail/Properties[infusions]" />
                     </ChainExpression>
                   </ScreenExpressionTree>
                 </ContentItem.DataSource>
@@ -2950,58 +2700,6 @@
                       </ScreenExpressionTree>
                     </ContentItem.DataSource>
                   </ContentItem>
-                  <ContentItem
-                    Name="CreatedBy9"
-                    Kind="Value"
-                    DataType=":Person?">
-                    <ContentItem.DataSource>
-                      <ScreenExpressionTree>
-                        <ChainExpression>
-                          <MemberExpression
-                            Member="cp_lm_pm_infusion/Properties[CreatedBy]" />
-                        </ChainExpression>
-                      </ScreenExpressionTree>
-                    </ContentItem.DataSource>
-                  </ContentItem>
-                  <ContentItem
-                    Name="Created9"
-                    Kind="Value"
-                    DataType=":DateTimeOffset?">
-                    <ContentItem.DataSource>
-                      <ScreenExpressionTree>
-                        <ChainExpression>
-                          <MemberExpression
-                            Member="cp_lm_pm_infusion/Properties[Created]" />
-                        </ChainExpression>
-                      </ScreenExpressionTree>
-                    </ContentItem.DataSource>
-                  </ContentItem>
-                  <ContentItem
-                    Name="ModifiedBy9"
-                    Kind="Value"
-                    DataType=":Person?">
-                    <ContentItem.DataSource>
-                      <ScreenExpressionTree>
-                        <ChainExpression>
-                          <MemberExpression
-                            Member="cp_lm_pm_infusion/Properties[ModifiedBy]" />
-                        </ChainExpression>
-                      </ScreenExpressionTree>
-                    </ContentItem.DataSource>
-                  </ContentItem>
-                  <ContentItem
-                    Name="Modified9"
-                    Kind="Value"
-                    DataType=":DateTimeOffset?">
-                    <ContentItem.DataSource>
-                      <ScreenExpressionTree>
-                        <ChainExpression>
-                          <MemberExpression
-                            Member="cp_lm_pm_infusion/Properties[Modified]" />
-                        </ChainExpression>
-                      </ScreenExpressionTree>
-                    </ContentItem.DataSource>
-                  </ContentItem>
                 </ContentItem>
                 <ContentItem.CommandItems>
                   <ContentItem
@@ -3011,7 +2709,7 @@
                       <ScreenExpressionTree>
                         <ChainExpression>
                           <MemberExpression
-                            Member="cp_lm_applicationsListDetail/Properties[infusions]" />
+                            Member="ApplicationListDetail/Properties[infusions]" />
                           <CallExpression
                             Target="AddAndEditNew" />
                         </ChainExpression>
@@ -3025,7 +2723,7 @@
                       <ScreenExpressionTree>
                         <ChainExpression>
                           <MemberExpression
-                            Member="cp_lm_applicationsListDetail/Properties[infusions]" />
+                            Member="ApplicationListDetail/Properties[infusions]" />
                           <CallExpression
                             Target="EditSelected" />
                         </ChainExpression>
@@ -3039,7 +2737,7 @@
                       <ScreenExpressionTree>
                         <ChainExpression>
                           <MemberExpression
-                            Member="cp_lm_applicationsListDetail/Properties[infusions]" />
+                            Member="ApplicationListDetail/Properties[infusions]" />
                           <CallExpression
                             Target="DeleteSelected" />
                         </ChainExpression>
@@ -3053,11 +2751,15 @@
                 Kind="Collection"
                 DataType="CollectionView$cp_lm_pm_injection"
                 View="Microsoft.LightSwitch.RichClient:DataGrid">
+                <ContentItem.Attributes>
+                  <DisplayName
+                    Value="Injections" />
+                </ContentItem.Attributes>
                 <ContentItem.DataSource>
                   <ScreenExpressionTree>
                     <ChainExpression>
                       <MemberExpression
-                        Member="cp_lm_applicationsListDetail/Properties[injections]" />
+                        Member="ApplicationListDetail/Properties[injections]" />
                     </ChainExpression>
                   </ScreenExpressionTree>
                 </ContentItem.DataSource>
@@ -3213,58 +2915,6 @@
                       </ScreenExpressionTree>
                     </ContentItem.DataSource>
                   </ContentItem>
-                  <ContentItem
-                    Name="CreatedBy10"
-                    Kind="Value"
-                    DataType=":Person?">
-                    <ContentItem.DataSource>
-                      <ScreenExpressionTree>
-                        <ChainExpression>
-                          <MemberExpression
-                            Member="cp_lm_pm_injection/Properties[CreatedBy]" />
-                        </ChainExpression>
-                      </ScreenExpressionTree>
-                    </ContentItem.DataSource>
-                  </ContentItem>
-                  <ContentItem
-                    Name="Created10"
-                    Kind="Value"
-                    DataType=":DateTimeOffset?">
-                    <ContentItem.DataSource>
-                      <ScreenExpressionTree>
-                        <ChainExpression>
-                          <MemberExpression
-                            Member="cp_lm_pm_injection/Properties[Created]" />
-                        </ChainExpression>
-                      </ScreenExpressionTree>
-                    </ContentItem.DataSource>
-                  </ContentItem>
-                  <ContentItem
-                    Name="ModifiedBy10"
-                    Kind="Value"
-                    DataType=":Person?">
-                    <ContentItem.DataSource>
-                      <ScreenExpressionTree>
-                        <ChainExpression>
-                          <MemberExpression
-                            Member="cp_lm_pm_injection/Properties[ModifiedBy]" />
-                        </ChainExpression>
-                      </ScreenExpressionTree>
-                    </ContentItem.DataSource>
-                  </ContentItem>
-                  <ContentItem
-                    Name="Modified10"
-                    Kind="Value"
-                    DataType=":DateTimeOffset?">
-                    <ContentItem.DataSource>
-                      <ScreenExpressionTree>
-                        <ChainExpression>
-                          <MemberExpression
-                            Member="cp_lm_pm_injection/Properties[Modified]" />
-                        </ChainExpression>
-                      </ScreenExpressionTree>
-                    </ContentItem.DataSource>
-                  </ContentItem>
                 </ContentItem>
                 <ContentItem.CommandItems>
                   <ContentItem
@@ -3274,7 +2924,7 @@
                       <ScreenExpressionTree>
                         <ChainExpression>
                           <MemberExpression
-                            Member="cp_lm_applicationsListDetail/Properties[injections]" />
+                            Member="ApplicationListDetail/Properties[injections]" />
                           <CallExpression
                             Target="AddAndEditNew" />
                         </ChainExpression>
@@ -3288,7 +2938,7 @@
                       <ScreenExpressionTree>
                         <ChainExpression>
                           <MemberExpression
-                            Member="cp_lm_applicationsListDetail/Properties[injections]" />
+                            Member="ApplicationListDetail/Properties[injections]" />
                           <CallExpression
                             Target="EditSelected" />
                         </ChainExpression>
@@ -3302,7 +2952,7 @@
                       <ScreenExpressionTree>
                         <ChainExpression>
                           <MemberExpression
-                            Member="cp_lm_applicationsListDetail/Properties[injections]" />
+                            Member="ApplicationListDetail/Properties[injections]" />
                           <CallExpression
                             Target="DeleteSelected" />
                         </ChainExpression>
@@ -3316,11 +2966,15 @@
                 Kind="Collection"
                 DataType="CollectionView$cp_lm_pm_ointment_gel_cream"
                 View="Microsoft.LightSwitch.RichClient:DataGrid">
+                <ContentItem.Attributes>
+                  <DisplayName
+                    Value="Ointement Gel Creams" />
+                </ContentItem.Attributes>
                 <ContentItem.DataSource>
                   <ScreenExpressionTree>
                     <ChainExpression>
                       <MemberExpression
-                        Member="cp_lm_applicationsListDetail/Properties[ointment_gel_creams]" />
+                        Member="ApplicationListDetail/Properties[ointment_gel_creams]" />
                     </ChainExpression>
                   </ScreenExpressionTree>
                 </ContentItem.DataSource>
@@ -3424,58 +3078,6 @@
                       </ScreenExpressionTree>
                     </ContentItem.DataSource>
                   </ContentItem>
-                  <ContentItem
-                    Name="CreatedBy11"
-                    Kind="Value"
-                    DataType=":Person?">
-                    <ContentItem.DataSource>
-                      <ScreenExpressionTree>
-                        <ChainExpression>
-                          <MemberExpression
-                            Member="cp_lm_pm_ointment_gel_cream/Properties[CreatedBy]" />
-                        </ChainExpression>
-                      </ScreenExpressionTree>
-                    </ContentItem.DataSource>
-                  </ContentItem>
-                  <ContentItem
-                    Name="Created11"
-                    Kind="Value"
-                    DataType=":DateTimeOffset?">
-                    <ContentItem.DataSource>
-                      <ScreenExpressionTree>
-                        <ChainExpression>
-                          <MemberExpression
-                            Member="cp_lm_pm_ointment_gel_cream/Properties[Created]" />
-                        </ChainExpression>
-                      </ScreenExpressionTree>
-                    </ContentItem.DataSource>
-                  </ContentItem>
-                  <ContentItem
-                    Name="ModifiedBy11"
-                    Kind="Value"
-                    DataType=":Person?">
-                    <ContentItem.DataSource>
-                      <ScreenExpressionTree>
-                        <ChainExpression>
-                          <MemberExpression
-                            Member="cp_lm_pm_ointment_gel_cream/Properties[ModifiedBy]" />
-                        </ChainExpression>
-                      </ScreenExpressionTree>
-                    </ContentItem.DataSource>
-                  </ContentItem>
-                  <ContentItem
-                    Name="Modified11"
-                    Kind="Value"
-                    DataType=":DateTimeOffset?">
-                    <ContentItem.DataSource>
-                      <ScreenExpressionTree>
-                        <ChainExpression>
-                          <MemberExpression
-                            Member="cp_lm_pm_ointment_gel_cream/Properties[Modified]" />
-                        </ChainExpression>
-                      </ScreenExpressionTree>
-                    </ContentItem.DataSource>
-                  </ContentItem>
                 </ContentItem>
                 <ContentItem.CommandItems>
                   <ContentItem
@@ -3485,7 +3087,7 @@
                       <ScreenExpressionTree>
                         <ChainExpression>
                           <MemberExpression
-                            Member="cp_lm_applicationsListDetail/Properties[ointment_gel_creams]" />
+                            Member="ApplicationListDetail/Properties[ointment_gel_creams]" />
                           <CallExpression
                             Target="AddAndEditNew" />
                         </ChainExpression>
@@ -3499,7 +3101,7 @@
                       <ScreenExpressionTree>
                         <ChainExpression>
                           <MemberExpression
-                            Member="cp_lm_applicationsListDetail/Properties[ointment_gel_creams]" />
+                            Member="ApplicationListDetail/Properties[ointment_gel_creams]" />
                           <CallExpression
                             Target="EditSelected" />
                         </ChainExpression>
@@ -3513,7 +3115,7 @@
                       <ScreenExpressionTree>
                         <ChainExpression>
                           <MemberExpression
-                            Member="cp_lm_applicationsListDetail/Properties[ointment_gel_creams]" />
+                            Member="ApplicationListDetail/Properties[ointment_gel_creams]" />
                           <CallExpression
                             Target="DeleteSelected" />
                         </ChainExpression>
@@ -3527,11 +3129,15 @@
                 Kind="Collection"
                 DataType="CollectionView$cp_lm_pm_patch"
                 View="Microsoft.LightSwitch.RichClient:DataGrid">
+                <ContentItem.Attributes>
+                  <DisplayName
+                    Value="Patches" />
+                </ContentItem.Attributes>
                 <ContentItem.DataSource>
                   <ScreenExpressionTree>
                     <ChainExpression>
                       <MemberExpression
-                        Member="cp_lm_applicationsListDetail/Properties[patches]" />
+                        Member="ApplicationListDetail/Properties[patches]" />
                     </ChainExpression>
                   </ScreenExpressionTree>
                 </ContentItem.DataSource>
@@ -3661,58 +3267,6 @@
                       </ScreenExpressionTree>
                     </ContentItem.DataSource>
                   </ContentItem>
-                  <ContentItem
-                    Name="CreatedBy12"
-                    Kind="Value"
-                    DataType=":Person?">
-                    <ContentItem.DataSource>
-                      <ScreenExpressionTree>
-                        <ChainExpression>
-                          <MemberExpression
-                            Member="cp_lm_pm_patch/Properties[CreatedBy]" />
-                        </ChainExpression>
-                      </ScreenExpressionTree>
-                    </ContentItem.DataSource>
-                  </ContentItem>
-                  <ContentItem
-                    Name="Created12"
-                    Kind="Value"
-                    DataType=":DateTimeOffset?">
-                    <ContentItem.DataSource>
-                      <ScreenExpressionTree>
-                        <ChainExpression>
-                          <MemberExpression
-                            Member="cp_lm_pm_patch/Properties[Created]" />
-                        </ChainExpression>
-                      </ScreenExpressionTree>
-                    </ContentItem.DataSource>
-                  </ContentItem>
-                  <ContentItem
-                    Name="ModifiedBy12"
-                    Kind="Value"
-                    DataType=":Person?">
-                    <ContentItem.DataSource>
-                      <ScreenExpressionTree>
-                        <ChainExpression>
-                          <MemberExpression
-                            Member="cp_lm_pm_patch/Properties[ModifiedBy]" />
-                        </ChainExpression>
-                      </ScreenExpressionTree>
-                    </ContentItem.DataSource>
-                  </ContentItem>
-                  <ContentItem
-                    Name="Modified12"
-                    Kind="Value"
-                    DataType=":DateTimeOffset?">
-                    <ContentItem.DataSource>
-                      <ScreenExpressionTree>
-                        <ChainExpression>
-                          <MemberExpression
-                            Member="cp_lm_pm_patch/Properties[Modified]" />
-                        </ChainExpression>
-                      </ScreenExpressionTree>
-                    </ContentItem.DataSource>
-                  </ContentItem>
                 </ContentItem>
                 <ContentItem.CommandItems>
                   <ContentItem
@@ -3722,7 +3276,7 @@
                       <ScreenExpressionTree>
                         <ChainExpression>
                           <MemberExpression
-                            Member="cp_lm_applicationsListDetail/Properties[patches]" />
+                            Member="ApplicationListDetail/Properties[patches]" />
                           <CallExpression
                             Target="AddAndEditNew" />
                         </ChainExpression>
@@ -3736,7 +3290,7 @@
                       <ScreenExpressionTree>
                         <ChainExpression>
                           <MemberExpression
-                            Member="cp_lm_applicationsListDetail/Properties[patches]" />
+                            Member="ApplicationListDetail/Properties[patches]" />
                           <CallExpression
                             Target="EditSelected" />
                         </ChainExpression>
@@ -3750,7 +3304,7 @@
                       <ScreenExpressionTree>
                         <ChainExpression>
                           <MemberExpression
-                            Member="cp_lm_applicationsListDetail/Properties[patches]" />
+                            Member="ApplicationListDetail/Properties[patches]" />
                           <CallExpression
                             Target="DeleteSelected" />
                         </ChainExpression>
@@ -3764,11 +3318,15 @@
                 Kind="Collection"
                 DataType="CollectionView$cp_lm_pm_sachet"
                 View="Microsoft.LightSwitch.RichClient:DataGrid">
+                <ContentItem.Attributes>
+                  <DisplayName
+                    Value="Schets" />
+                </ContentItem.Attributes>
                 <ContentItem.DataSource>
                   <ScreenExpressionTree>
                     <ChainExpression>
                       <MemberExpression
-                        Member="cp_lm_applicationsListDetail/Properties[sachets]" />
+                        Member="ApplicationListDetail/Properties[sachets]" />
                     </ChainExpression>
                   </ScreenExpressionTree>
                 </ContentItem.DataSource>
@@ -3859,58 +3417,6 @@
                       </ScreenExpressionTree>
                     </ContentItem.DataSource>
                   </ContentItem>
-                  <ContentItem
-                    Name="CreatedBy13"
-                    Kind="Value"
-                    DataType=":Person?">
-                    <ContentItem.DataSource>
-                      <ScreenExpressionTree>
-                        <ChainExpression>
-                          <MemberExpression
-                            Member="cp_lm_pm_sachet/Properties[CreatedBy]" />
-                        </ChainExpression>
-                      </ScreenExpressionTree>
-                    </ContentItem.DataSource>
-                  </ContentItem>
-                  <ContentItem
-                    Name="Created13"
-                    Kind="Value"
-                    DataType=":DateTimeOffset?">
-                    <ContentItem.DataSource>
-                      <ScreenExpressionTree>
-                        <ChainExpression>
-                          <MemberExpression
-                            Member="cp_lm_pm_sachet/Properties[Created]" />
-                        </ChainExpression>
-                      </ScreenExpressionTree>
-                    </ContentItem.DataSource>
-                  </ContentItem>
-                  <ContentItem
-                    Name="ModifiedBy13"
-                    Kind="Value"
-                    DataType=":Person?">
-                    <ContentItem.DataSource>
-                      <ScreenExpressionTree>
-                        <ChainExpression>
-                          <MemberExpression
-                            Member="cp_lm_pm_sachet/Properties[ModifiedBy]" />
-                        </ChainExpression>
-                      </ScreenExpressionTree>
-                    </ContentItem.DataSource>
-                  </ContentItem>
-                  <ContentItem
-                    Name="Modified13"
-                    Kind="Value"
-                    DataType=":DateTimeOffset?">
-                    <ContentItem.DataSource>
-                      <ScreenExpressionTree>
-                        <ChainExpression>
-                          <MemberExpression
-                            Member="cp_lm_pm_sachet/Properties[Modified]" />
-                        </ChainExpression>
-                      </ScreenExpressionTree>
-                    </ContentItem.DataSource>
-                  </ContentItem>
                 </ContentItem>
                 <ContentItem.CommandItems>
                   <ContentItem
@@ -3920,7 +3426,7 @@
                       <ScreenExpressionTree>
                         <ChainExpression>
                           <MemberExpression
-                            Member="cp_lm_applicationsListDetail/Properties[sachets]" />
+                            Member="ApplicationListDetail/Properties[sachets]" />
                           <CallExpression
                             Target="AddAndEditNew" />
                         </ChainExpression>
@@ -3934,7 +3440,7 @@
                       <ScreenExpressionTree>
                         <ChainExpression>
                           <MemberExpression
-                            Member="cp_lm_applicationsListDetail/Properties[sachets]" />
+                            Member="ApplicationListDetail/Properties[sachets]" />
                           <CallExpression
                             Target="EditSelected" />
                         </ChainExpression>
@@ -3948,7 +3454,7 @@
                       <ScreenExpressionTree>
                         <ChainExpression>
                           <MemberExpression
-                            Member="cp_lm_applicationsListDetail/Properties[sachets]" />
+                            Member="ApplicationListDetail/Properties[sachets]" />
                           <CallExpression
                             Target="DeleteSelected" />
                         </ChainExpression>
@@ -3962,11 +3468,15 @@
                 Kind="Collection"
                 DataType="CollectionView$cp_lm_pm_spray_inhaler"
                 View="Microsoft.LightSwitch.RichClient:DataGrid">
+                <ContentItem.Attributes>
+                  <DisplayName
+                    Value="Spray Inhalers" />
+                </ContentItem.Attributes>
                 <ContentItem.DataSource>
                   <ScreenExpressionTree>
                     <ChainExpression>
                       <MemberExpression
-                        Member="cp_lm_applicationsListDetail/Properties[spray_inhalers]" />
+                        Member="ApplicationListDetail/Properties[spray_inhalers]" />
                     </ChainExpression>
                   </ScreenExpressionTree>
                 </ContentItem.DataSource>
@@ -4096,58 +3606,6 @@
                       </ScreenExpressionTree>
                     </ContentItem.DataSource>
                   </ContentItem>
-                  <ContentItem
-                    Name="CreatedBy14"
-                    Kind="Value"
-                    DataType=":Person?">
-                    <ContentItem.DataSource>
-                      <ScreenExpressionTree>
-                        <ChainExpression>
-                          <MemberExpression
-                            Member="cp_lm_pm_spray_inhaler/Properties[CreatedBy]" />
-                        </ChainExpression>
-                      </ScreenExpressionTree>
-                    </ContentItem.DataSource>
-                  </ContentItem>
-                  <ContentItem
-                    Name="Created14"
-                    Kind="Value"
-                    DataType=":DateTimeOffset?">
-                    <ContentItem.DataSource>
-                      <ScreenExpressionTree>
-                        <ChainExpression>
-                          <MemberExpression
-                            Member="cp_lm_pm_spray_inhaler/Properties[Created]" />
-                        </ChainExpression>
-                      </ScreenExpressionTree>
-                    </ContentItem.DataSource>
-                  </ContentItem>
-                  <ContentItem
-                    Name="ModifiedBy14"
-                    Kind="Value"
-                    DataType=":Person?">
-                    <ContentItem.DataSource>
-                      <ScreenExpressionTree>
-                        <ChainExpression>
-                          <MemberExpression
-                            Member="cp_lm_pm_spray_inhaler/Properties[ModifiedBy]" />
-                        </ChainExpression>
-                      </ScreenExpressionTree>
-                    </ContentItem.DataSource>
-                  </ContentItem>
-                  <ContentItem
-                    Name="Modified14"
-                    Kind="Value"
-                    DataType=":DateTimeOffset?">
-                    <ContentItem.DataSource>
-                      <ScreenExpressionTree>
-                        <ChainExpression>
-                          <MemberExpression
-                            Member="cp_lm_pm_spray_inhaler/Properties[Modified]" />
-                        </ChainExpression>
-                      </ScreenExpressionTree>
-                    </ContentItem.DataSource>
-                  </ContentItem>
                 </ContentItem>
                 <ContentItem.CommandItems>
                   <ContentItem
@@ -4157,7 +3615,7 @@
                       <ScreenExpressionTree>
                         <ChainExpression>
                           <MemberExpression
-                            Member="cp_lm_applicationsListDetail/Properties[spray_inhalers]" />
+                            Member="ApplicationListDetail/Properties[spray_inhalers]" />
                           <CallExpression
                             Target="AddAndEditNew" />
                         </ChainExpression>
@@ -4171,7 +3629,7 @@
                       <ScreenExpressionTree>
                         <ChainExpression>
                           <MemberExpression
-                            Member="cp_lm_applicationsListDetail/Properties[spray_inhalers]" />
+                            Member="ApplicationListDetail/Properties[spray_inhalers]" />
                           <CallExpression
                             Target="EditSelected" />
                         </ChainExpression>
@@ -4185,7 +3643,7 @@
                       <ScreenExpressionTree>
                         <ChainExpression>
                           <MemberExpression
-                            Member="cp_lm_applicationsListDetail/Properties[spray_inhalers]" />
+                            Member="ApplicationListDetail/Properties[spray_inhalers]" />
                           <CallExpression
                             Target="DeleteSelected" />
                         </ChainExpression>
@@ -4199,11 +3657,15 @@
                 Kind="Collection"
                 DataType="CollectionView$cp_lm_pm_syrup"
                 View="Microsoft.LightSwitch.RichClient:DataGrid">
+                <ContentItem.Attributes>
+                  <DisplayName
+                    Value="Syrups" />
+                </ContentItem.Attributes>
                 <ContentItem.DataSource>
                   <ScreenExpressionTree>
                     <ChainExpression>
                       <MemberExpression
-                        Member="cp_lm_applicationsListDetail/Properties[syrups]" />
+                        Member="ApplicationListDetail/Properties[syrups]" />
                     </ChainExpression>
                   </ScreenExpressionTree>
                 </ContentItem.DataSource>
@@ -4359,58 +3821,6 @@
                       </ScreenExpressionTree>
                     </ContentItem.DataSource>
                   </ContentItem>
-                  <ContentItem
-                    Name="CreatedBy15"
-                    Kind="Value"
-                    DataType=":Person?">
-                    <ContentItem.DataSource>
-                      <ScreenExpressionTree>
-                        <ChainExpression>
-                          <MemberExpression
-                            Member="cp_lm_pm_syrup/Properties[CreatedBy]" />
-                        </ChainExpression>
-                      </ScreenExpressionTree>
-                    </ContentItem.DataSource>
-                  </ContentItem>
-                  <ContentItem
-                    Name="Created15"
-                    Kind="Value"
-                    DataType=":DateTimeOffset?">
-                    <ContentItem.DataSource>
-                      <ScreenExpressionTree>
-                        <ChainExpression>
-                          <MemberExpression
-                            Member="cp_lm_pm_syrup/Properties[Created]" />
-                        </ChainExpression>
-                      </ScreenExpressionTree>
-                    </ContentItem.DataSource>
-                  </ContentItem>
-                  <ContentItem
-                    Name="ModifiedBy15"
-                    Kind="Value"
-                    DataType=":Person?">
-                    <ContentItem.DataSource>
-                      <ScreenExpressionTree>
-                        <ChainExpression>
-                          <MemberExpression
-                            Member="cp_lm_pm_syrup/Properties[ModifiedBy]" />
-                        </ChainExpression>
-                      </ScreenExpressionTree>
-                    </ContentItem.DataSource>
-                  </ContentItem>
-                  <ContentItem
-                    Name="Modified15"
-                    Kind="Value"
-                    DataType=":DateTimeOffset?">
-                    <ContentItem.DataSource>
-                      <ScreenExpressionTree>
-                        <ChainExpression>
-                          <MemberExpression
-                            Member="cp_lm_pm_syrup/Properties[Modified]" />
-                        </ChainExpression>
-                      </ScreenExpressionTree>
-                    </ContentItem.DataSource>
-                  </ContentItem>
                 </ContentItem>
                 <ContentItem.CommandItems>
                   <ContentItem
@@ -4420,7 +3830,7 @@
                       <ScreenExpressionTree>
                         <ChainExpression>
                           <MemberExpression
-                            Member="cp_lm_applicationsListDetail/Properties[syrups]" />
+                            Member="ApplicationListDetail/Properties[syrups]" />
                           <CallExpression
                             Target="AddAndEditNew" />
                         </ChainExpression>
@@ -4434,7 +3844,7 @@
                       <ScreenExpressionTree>
                         <ChainExpression>
                           <MemberExpression
-                            Member="cp_lm_applicationsListDetail/Properties[syrups]" />
+                            Member="ApplicationListDetail/Properties[syrups]" />
                           <CallExpression
                             Target="EditSelected" />
                         </ChainExpression>
@@ -4448,7 +3858,7 @@
                       <ScreenExpressionTree>
                         <ChainExpression>
                           <MemberExpression
-                            Member="cp_lm_applicationsListDetail/Properties[syrups]" />
+                            Member="ApplicationListDetail/Properties[syrups]" />
                           <CallExpression
                             Target="DeleteSelected" />
                         </ChainExpression>
@@ -4462,11 +3872,15 @@
                 Kind="Collection"
                 DataType="CollectionView$cp_lm_pm_tablets_blister_pack"
                 View="Microsoft.LightSwitch.RichClient:DataGrid">
+                <ContentItem.Attributes>
+                  <DisplayName
+                    Value="Tablets Blister Packs" />
+                </ContentItem.Attributes>
                 <ContentItem.DataSource>
                   <ScreenExpressionTree>
                     <ChainExpression>
                       <MemberExpression
-                        Member="cp_lm_applicationsListDetail/Properties[tablets_blister_packs]" />
+                        Member="ApplicationListDetail/Properties[tablets_blister_packs]" />
                     </ChainExpression>
                   </ScreenExpressionTree>
                 </ContentItem.DataSource>
@@ -4596,58 +4010,6 @@
                       </ScreenExpressionTree>
                     </ContentItem.DataSource>
                   </ContentItem>
-                  <ContentItem
-                    Name="CreatedBy16"
-                    Kind="Value"
-                    DataType=":Person?">
-                    <ContentItem.DataSource>
-                      <ScreenExpressionTree>
-                        <ChainExpression>
-                          <MemberExpression
-                            Member="cp_lm_pm_tablets_blister_pack/Properties[CreatedBy]" />
-                        </ChainExpression>
-                      </ScreenExpressionTree>
-                    </ContentItem.DataSource>
-                  </ContentItem>
-                  <ContentItem
-                    Name="Created16"
-                    Kind="Value"
-                    DataType=":DateTimeOffset?">
-                    <ContentItem.DataSource>
-                      <ScreenExpressionTree>
-                        <ChainExpression>
-                          <MemberExpression
-                            Member="cp_lm_pm_tablets_blister_pack/Properties[Created]" />
-                        </ChainExpression>
-                      </ScreenExpressionTree>
-                    </ContentItem.DataSource>
-                  </ContentItem>
-                  <ContentItem
-                    Name="ModifiedBy16"
-                    Kind="Value"
-                    DataType=":Person?">
-                    <ContentItem.DataSource>
-                      <ScreenExpressionTree>
-                        <ChainExpression>
-                          <MemberExpression
-                            Member="cp_lm_pm_tablets_blister_pack/Properties[ModifiedBy]" />
-                        </ChainExpression>
-                      </ScreenExpressionTree>
-                    </ContentItem.DataSource>
-                  </ContentItem>
-                  <ContentItem
-                    Name="Modified16"
-                    Kind="Value"
-                    DataType=":DateTimeOffset?">
-                    <ContentItem.DataSource>
-                      <ScreenExpressionTree>
-                        <ChainExpression>
-                          <MemberExpression
-                            Member="cp_lm_pm_tablets_blister_pack/Properties[Modified]" />
-                        </ChainExpression>
-                      </ScreenExpressionTree>
-                    </ContentItem.DataSource>
-                  </ContentItem>
                 </ContentItem>
                 <ContentItem.CommandItems>
                   <ContentItem
@@ -4657,7 +4019,7 @@
                       <ScreenExpressionTree>
                         <ChainExpression>
                           <MemberExpression
-                            Member="cp_lm_applicationsListDetail/Properties[tablets_blister_packs]" />
+                            Member="ApplicationListDetail/Properties[tablets_blister_packs]" />
                           <CallExpression
                             Target="AddAndEditNew" />
                         </ChainExpression>
@@ -4671,7 +4033,7 @@
                       <ScreenExpressionTree>
                         <ChainExpression>
                           <MemberExpression
-                            Member="cp_lm_applicationsListDetail/Properties[tablets_blister_packs]" />
+                            Member="ApplicationListDetail/Properties[tablets_blister_packs]" />
                           <CallExpression
                             Target="EditSelected" />
                         </ChainExpression>
@@ -4685,7 +4047,7 @@
                       <ScreenExpressionTree>
                         <ChainExpression>
                           <MemberExpression
-                            Member="cp_lm_applicationsListDetail/Properties[tablets_blister_packs]" />
+                            Member="ApplicationListDetail/Properties[tablets_blister_packs]" />
                           <CallExpression
                             Target="DeleteSelected" />
                         </ChainExpression>
@@ -4699,11 +4061,15 @@
                 Kind="Collection"
                 DataType="CollectionView$cp_lm_pm_tablets_bottle_pack"
                 View="Microsoft.LightSwitch.RichClient:DataGrid">
+                <ContentItem.Attributes>
+                  <DisplayName
+                    Value="Tablets Bottle Packs" />
+                </ContentItem.Attributes>
                 <ContentItem.DataSource>
                   <ScreenExpressionTree>
                     <ChainExpression>
                       <MemberExpression
-                        Member="cp_lm_applicationsListDetail/Properties[tablets_bottle_packs]" />
+                        Member="ApplicationListDetail/Properties[tablets_bottle_packs]" />
                     </ChainExpression>
                   </ScreenExpressionTree>
                 </ContentItem.DataSource>
@@ -4859,58 +4225,6 @@
                       </ScreenExpressionTree>
                     </ContentItem.DataSource>
                   </ContentItem>
-                  <ContentItem
-                    Name="CreatedBy17"
-                    Kind="Value"
-                    DataType=":Person?">
-                    <ContentItem.DataSource>
-                      <ScreenExpressionTree>
-                        <ChainExpression>
-                          <MemberExpression
-                            Member="cp_lm_pm_tablets_bottle_pack/Properties[CreatedBy]" />
-                        </ChainExpression>
-                      </ScreenExpressionTree>
-                    </ContentItem.DataSource>
-                  </ContentItem>
-                  <ContentItem
-                    Name="Created17"
-                    Kind="Value"
-                    DataType=":DateTimeOffset?">
-                    <ContentItem.DataSource>
-                      <ScreenExpressionTree>
-                        <ChainExpression>
-                          <MemberExpression
-                            Member="cp_lm_pm_tablets_bottle_pack/Properties[Created]" />
-                        </ChainExpression>
-                      </ScreenExpressionTree>
-                    </ContentItem.DataSource>
-                  </ContentItem>
-                  <ContentItem
-                    Name="ModifiedBy17"
-                    Kind="Value"
-                    DataType=":Person?">
-                    <ContentItem.DataSource>
-                      <ScreenExpressionTree>
-                        <ChainExpression>
-                          <MemberExpression
-                            Member="cp_lm_pm_tablets_bottle_pack/Properties[ModifiedBy]" />
-                        </ChainExpression>
-                      </ScreenExpressionTree>
-                    </ContentItem.DataSource>
-                  </ContentItem>
-                  <ContentItem
-                    Name="Modified17"
-                    Kind="Value"
-                    DataType=":DateTimeOffset?">
-                    <ContentItem.DataSource>
-                      <ScreenExpressionTree>
-                        <ChainExpression>
-                          <MemberExpression
-                            Member="cp_lm_pm_tablets_bottle_pack/Properties[Modified]" />
-                        </ChainExpression>
-                      </ScreenExpressionTree>
-                    </ContentItem.DataSource>
-                  </ContentItem>
                 </ContentItem>
                 <ContentItem.CommandItems>
                   <ContentItem
@@ -4920,7 +4234,7 @@
                       <ScreenExpressionTree>
                         <ChainExpression>
                           <MemberExpression
-                            Member="cp_lm_applicationsListDetail/Properties[tablets_bottle_packs]" />
+                            Member="ApplicationListDetail/Properties[tablets_bottle_packs]" />
                           <CallExpression
                             Target="AddAndEditNew" />
                         </ChainExpression>
@@ -4934,7 +4248,7 @@
                       <ScreenExpressionTree>
                         <ChainExpression>
                           <MemberExpression
-                            Member="cp_lm_applicationsListDetail/Properties[tablets_bottle_packs]" />
+                            Member="ApplicationListDetail/Properties[tablets_bottle_packs]" />
                           <CallExpression
                             Target="EditSelected" />
                         </ChainExpression>
@@ -4948,7 +4262,7 @@
                       <ScreenExpressionTree>
                         <ChainExpression>
                           <MemberExpression
-                            Member="cp_lm_applicationsListDetail/Properties[tablets_bottle_packs]" />
+                            Member="ApplicationListDetail/Properties[tablets_bottle_packs]" />
                           <CallExpression
                             Target="DeleteSelected" />
                         </ChainExpression>
@@ -5002,7 +4316,7 @@
               <ScreenExpressionTree>
                 <ChainExpression>
                   <CallExpression
-                    Target="cp_lm_applicationsListDetail/Methods[Save]" />
+                    Target="ApplicationListDetail/Methods[Save]" />
                 </ChainExpression>
               </ScreenExpressionTree>
             </ContentItem.DataSource>
@@ -5014,7 +4328,7 @@
               <ScreenExpressionTree>
                 <ChainExpression>
                   <CallExpression
-                    Target="cp_lm_applicationsListDetail/Methods[Refresh]" />
+                    Target="ApplicationListDetail/Methods[Refresh]" />
                 </ChainExpression>
               </ScreenExpressionTree>
             </ContentItem.DataSource>
@@ -5075,7 +4389,7 @@
         <ScreenExpressionTree>
           <ChainExpression>
             <CallExpression
-              Target="cp_lm_applicationsListDetail/Properties[cp_lm_applications]/Query" />
+              Target="ApplicationListDetail/Properties[cp_lm_applications]/Query" />
           </ChainExpression>
         </ScreenExpressionTree>
       </ScreenCollectionProperty>
@@ -5094,7 +4408,7 @@
               <QuerySourceExpressionTree>
                 <ChainExpression>
                   <MemberExpression
-                    Member="cp_lm_applicationsListDetail/Properties[cp_lm_applications]" />
+                    Member="ApplicationListDetail/Properties[cp_lm_applications]" />
                   <MemberExpression
                     Member="SelectedItem" />
                   <MemberExpression
@@ -5107,7 +4421,7 @@
         <ScreenExpressionTree>
           <ChainExpression>
             <CallExpression
-              Target="cp_lm_applicationsListDetail/Properties[excipients]/Query" />
+              Target="ApplicationListDetail/Properties[excipients]/Query" />
           </ChainExpression>
         </ScreenExpressionTree>
       </ScreenCollectionProperty>
@@ -5126,7 +4440,7 @@
               <QuerySourceExpressionTree>
                 <ChainExpression>
                   <MemberExpression
-                    Member="cp_lm_applicationsListDetail/Properties[cp_lm_applications]" />
+                    Member="ApplicationListDetail/Properties[cp_lm_applications]" />
                   <MemberExpression
                     Member="SelectedItem" />
                   <MemberExpression
@@ -5139,7 +4453,7 @@
         <ScreenExpressionTree>
           <ChainExpression>
             <CallExpression
-              Target="cp_lm_applicationsListDetail/Properties[apis]/Query" />
+              Target="ApplicationListDetail/Properties[apis]/Query" />
           </ChainExpression>
         </ScreenExpressionTree>
       </ScreenCollectionProperty>
@@ -5158,7 +4472,7 @@
               <QuerySourceExpressionTree>
                 <ChainExpression>
                   <MemberExpression
-                    Member="cp_lm_applicationsListDetail/Properties[cp_lm_applications]" />
+                    Member="ApplicationListDetail/Properties[cp_lm_applications]" />
                   <MemberExpression
                     Member="SelectedItem" />
                   <MemberExpression
@@ -5171,7 +4485,7 @@
         <ScreenExpressionTree>
           <ChainExpression>
             <CallExpression
-              Target="cp_lm_applicationsListDetail/Properties[capsule_blister_packs_hgs]/Query" />
+              Target="ApplicationListDetail/Properties[capsule_blister_packs_hgs]/Query" />
           </ChainExpression>
         </ScreenExpressionTree>
       </ScreenCollectionProperty>
@@ -5190,7 +4504,7 @@
               <QuerySourceExpressionTree>
                 <ChainExpression>
                   <MemberExpression
-                    Member="cp_lm_applicationsListDetail/Properties[cp_lm_applications]" />
+                    Member="ApplicationListDetail/Properties[cp_lm_applications]" />
                   <MemberExpression
                     Member="SelectedItem" />
                   <MemberExpression
@@ -5203,7 +4517,7 @@
         <ScreenExpressionTree>
           <ChainExpression>
             <CallExpression
-              Target="cp_lm_applicationsListDetail/Properties[capsule_blister_packs_sgs]/Query" />
+              Target="ApplicationListDetail/Properties[capsule_blister_packs_sgs]/Query" />
           </ChainExpression>
         </ScreenExpressionTree>
       </ScreenCollectionProperty>
@@ -5222,7 +4536,7 @@
               <QuerySourceExpressionTree>
                 <ChainExpression>
                   <MemberExpression
-                    Member="cp_lm_applicationsListDetail/Properties[cp_lm_applications]" />
+                    Member="ApplicationListDetail/Properties[cp_lm_applications]" />
                   <MemberExpression
                     Member="SelectedItem" />
                   <MemberExpression
@@ -5235,7 +4549,7 @@
         <ScreenExpressionTree>
           <ChainExpression>
             <CallExpression
-              Target="cp_lm_applicationsListDetail/Properties[capsule_bottle_pack_hgs]/Query" />
+              Target="ApplicationListDetail/Properties[capsule_bottle_pack_hgs]/Query" />
           </ChainExpression>
         </ScreenExpressionTree>
       </ScreenCollectionProperty>
@@ -5254,7 +4568,7 @@
               <QuerySourceExpressionTree>
                 <ChainExpression>
                   <MemberExpression
-                    Member="cp_lm_applicationsListDetail/Properties[cp_lm_applications]" />
+                    Member="ApplicationListDetail/Properties[cp_lm_applications]" />
                   <MemberExpression
                     Member="SelectedItem" />
                   <MemberExpression
@@ -5267,7 +4581,7 @@
         <ScreenExpressionTree>
           <ChainExpression>
             <CallExpression
-              Target="cp_lm_applicationsListDetail/Properties[capsule_bottle_pack_sgs]/Query" />
+              Target="ApplicationListDetail/Properties[capsule_bottle_pack_sgs]/Query" />
           </ChainExpression>
         </ScreenExpressionTree>
       </ScreenCollectionProperty>
@@ -5286,7 +4600,7 @@
               <QuerySourceExpressionTree>
                 <ChainExpression>
                   <MemberExpression
-                    Member="cp_lm_applicationsListDetail/Properties[cp_lm_applications]" />
+                    Member="ApplicationListDetail/Properties[cp_lm_applications]" />
                   <MemberExpression
                     Member="SelectedItem" />
                   <MemberExpression
@@ -5299,7 +4613,7 @@
         <ScreenExpressionTree>
           <ChainExpression>
             <CallExpression
-              Target="cp_lm_applicationsListDetail/Properties[eye_ear_nasal_drops]/Query" />
+              Target="ApplicationListDetail/Properties[eye_ear_nasal_drops]/Query" />
           </ChainExpression>
         </ScreenExpressionTree>
       </ScreenCollectionProperty>
@@ -5318,7 +4632,7 @@
               <QuerySourceExpressionTree>
                 <ChainExpression>
                   <MemberExpression
-                    Member="cp_lm_applicationsListDetail/Properties[cp_lm_applications]" />
+                    Member="ApplicationListDetail/Properties[cp_lm_applications]" />
                   <MemberExpression
                     Member="SelectedItem" />
                   <MemberExpression
@@ -5331,7 +4645,7 @@
         <ScreenExpressionTree>
           <ChainExpression>
             <CallExpression
-              Target="cp_lm_applicationsListDetail/Properties[infusions]/Query" />
+              Target="ApplicationListDetail/Properties[infusions]/Query" />
           </ChainExpression>
         </ScreenExpressionTree>
       </ScreenCollectionProperty>
@@ -5350,7 +4664,7 @@
               <QuerySourceExpressionTree>
                 <ChainExpression>
                   <MemberExpression
-                    Member="cp_lm_applicationsListDetail/Properties[cp_lm_applications]" />
+                    Member="ApplicationListDetail/Properties[cp_lm_applications]" />
                   <MemberExpression
                     Member="SelectedItem" />
                   <MemberExpression
@@ -5363,7 +4677,7 @@
         <ScreenExpressionTree>
           <ChainExpression>
             <CallExpression
-              Target="cp_lm_applicationsListDetail/Properties[injections]/Query" />
+              Target="ApplicationListDetail/Properties[injections]/Query" />
           </ChainExpression>
         </ScreenExpressionTree>
       </ScreenCollectionProperty>
@@ -5382,7 +4696,7 @@
               <QuerySourceExpressionTree>
                 <ChainExpression>
                   <MemberExpression
-                    Member="cp_lm_applicationsListDetail/Properties[cp_lm_applications]" />
+                    Member="ApplicationListDetail/Properties[cp_lm_applications]" />
                   <MemberExpression
                     Member="SelectedItem" />
                   <MemberExpression
@@ -5395,7 +4709,7 @@
         <ScreenExpressionTree>
           <ChainExpression>
             <CallExpression
-              Target="cp_lm_applicationsListDetail/Properties[ointment_gel_creams]/Query" />
+              Target="ApplicationListDetail/Properties[ointment_gel_creams]/Query" />
           </ChainExpression>
         </ScreenExpressionTree>
       </ScreenCollectionProperty>
@@ -5414,7 +4728,7 @@
               <QuerySourceExpressionTree>
                 <ChainExpression>
                   <MemberExpression
-                    Member="cp_lm_applicationsListDetail/Properties[cp_lm_applications]" />
+                    Member="ApplicationListDetail/Properties[cp_lm_applications]" />
                   <MemberExpression
                     Member="SelectedItem" />
                   <MemberExpression
@@ -5427,7 +4741,7 @@
         <ScreenExpressionTree>
           <ChainExpression>
             <CallExpression
-              Target="cp_lm_applicationsListDetail/Properties[patches]/Query" />
+              Target="ApplicationListDetail/Properties[patches]/Query" />
           </ChainExpression>
         </ScreenExpressionTree>
       </ScreenCollectionProperty>
@@ -5446,7 +4760,7 @@
               <QuerySourceExpressionTree>
                 <ChainExpression>
                   <MemberExpression
-                    Member="cp_lm_applicationsListDetail/Properties[cp_lm_applications]" />
+                    Member="ApplicationListDetail/Properties[cp_lm_applications]" />
                   <MemberExpression
                     Member="SelectedItem" />
                   <MemberExpression
@@ -5459,7 +4773,7 @@
         <ScreenExpressionTree>
           <ChainExpression>
             <CallExpression
-              Target="cp_lm_applicationsListDetail/Properties[sachets]/Query" />
+              Target="ApplicationListDetail/Properties[sachets]/Query" />
           </ChainExpression>
         </ScreenExpressionTree>
       </ScreenCollectionProperty>
@@ -5478,7 +4792,7 @@
               <QuerySourceExpressionTree>
                 <ChainExpression>
                   <MemberExpression
-                    Member="cp_lm_applicationsListDetail/Properties[cp_lm_applications]" />
+                    Member="ApplicationListDetail/Properties[cp_lm_applications]" />
                   <MemberExpression
                     Member="SelectedItem" />
                   <MemberExpression
@@ -5491,7 +4805,7 @@
         <ScreenExpressionTree>
           <ChainExpression>
             <CallExpression
-              Target="cp_lm_applicationsListDetail/Properties[spray_inhalers]/Query" />
+              Target="ApplicationListDetail/Properties[spray_inhalers]/Query" />
           </ChainExpression>
         </ScreenExpressionTree>
       </ScreenCollectionProperty>
@@ -5510,7 +4824,7 @@
               <QuerySourceExpressionTree>
                 <ChainExpression>
                   <MemberExpression
-                    Member="cp_lm_applicationsListDetail/Properties[cp_lm_applications]" />
+                    Member="ApplicationListDetail/Properties[cp_lm_applications]" />
                   <MemberExpression
                     Member="SelectedItem" />
                   <MemberExpression
@@ -5523,7 +4837,7 @@
         <ScreenExpressionTree>
           <ChainExpression>
             <CallExpression
-              Target="cp_lm_applicationsListDetail/Properties[syrups]/Query" />
+              Target="ApplicationListDetail/Properties[syrups]/Query" />
           </ChainExpression>
         </ScreenExpressionTree>
       </ScreenCollectionProperty>
@@ -5542,7 +4856,7 @@
               <QuerySourceExpressionTree>
                 <ChainExpression>
                   <MemberExpression
-                    Member="cp_lm_applicationsListDetail/Properties[cp_lm_applications]" />
+                    Member="ApplicationListDetail/Properties[cp_lm_applications]" />
                   <MemberExpression
                     Member="SelectedItem" />
                   <MemberExpression
@@ -5555,7 +4869,7 @@
         <ScreenExpressionTree>
           <ChainExpression>
             <CallExpression
-              Target="cp_lm_applicationsListDetail/Properties[tablets_blister_packs]/Query" />
+              Target="ApplicationListDetail/Properties[tablets_blister_packs]/Query" />
           </ChainExpression>
         </ScreenExpressionTree>
       </ScreenCollectionProperty>
@@ -5574,7 +4888,7 @@
               <QuerySourceExpressionTree>
                 <ChainExpression>
                   <MemberExpression
-                    Member="cp_lm_applicationsListDetail/Properties[cp_lm_applications]" />
+                    Member="ApplicationListDetail/Properties[cp_lm_applications]" />
                   <MemberExpression
                     Member="SelectedItem" />
                   <MemberExpression
@@ -5587,7 +4901,7 @@
         <ScreenExpressionTree>
           <ChainExpression>
             <CallExpression
-              Target="cp_lm_applicationsListDetail/Properties[tablets_bottle_packs]/Query" />
+              Target="ApplicationListDetail/Properties[tablets_bottle_packs]/Query" />
           </ChainExpression>
         </ScreenExpressionTree>
       </ScreenCollectionProperty>
@@ -5595,10 +4909,10 @@
   </Screen>
   <Application.Methods>
     <ApplicationMethod
-      Name="Showcp_lm_applicationsListDetail">
+      Name="ShowApplicationListDetail">
       <ApplicationMethod.Attributes>
         <ShowScreenMethod
-          TargetScreen="cp_lm_applicationsListDetail" />
+          TargetScreen="ApplicationListDetail" />
       </ApplicationMethod.Attributes>
     </ApplicationMethod>
   </Application.Methods>
