@@ -66,6 +66,12 @@
     <ApplicationCommand
       Name="ScreenCommandShowApplicationListDetail"
       Target="!module/Methods[ShowApplicationListDetail]" />
+    <ApplicationCommand
+      Name="ScreenCommandShowNewApiCost"
+      Target="!module/Methods[ShowNewApiCost]" />
+    <ApplicationCommand
+      Name="ScreenCommandShowNewExcipientCost"
+      Target="!module/Methods[ShowNewExcipientCost]" />
   </Application.Commands>
   <Application.NavigationItems>
     <ApplicationNavigationGroup
@@ -105,6 +111,12 @@
       <ApplicationNavigationLink
         Name="ApplicationListDetail"
         Command="!module/Commands[ScreenCommandShowApplicationListDetail]" />
+      <ApplicationNavigationLink
+        Name="NewApiCost"
+        Command="!module/Commands[ScreenCommandShowNewApiCost]" />
+      <ApplicationNavigationLink
+        Name="NewExcipientCost"
+        Command="!module/Commands[ScreenCommandShowNewExcipientCost]" />
     </ApplicationNavigationGroup>
     <ApplicationNavigationGroup
       Name="Administration">

@@ -192,6 +192,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AuditHelper.cs" />
     <Compile Include="DataSources\ApplicationData\cp_lm_api_cost.lsml.cs">
       <DependentUpon>cp_lm_api_costs.lsml</DependentUpon>
     </Compile>
@@ -236,6 +237,7 @@
     <LightSwitchModel Include="DataSources\ApplicationData\cp_lm_applications.lsml" />
     <LightSwitchModel Include="DataSources\ApplicationData\cp_lu_excipients.lsml" />
     <LightSwitchModel Include="DataSources\ApplicationData\cp_lu_apis.lsml" />
+    <LightSwitchModel Include="DataSources\ApplicationData\AuditTrails.lsml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

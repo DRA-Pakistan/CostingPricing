@@ -31,7 +31,7 @@ namespace LightSwitchApplication
 
         decimal pkConversionRate()
         {
-            if (import_price_currency == "PKR")
+            if (import_price_currency.currency_code == "PKR")
                 return 1;
             else return pkr_conversion_rate;
         }

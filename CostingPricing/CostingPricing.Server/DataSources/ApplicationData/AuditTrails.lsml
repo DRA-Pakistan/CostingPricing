@@ -5,11 +5,9 @@
     <Partial />
   </ServiceApplication.Attributes>
   <EntityType
-    Name="cp_lu_currency">
+    Name="AuditTrail">
     <EntityType.Attributes>
       <CreatedModifiedPropertiesEnabled />
-      <DisplayName
-        Value="Currency" />
     </EntityType.Attributes>
     <EntityType.Methods>
       <EntityMethod
@@ -29,57 +27,73 @@
         </KeyProperty.Attributes>
       </KeyProperty>
       <EntityProperty
-        Name="currency_name"
+        Name="ChangeType"
         PropertyType=":String">
         <EntityProperty.Attributes>
           <Required />
           <MaxLength
             Value="255" />
-          <DisplayName
-            Value="Currency Name" />
         </EntityProperty.Attributes>
       </EntityProperty>
       <EntityProperty
-        Name="currency_code"
+        Name="ChangedBy"
         PropertyType=":String">
         <EntityProperty.Attributes>
           <Required />
           <MaxLength
             Value="255" />
-          <DisplayName
-            Value="Currency Code" />
         </EntityProperty.Attributes>
       </EntityProperty>
       <EntityProperty
-        Name="symbol"
+        Name="OriginalValues"
         PropertyType=":String?">
         <EntityProperty.Attributes>
           <MaxLength
             Value="255" />
-          <DisplayName
-            Value="Symbol" />
         </EntityProperty.Attributes>
       </EntityProperty>
       <EntityProperty
-        Name="region"
+        Name="NewValues"
         PropertyType=":String?">
         <EntityProperty.Attributes>
           <MaxLength
             Value="255" />
-          <DisplayName
-            Value="Country/Region" />
         </EntityProperty.Attributes>
       </EntityProperty>
-      <NavigationProperty
-        Name="cp_lm_excipient_costs"
-        Association="cp_lm_excipient_cost_cp_lu_currency"
-        FromEnd="cp_lu_currency"
-        ToEnd="cp_lm_excipient_cost" />
-      <NavigationProperty
-        Name="cp_lm_api_costs"
-        Association="cp_lm_api_cost_cp_lu_currency"
-        FromEnd="cp_lu_currency"
-        ToEnd="cp_lm_api_cost" />
+      <EntityProperty
+        Name="Updated"
+        PropertyType=":DateTime">
+        <EntityProperty.Attributes>
+          <Required />
+          <NotSearchable />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <EntityProperty
+        Name="ReferenceId"
+        PropertyType=":Int32">
+        <EntityProperty.Attributes>
+          <Required />
+          <NotSearchable />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <EntityProperty
+        Name="ReferenceType"
+        PropertyType=":String">
+        <EntityProperty.Attributes>
+          <Required />
+          <MaxLength
+            Value="255" />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <EntityProperty
+        Name="ReferenceProp"
+        PropertyType=":String">
+        <EntityProperty.Attributes>
+          <Required />
+          <MaxLength
+            Value="255" />
+        </EntityProperty.Attributes>
+      </EntityProperty>
       <EntityProperty
         Name="CreatedBy"
         IsReadOnly="True"
@@ -138,14 +152,14 @@
       <Partial />
     </EntityContainer.Attributes>
     <EntitySet
-      Name="cp_lu_currencies"
+      Name="AuditTrails"
       CanDelete="True"
       CanInsert="True"
       CanUpdate="True"
-      EntityType="cp_lu_currency" />
+      EntityType="AuditTrail" />
     <QueryOperation
-      Name="cp_lu_currencies_Single"
-      ReturnType="cp_lu_currency">
+      Name="AuditTrails_Single"
+      ReturnType="AuditTrail">
       <QueryOperation.Attributes>
         <Generated />
         <Description
@@ -171,7 +185,7 @@
       <QueryOperation.Source>
         <QuerySourceExpressionTree>
           <MemberExpression
-            Member="cp_lu_currencies" />
+            Member="AuditTrails" />
         </QuerySourceExpressionTree>
       </QueryOperation.Source>
       <QueryOperationParameter
@@ -184,8 +198,8 @@
       </QueryOperationParameter>
     </QueryOperation>
     <QueryOperation
-      Name="cp_lu_currencies_SingleOrDefault"
-      ReturnType="cp_lu_currency">
+      Name="AuditTrails_SingleOrDefault"
+      ReturnType="AuditTrail">
       <QueryOperation.Attributes>
         <Generated />
         <Description
@@ -211,7 +225,7 @@
       <QueryOperation.Source>
         <QuerySourceExpressionTree>
           <MemberExpression
-            Member="cp_lu_currencies" />
+            Member="AuditTrails" />
         </QuerySourceExpressionTree>
       </QueryOperation.Source>
       <QueryOperationParameter
@@ -223,105 +237,5 @@
         </QueryOperationParameter.Attributes>
       </QueryOperationParameter>
     </QueryOperation>
-    <AssociationSet
-      Name="cp_lm_excipient_cost_cp_lu_currencies"
-      Association="cp_lm_excipient_cost_cp_lu_currency">
-      <AssociationSetEnd
-        Name="cp_lm_excipient_cost"
-        EntitySet="cp_lm_excipient_costs" />
-      <AssociationSetEnd
-        Name="cp_lu_currency"
-        EntitySet="cp_lu_currencies" />
-    </AssociationSet>
-    <AssociationSet
-      Name="cp_lm_api_cost_cp_lu_currencies"
-      Association="cp_lm_api_cost_cp_lu_currency">
-      <AssociationSetEnd
-        Name="cp_lm_api_cost"
-        EntitySet="cp_lm_api_costs" />
-      <AssociationSetEnd
-        Name="cp_lu_currency"
-        EntitySet="cp_lu_currencies" />
-    </AssociationSet>
   </EntityContainer>
-  <Association
-    Name="cp_lm_excipient_cost_cp_lu_currency">
-    <AssociationEnd
-      Name="cp_lm_excipient_cost"
-      Multiplicity="Many"
-      EntityType="cp_lm_excipient_cost" />
-    <AssociationEnd
-      Name="cp_lu_currency"
-      Multiplicity="One"
-      EntityType="cp_lu_currency">
-      <AssociationEnd.Attributes>
-        <DeleteRule
-          Action="Restrict" />
-      </AssociationEnd.Attributes>
-    </AssociationEnd>
-  </Association>
-  <DataService
-    Name="ApplicationDataMapping">
-    <DataService.Attributes>
-      <Partial />
-    </DataService.Attributes>
-    <AssociationSetMapping
-      AssociationSet="cp_lm_excipient_cost_cp_lu_currencies">
-      <AssociationSetMapping.Attributes>
-        <SsdlAssociationSet
-          Name="cp_lm_excipient_cost_cp_lu_currencies" />
-        <SsdlAssociationSetEnd
-          End="ApplicationData/Members[cp_lm_excipient_cost_cp_lu_currencies]/Members[cp_lm_excipient_cost]">
-          <SsdlAssociationSetEnd.Attributes>
-            <SsdlPropertyRef
-              Name="cp_lm_excipient_cost_cp_lu_currency" />
-          </SsdlAssociationSetEnd.Attributes>
-        </SsdlAssociationSetEnd>
-        <SsdlAssociationSetEnd
-          End="ApplicationData/Members[cp_lm_excipient_cost_cp_lu_currencies]/Members[cp_lu_currency]">
-          <SsdlAssociationSetEnd.Attributes>
-            <SsdlPropertyRef
-              Name="Id" />
-          </SsdlAssociationSetEnd.Attributes>
-        </SsdlAssociationSetEnd>
-      </AssociationSetMapping.Attributes>
-    </AssociationSetMapping>
-    <AssociationSetMapping
-      AssociationSet="cp_lm_api_cost_cp_lu_currencies">
-      <AssociationSetMapping.Attributes>
-        <SsdlAssociationSet
-          Name="cp_lm_api_cost_cp_lu_currencies" />
-        <SsdlAssociationSetEnd
-          End="ApplicationData/Members[cp_lm_api_cost_cp_lu_currencies]/Members[cp_lm_api_cost]">
-          <SsdlAssociationSetEnd.Attributes>
-            <SsdlPropertyRef
-              Name="cp_lm_api_cost_cp_lu_currency" />
-          </SsdlAssociationSetEnd.Attributes>
-        </SsdlAssociationSetEnd>
-        <SsdlAssociationSetEnd
-          End="ApplicationData/Members[cp_lm_api_cost_cp_lu_currencies]/Members[cp_lu_currency]">
-          <SsdlAssociationSetEnd.Attributes>
-            <SsdlPropertyRef
-              Name="Id" />
-          </SsdlAssociationSetEnd.Attributes>
-        </SsdlAssociationSetEnd>
-      </AssociationSetMapping.Attributes>
-    </AssociationSetMapping>
-  </DataService>
-  <Association
-    Name="cp_lm_api_cost_cp_lu_currency">
-    <AssociationEnd
-      Name="cp_lm_api_cost"
-      Multiplicity="Many"
-      EntityType="cp_lm_api_cost" />
-    <AssociationEnd
-      Name="cp_lu_currency"
-      Multiplicity="One"
-      EntityType="cp_lu_currency">
-      <AssociationEnd.Attributes>
-        <DeleteRule
-          Action="Restrict" />
-      </AssociationEnd.Attributes>
-    </AssociationEnd>
-  </Association>
 </ServiceApplication>

@@ -150,17 +150,16 @@
             Value="import price per unit" />
         </EntityProperty.Attributes>
       </EntityProperty>
-      <EntityProperty
+      <NavigationProperty
         Name="import_price_currency"
-        PropertyType=":String">
-        <EntityProperty.Attributes>
-          <Required />
-          <MaxLength
-            Value="255" />
+        Association="cp_lm_excipient_cost_cp_lu_currency"
+        FromEnd="cp_lm_excipient_cost"
+        ToEnd="cp_lu_currency">
+        <NavigationProperty.Attributes>
           <DisplayName
             Value="Currency" />
-        </EntityProperty.Attributes>
-      </EntityProperty>
+        </NavigationProperty.Attributes>
+      </NavigationProperty>
       <EntityProperty
         Name="imported_quantity"
         PropertyType=":Decimal">
@@ -386,6 +385,7 @@
           <Computed />
           <DisplayName
             Value="Total Landed Cost (PKR)" />
+          <NotSearchable />
         </EntityProperty.Attributes>
       </EntityProperty>
       <EntityProperty
@@ -408,8 +408,6 @@
           <Computed />
           <DisplayName
             Value="Landed Cost Per Unit (PKR)" />
-          <StringValueFormat
-            Value="C" />
         </EntityProperty.Attributes>
       </EntityProperty>
       <NavigationProperty
@@ -584,6 +582,10 @@
           Type="int" />
         <SsdlForeignKeyProperty
           Name="cp_lm_excipient_cost_cp_lu_excipient"
+          Nullable="False"
+          Type="int" />
+        <SsdlForeignKeyProperty
+          Name="cp_lm_excipient_cost_cp_lu_currency"
           Nullable="False"
           Type="int" />
       </EntitySetMapping.Attributes>

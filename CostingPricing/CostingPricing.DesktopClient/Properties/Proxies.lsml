@@ -280,4 +280,22 @@
         Target="ServiceInterface:cp_lm_application_cp_lu_drug" />
     </Association.Attributes>
   </Association>
+  <Association>
+    <Association.Attributes>
+      <Proxy
+        Target="ServiceInterface:cp_lm_excipient_cost_cp_lu_currency" />
+    </Association.Attributes>
+  </Association>
+  <Association>
+    <Association.Attributes>
+      <Proxy
+        Target="ServiceInterface:cp_lm_api_cost_cp_lu_currency" />
+    </Association.Attributes>
+  </Association>
+  <EntityType>
+    <EntityType.Attributes>
+      <Proxy
+        Target="ServiceInterface:AuditTrail" />
+    </EntityType.Attributes>
+  </EntityType>
 </Application>
