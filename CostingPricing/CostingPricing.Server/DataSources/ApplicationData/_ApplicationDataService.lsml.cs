@@ -237,6 +237,320 @@ namespace LightSwitchApplication
 
 
 
+
+        #endregion
+
+        #region Access Controls
+        partial void cp_lm_api_costs_CanDelete(ref bool result)
+        {
+            result = this.Application.User.HasPermission(Permissions.AccessLM) && this.Application.User.HasPermission(Permissions.DeleteApplication);
+        }
+        partial void cp_lm_api_costs_CanInsert(ref bool result)
+        {
+            result = this.Application.User.HasPermission(Permissions.AccessLM) && this.Application.User.HasPermission(Permissions.AddApplication);
+        }
+        partial void cp_lm_api_costs_CanUpdate(ref bool result)
+        {
+            result = this.Application.User.HasPermission(Permissions.AccessLM) && this.Application.User.HasPermission(Permissions.EditApplication);
+        }
+        partial void cp_lm_applications_CanDelete(ref bool result)
+        {
+            result = this.Application.User.HasPermission(Permissions.AccessLM) && this.Application.User.HasPermission(Permissions.DeleteApplication);
+        }
+        partial void cp_lm_applications_CanInsert(ref bool result)
+        {
+            result = this.Application.User.HasPermission(Permissions.AccessLM) && this.Application.User.HasPermission(Permissions.AddApplication);
+        }
+        partial void cp_lm_applications_CanUpdate(ref bool result)
+        {
+            result = this.Application.User.HasPermission(Permissions.AccessLM) && this.Application.User.HasPermission(Permissions.EditApplication);
+        }
+        partial void cp_lm_excipient_costs_CanDelete(ref bool result)
+        {
+            result = this.Application.User.HasPermission(Permissions.AccessLM) && this.Application.User.HasPermission(Permissions.DeleteApplication);
+        }
+        partial void cp_lm_excipient_costs_CanInsert(ref bool result)
+        {
+            result = this.Application.User.HasPermission(Permissions.AccessLM) && this.Application.User.HasPermission(Permissions.AddApplication);
+        }
+        partial void cp_lm_excipient_costs_CanUpdate(ref bool result)
+        {
+            result = this.Application.User.HasPermission(Permissions.AccessLM) && this.Application.User.HasPermission(Permissions.EditApplication);
+        }
+        partial void cp_lm_pm_capsule_blister_packs_hgs_CanDelete(ref bool result)
+        {
+            result = this.Application.User.HasPermission(Permissions.AccessLM) && this.Application.User.HasPermission(Permissions.DeleteApplication);
+        }
+        partial void cp_lm_pm_capsule_blister_packs_hgs_CanInsert(ref bool result)
+        {
+            result = this.Application.User.HasPermission(Permissions.AccessLM) && this.Application.User.HasPermission(Permissions.AddApplication);
+        }
+        partial void cp_lm_pm_capsule_blister_packs_hgs_CanUpdate(ref bool result)
+        {
+            result = this.Application.User.HasPermission(Permissions.AccessLM) && this.Application.User.HasPermission(Permissions.EditApplication);
+        }
+        partial void cp_lm_pm_capsule_blister_packs_sgs_CanDelete(ref bool result)
+        {
+            result = this.Application.User.HasPermission(Permissions.AccessLM) && this.Application.User.HasPermission(Permissions.DeleteApplication);
+        }
+        partial void cp_lm_pm_capsule_blister_packs_sgs_CanInsert(ref bool result)
+        {
+            result = this.Application.User.HasPermission(Permissions.AccessLM) && this.Application.User.HasPermission(Permissions.AddApplication);
+        }
+        partial void cp_lm_pm_capsule_blister_packs_sgs_CanUpdate(ref bool result)
+        {
+            result = this.Application.User.HasPermission(Permissions.AccessLM) && this.Application.User.HasPermission(Permissions.EditApplication);
+        }
+        partial void cp_lm_pm_capsule_bottle_pack_hgs_CanDelete(ref bool result)
+        {
+            result = this.Application.User.HasPermission(Permissions.AccessLM) && this.Application.User.HasPermission(Permissions.DeleteApplication);
+        }
+        partial void cp_lm_pm_capsule_bottle_pack_hgs_CanInsert(ref bool result)
+        {
+            result = this.Application.User.HasPermission(Permissions.AccessLM) && this.Application.User.HasPermission(Permissions.AddApplication);
+        }
+        partial void cp_lm_pm_capsule_bottle_pack_hgs_CanUpdate(ref bool result)
+        {
+            result = this.Application.User.HasPermission(Permissions.AccessLM) && this.Application.User.HasPermission(Permissions.EditApplication);
+        }
+        partial void cp_lm_pm_capsule_bottle_pack_sgs_CanDelete(ref bool result)
+        {
+            result = this.Application.User.HasPermission(Permissions.AccessLM) && this.Application.User.HasPermission(Permissions.DeleteApplication);
+        }
+        partial void cp_lm_pm_capsule_bottle_pack_sgs_CanInsert(ref bool result)
+        {
+            result = this.Application.User.HasPermission(Permissions.AccessLM) && this.Application.User.HasPermission(Permissions.AddApplication);
+        }
+        partial void cp_lm_pm_capsule_bottle_pack_sgs_CanUpdate(ref bool result)
+        {
+            result = this.Application.User.HasPermission(Permissions.AccessLM) && this.Application.User.HasPermission(Permissions.EditApplication);
+        }
+        partial void cp_lm_pm_eye_ear_nasal_drops_CanDelete(ref bool result)
+        {
+            result = this.Application.User.HasPermission(Permissions.AccessLM) && this.Application.User.HasPermission(Permissions.DeleteApplication);
+        }
+        partial void cp_lm_pm_eye_ear_nasal_drops_CanInsert(ref bool result)
+        {
+            result = this.Application.User.HasPermission(Permissions.AccessLM) && this.Application.User.HasPermission(Permissions.AddApplication);
+        }
+        partial void cp_lm_pm_eye_ear_nasal_drops_CanUpdate(ref bool result)
+        {
+            result = this.Application.User.HasPermission(Permissions.AccessLM) && this.Application.User.HasPermission(Permissions.EditApplication);
+        }
+        partial void cp_lm_pm_infusions_CanDelete(ref bool result)
+        {
+            result = this.Application.User.HasPermission(Permissions.AccessLM) && this.Application.User.HasPermission(Permissions.DeleteApplication);
+        }
+        partial void cp_lm_pm_infusions_CanInsert(ref bool result)
+        {
+            result = this.Application.User.HasPermission(Permissions.AccessLM) && this.Application.User.HasPermission(Permissions.AddApplication);
+        }
+        partial void cp_lm_pm_infusions_CanUpdate(ref bool result)
+        {
+            result = this.Application.User.HasPermission(Permissions.AccessLM) && this.Application.User.HasPermission(Permissions.EditApplication);
+        }
+        partial void cp_lm_pm_injections_CanDelete(ref bool result)
+        {
+            result = this.Application.User.HasPermission(Permissions.AccessLM) && this.Application.User.HasPermission(Permissions.DeleteApplication);
+        }
+        partial void cp_lm_pm_injections_CanInsert(ref bool result)
+        {
+            result = this.Application.User.HasPermission(Permissions.AccessLM) && this.Application.User.HasPermission(Permissions.AddApplication);
+        }
+        partial void cp_lm_pm_injections_CanUpdate(ref bool result)
+        {
+            result = this.Application.User.HasPermission(Permissions.AccessLM) && this.Application.User.HasPermission(Permissions.EditApplication);
+        }
+        partial void cp_lm_pm_ointment_gel_creams_CanDelete(ref bool result)
+        {
+            result = this.Application.User.HasPermission(Permissions.AccessLM) && this.Application.User.HasPermission(Permissions.DeleteApplication);
+        }
+        partial void cp_lm_pm_ointment_gel_creams_CanInsert(ref bool result)
+        {
+            result = this.Application.User.HasPermission(Permissions.AccessLM) && this.Application.User.HasPermission(Permissions.AddApplication);
+        }
+        partial void cp_lm_pm_ointment_gel_creams_CanUpdate(ref bool result)
+        {
+            result = this.Application.User.HasPermission(Permissions.AccessLM) && this.Application.User.HasPermission(Permissions.EditApplication);
+        }
+        partial void cp_lm_pm_patches_CanDelete(ref bool result)
+        {
+            result = this.Application.User.HasPermission(Permissions.AccessLM) && this.Application.User.HasPermission(Permissions.DeleteApplication);
+        }
+        partial void cp_lm_pm_patches_CanInsert(ref bool result)
+        {
+            result = this.Application.User.HasPermission(Permissions.AccessLM) && this.Application.User.HasPermission(Permissions.AddApplication);
+        }
+        partial void cp_lm_pm_patches_CanUpdate(ref bool result)
+        {
+            result = this.Application.User.HasPermission(Permissions.AccessLM) && this.Application.User.HasPermission(Permissions.EditApplication);
+        }
+        partial void cp_lm_pm_sachets_CanDelete(ref bool result)
+        {
+            result = this.Application.User.HasPermission(Permissions.AccessLM) && this.Application.User.HasPermission(Permissions.DeleteApplication);
+        }
+        partial void cp_lm_pm_sachets_CanInsert(ref bool result)
+        {
+            result = this.Application.User.HasPermission(Permissions.AccessLM) && this.Application.User.HasPermission(Permissions.AddApplication);
+        }
+        partial void cp_lm_pm_sachets_CanUpdate(ref bool result)
+        {
+            result = this.Application.User.HasPermission(Permissions.AccessLM) && this.Application.User.HasPermission(Permissions.EditApplication);
+        }
+        partial void cp_lm_pm_spray_inhalers_CanDelete(ref bool result)
+        {
+            result = this.Application.User.HasPermission(Permissions.AccessLM) && this.Application.User.HasPermission(Permissions.DeleteApplication);
+        }
+        partial void cp_lm_pm_spray_inhalers_CanInsert(ref bool result)
+        {
+            result = this.Application.User.HasPermission(Permissions.AccessLM) && this.Application.User.HasPermission(Permissions.AddApplication);
+        }
+        partial void cp_lm_pm_spray_inhalers_CanUpdate(ref bool result)
+        {
+            result = this.Application.User.HasPermission(Permissions.AccessLM) && this.Application.User.HasPermission(Permissions.EditApplication);
+        }
+        partial void cp_lm_pm_syrups_CanDelete(ref bool result)
+        {
+            result = this.Application.User.HasPermission(Permissions.AccessLM) && this.Application.User.HasPermission(Permissions.DeleteApplication);
+        }
+        partial void cp_lm_pm_syrups_CanInsert(ref bool result)
+        {
+            result = this.Application.User.HasPermission(Permissions.AccessLM) && this.Application.User.HasPermission(Permissions.AddApplication);
+        }
+        partial void cp_lm_pm_syrups_CanUpdate(ref bool result)
+        {
+            result = this.Application.User.HasPermission(Permissions.AccessLM) && this.Application.User.HasPermission(Permissions.EditApplication);
+        }
+        partial void cp_lm_pm_tablets_blister_packs_CanDelete(ref bool result)
+        {
+            result = this.Application.User.HasPermission(Permissions.AccessLM) && this.Application.User.HasPermission(Permissions.DeleteApplication);
+        }
+        partial void cp_lm_pm_tablets_blister_packs_CanInsert(ref bool result)
+        {
+            result = this.Application.User.HasPermission(Permissions.AccessLM) && this.Application.User.HasPermission(Permissions.AddApplication);
+        }
+        partial void cp_lm_pm_tablets_blister_packs_CanUpdate(ref bool result)
+        {
+            result = this.Application.User.HasPermission(Permissions.AccessLM) && this.Application.User.HasPermission(Permissions.EditApplication);
+        }
+        partial void cp_lm_pm_tablets_bottle_packs_CanDelete(ref bool result)
+        {
+            result = this.Application.User.HasPermission(Permissions.AccessLM) && this.Application.User.HasPermission(Permissions.DeleteApplication);
+        }
+        partial void cp_lm_pm_tablets_bottle_packs_CanInsert(ref bool result)
+        {
+            result = this.Application.User.HasPermission(Permissions.AccessLM) && this.Application.User.HasPermission(Permissions.AddApplication);
+        }
+        partial void cp_lm_pm_tablets_bottle_packs_CanUpdate(ref bool result)
+        {
+            result = this.Application.User.HasPermission(Permissions.AccessLM) && this.Application.User.HasPermission(Permissions.EditApplication);
+        }
+        partial void cp_lu_apis_CanDelete(ref bool result)
+        {
+            result = this.Application.User.HasPermission(Permissions.AccessLM) && this.Application.User.HasPermission(Permissions.DeleteCommon);
+        }
+        partial void cp_lu_apis_CanInsert(ref bool result)
+        {
+            result = this.Application.User.HasPermission(Permissions.AccessLM) && this.Application.User.HasPermission(Permissions.AddCommon);
+        }
+        partial void cp_lu_apis_CanUpdate(ref bool result)
+        {
+            result = this.Application.User.HasPermission(Permissions.AccessLM) && this.Application.User.HasPermission(Permissions.EditCommon);
+        }
+        partial void cp_lu_applicants_CanDelete(ref bool result)
+        {
+            result = this.Application.User.HasPermission(Permissions.AccessLM) && this.Application.User.HasPermission(Permissions.DeleteCommon);
+        }
+        partial void cp_lu_applicants_CanInsert(ref bool result)
+        {
+            result = this.Application.User.HasPermission(Permissions.AccessLM) && this.Application.User.HasPermission(Permissions.AddCommon);
+        }
+        partial void cp_lu_applicants_CanUpdate(ref bool result)
+        {
+            result = this.Application.User.HasPermission(Permissions.AccessLM) && this.Application.User.HasPermission(Permissions.EditCommon);
+        }
+        partial void cp_lu_countries_CanDelete(ref bool result)
+        {
+            result = this.Application.User.HasPermission(Permissions.AccessLM) && this.Application.User.HasPermission(Permissions.DeleteCommon);
+        }
+        partial void cp_lu_countries_CanInsert(ref bool result)
+        {
+            result = this.Application.User.HasPermission(Permissions.AccessLM) && this.Application.User.HasPermission(Permissions.AddCommon);
+        }
+        partial void cp_lu_countries_CanUpdate(ref bool result)
+        {
+            result = this.Application.User.HasPermission(Permissions.AccessLM) && this.Application.User.HasPermission(Permissions.EditCommon);
+        }
+        partial void cp_lu_currencies_CanDelete(ref bool result)
+        {
+            result = this.Application.User.HasPermission(Permissions.AccessLM) && this.Application.User.HasPermission(Permissions.DeleteCommon);
+        }
+        partial void cp_lu_currencies_CanInsert(ref bool result)
+        {
+            result = this.Application.User.HasPermission(Permissions.AccessLM) && this.Application.User.HasPermission(Permissions.AddCommon);
+        }
+        partial void cp_lu_currencies_CanUpdate(ref bool result)
+        {
+            result = this.Application.User.HasPermission(Permissions.AccessLM) && this.Application.User.HasPermission(Permissions.EditCommon);
+        }
+        partial void cp_lu_drugs_CanDelete(ref bool result)
+        {
+            result = this.Application.User.HasPermission(Permissions.AccessLM) && this.Application.User.HasPermission(Permissions.DeleteCommon);
+        }
+        partial void cp_lu_drugs_CanInsert(ref bool result)
+        {
+            result = this.Application.User.HasPermission(Permissions.AccessLM) && this.Application.User.HasPermission(Permissions.AddCommon);
+        }
+        partial void cp_lu_drugs_CanUpdate(ref bool result)
+        {
+            result = this.Application.User.HasPermission(Permissions.AccessLM) && this.Application.User.HasPermission(Permissions.EditCommon);
+        }
+        partial void cp_lu_excipients_CanDelete(ref bool result)
+        {
+            result = this.Application.User.HasPermission(Permissions.AccessLM) && this.Application.User.HasPermission(Permissions.DeleteCommon);
+        }
+        partial void cp_lu_excipients_CanInsert(ref bool result)
+        {
+            result = this.Application.User.HasPermission(Permissions.AccessLM) && this.Application.User.HasPermission(Permissions.AddCommon);
+        }
+        partial void cp_lu_excipients_CanUpdate(ref bool result)
+        {
+            result = this.Application.User.HasPermission(Permissions.AccessLM) && this.Application.User.HasPermission(Permissions.EditCommon);
+        }
+        partial void cp_lu_source_manufacturers_CanDelete(ref bool result)
+        {
+            result = this.Application.User.HasPermission(Permissions.AccessLM) && this.Application.User.HasPermission(Permissions.DeleteCommon);
+        }
+        partial void cp_lu_source_manufacturers_CanInsert(ref bool result)
+        {
+            result = this.Application.User.HasPermission(Permissions.AccessLM) && this.Application.User.HasPermission(Permissions.AddCommon);
+        }
+        partial void cp_lu_source_manufacturers_CanUpdate(ref bool result)
+        {
+            result = this.Application.User.HasPermission(Permissions.AccessLM) && this.Application.User.HasPermission(Permissions.EditCommon);
+        }
+        partial void cp_lu_suppliers_CanDelete(ref bool result)
+        {
+            result = this.Application.User.HasPermission(Permissions.AccessLM) && this.Application.User.HasPermission(Permissions.DeleteCommon);
+        }
+        partial void cp_lu_suppliers_CanInsert(ref bool result)
+        {
+            result = this.Application.User.HasPermission(Permissions.AccessLM) && this.Application.User.HasPermission(Permissions.AddCommon);
+        }
+        partial void cp_lu_suppliers_CanUpdate(ref bool result)
+        {
+            result = this.Application.User.HasPermission(Permissions.AccessLM) && this.Application.User.HasPermission(Permissions.EditCommon);
+        }
+        
+        partial void AuditTrails_CanUpdate(ref bool result)
+        {
+            result = false;
+        }
+
+        partial void AuditTrails_CanDelete(ref bool result)
+        {
+            result = false;
+        }
         #endregion
     }
 }

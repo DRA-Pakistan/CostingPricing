@@ -237,10 +237,10 @@
     <Compile Include="Screens\Applications\NewApplication.lsml.cs">
       <DependentUpon>NewApplication.lsml</DependentUpon>
     </Compile>
-    <Compile Include="Screens\New Data\NewApiCost.lsml.cs">
+    <Compile Include="Screens\AddEditScreens\NewApiCost.lsml.cs">
       <DependentUpon>NewApiCost.lsml</DependentUpon>
     </Compile>
-    <Compile Include="Screens\New Data\NewExcipientCost.lsml.cs">
+    <Compile Include="Screens\AddEditScreens\NewExcipientCost.lsml.cs">
       <DependentUpon>NewExcipientCost.lsml</DependentUpon>
     </Compile>
   </ItemGroup>
@@ -264,11 +264,12 @@
     <LightSwitchModel Include="Screens\AddEditScreens\Lookup Tables\SuppliersList.lsml" />
     <LightSwitchModel Include="Screens\Applications\NewApplication.lsml" />
     <LightSwitchModel Include="Screens\Applications\ApplicationListDetail.lsml" />
-    <LightSwitchModel Include="Screens\New Data\NewApiCost.lsml" />
-    <LightSwitchModel Include="Screens\New Data\NewExcipientCost.lsml" />
+    <LightSwitchModel Include="Screens\AddEditScreens\NewApiCost.lsml" />
+    <LightSwitchModel Include="Screens\AddEditScreens\NewExcipientCost.lsml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Screens\AddEditScreens\Packaging Material\" />
+    <Folder Include="Screens\New Data\" />
   </ItemGroup>
   <ItemGroup>
     <_ClientBuildFile Include="default.htm">

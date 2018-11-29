@@ -677,13 +677,6 @@
             Value="Currency" />
         </ScreenProperty.Attributes>
       </ScreenProperty>
-      <ScreenProperty
-        Name="cs"
-        PropertyType=":String">
-        <ScreenProperty.Attributes>
-          <Required />
-        </ScreenProperty.Attributes>
-      </ScreenProperty>
     </Screen.Properties>
   </Screen>
   <Application.Methods>

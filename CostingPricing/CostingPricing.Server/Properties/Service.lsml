@@ -33,4 +33,112 @@
         Replacement="$1 $2" />
     </GlobalAttributeGroup.Attributes>
   </GlobalAttributeGroup>
+  <Permission
+    Name="AccessLM">
+    <Permission.Attributes>
+      <DisplayName
+        Value="Access LM Module" />
+      <Description
+        Value="Grants Access To Local Manufacturing Module" />
+    </Permission.Attributes>
+  </Permission>
+  <Permission
+    Name="AccessFP">
+    <Permission.Attributes>
+      <DisplayName
+        Value="Access FP Module" />
+      <Description
+        Value="Grants Access to Finished Product Module" />
+    </Permission.Attributes>
+  </Permission>
+  <Permission
+    Name="AccessBI">
+    <Permission.Attributes>
+      <DisplayName
+        Value="Access BI Module" />
+      <Description
+        Value="Grants Access to Bulk Import Module" />
+    </Permission.Attributes>
+  </Permission>
+  <Permission
+    Name="AddCommon">
+    <Permission.Attributes>
+      <DisplayName
+        Value="Add Common Data" />
+      <Description
+        Value="Add data into common lists" />
+    </Permission.Attributes>
+  </Permission>
+  <Permission
+    Name="EditCommon">
+    <Permission.Attributes>
+      <DisplayName
+        Value="Edit Common Data" />
+      <Description
+        Value="Edit data in common lists" />
+    </Permission.Attributes>
+  </Permission>
+  <Permission
+    Name="DeleteCommon">
+    <Permission.Attributes>
+      <DisplayName
+        Value="Delete Common Data" />
+      <Description
+        Value="Delete data from common lists" />
+    </Permission.Attributes>
+  </Permission>
+  <Permission
+    Name="ViewCommon">
+    <Permission.Attributes>
+      <DisplayName
+        Value="View Common Data" />
+      <Description
+        Value="View data in common lists" />
+    </Permission.Attributes>
+  </Permission>
+  <Permission
+    Name="AddApplication">
+    <Permission.Attributes>
+      <DisplayName
+        Value="Add Application Data" />
+      <Description
+        Value="Can add Application Data" />
+    </Permission.Attributes>
+  </Permission>
+  <Permission
+    Name="EditApplication">
+    <Permission.Attributes>
+      <DisplayName
+        Value="Edit Application Data" />
+      <Description
+        Value="Can edit Application Data" />
+    </Permission.Attributes>
+  </Permission>
+  <Permission
+    Name="DeleteApplication">
+    <Permission.Attributes>
+      <DisplayName
+        Value="Delete Application Data" />
+      <Description
+        Value="Can delete Applciation Data" />
+    </Permission.Attributes>
+  </Permission>
+  <Permission
+    Name="ViewApplication">
+    <Permission.Attributes>
+      <DisplayName
+        Value="View Application Data" />
+      <Description
+        Value="can view Application Data" />
+    </Permission.Attributes>
+  </Permission>
+  <Permission
+    Name="ViewAudit">
+    <Permission.Attributes>
+      <DisplayName
+        Value="View Audit Trail" />
+      <Description
+        Value="Can view Audit Trail Data" />
+    </Permission.Attributes>
+  </Permission>
 </ServiceApplication>
