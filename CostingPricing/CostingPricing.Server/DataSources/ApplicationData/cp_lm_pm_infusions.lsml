@@ -190,6 +190,17 @@
         FromEnd="cp_lm_pm_infusion"
         ToEnd="cp_lm_application" />
       <EntityProperty
+        Name="size"
+        PropertyType=":String">
+        <EntityProperty.Attributes>
+          <Required />
+          <MaxLength
+            Value="255" />
+          <DisplayName
+            Value="Size" />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <EntityProperty
         Name="CreatedBy"
         IsReadOnly="True"
         PropertyType=":Person?">

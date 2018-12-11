@@ -31,8 +31,8 @@
     <WCFRIASERVICESSDKPath Condition=" '$(WCFRIASERVICESSDKPath)' == '' ">$(Registry:HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Microsoft\WCFRIAServices\v1.0@InstallPath)</WCFRIASERVICESSDKPath>
     <UseIISExpress>true</UseIISExpress>
     <IISExpressSSLPort />
-    <IISExpressAnonymousAuthentication />
-    <IISExpressWindowsAuthentication />
+    <IISExpressAnonymousAuthentication>disabled</IISExpressAnonymousAuthentication>
+    <IISExpressWindowsAuthentication>enabled</IISExpressWindowsAuthentication>
     <IISExpressUseClassicPipelineMode />
     <UseGlobalApplicationHostFile />
   </PropertyGroup>
@@ -193,6 +193,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AuditHelper.cs" />
+    <Compile Include="DataSources\ApplicationData\AuditTrail.lsml.cs">
+      <DependentUpon>AuditTrails.lsml</DependentUpon>
+    </Compile>
     <Compile Include="DataSources\ApplicationData\cp_lm_api_cost.lsml.cs">
       <DependentUpon>cp_lm_api_costs.lsml</DependentUpon>
     </Compile>

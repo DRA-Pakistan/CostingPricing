@@ -1470,6 +1470,19 @@
                     </ScreenExpressionTree>
                   </ContentItem.DataSource>
                   <ContentItem
+                    Name="size"
+                    Kind="Value"
+                    DataType=":String">
+                    <ContentItem.DataSource>
+                      <ScreenExpressionTree>
+                        <ChainExpression>
+                          <MemberExpression
+                            Member="cp_lm_pm_capsule_blister_packs_hg/Properties[size]" />
+                        </ChainExpression>
+                      </ScreenExpressionTree>
+                    </ContentItem.DataSource>
+                  </ContentItem>
+                  <ContentItem
                     Name="empty_capsules_shells"
                     Kind="Value"
                     DataType=":Decimal">
@@ -1672,6 +1685,19 @@
                     </ScreenExpressionTree>
                   </ContentItem.DataSource>
                   <ContentItem
+                    Name="size1"
+                    Kind="Value"
+                    DataType=":String">
+                    <ContentItem.DataSource>
+                      <ScreenExpressionTree>
+                        <ChainExpression>
+                          <MemberExpression
+                            Member="cp_lm_pm_capsule_blister_packs_sg/Properties[size]" />
+                        </ChainExpression>
+                      </ScreenExpressionTree>
+                    </ContentItem.DataSource>
+                  </ContentItem>
+                  <ContentItem
                     Name="soft_gelatin_sheets"
                     Kind="Value"
                     DataType=":Decimal">
@@ -1873,6 +1899,19 @@
                       <ChainExpression />
                     </ScreenExpressionTree>
                   </ContentItem.DataSource>
+                  <ContentItem
+                    Name="size2"
+                    Kind="Value"
+                    DataType=":String">
+                    <ContentItem.DataSource>
+                      <ScreenExpressionTree>
+                        <ChainExpression>
+                          <MemberExpression
+                            Member="cp_lm_pm_capsule_bottle_pack_hg/Properties[size]" />
+                        </ChainExpression>
+                      </ScreenExpressionTree>
+                    </ContentItem.DataSource>
+                  </ContentItem>
                   <ContentItem
                     Name="empty_capsule_shells"
                     Kind="Value"
@@ -2102,6 +2141,19 @@
                     </ScreenExpressionTree>
                   </ContentItem.DataSource>
                   <ContentItem
+                    Name="size3"
+                    Kind="Value"
+                    DataType=":String">
+                    <ContentItem.DataSource>
+                      <ScreenExpressionTree>
+                        <ChainExpression>
+                          <MemberExpression
+                            Member="cp_lm_pm_capsule_bottle_pack_sg/Properties[size]" />
+                        </ChainExpression>
+                      </ScreenExpressionTree>
+                    </ContentItem.DataSource>
+                  </ContentItem>
+                  <ContentItem
                     Name="soft_gelatin_sheets1"
                     Kind="Value"
                     DataType=":Decimal">
@@ -2330,6 +2382,19 @@
                     </ScreenExpressionTree>
                   </ContentItem.DataSource>
                   <ContentItem
+                    Name="size4"
+                    Kind="Value"
+                    DataType=":String">
+                    <ContentItem.DataSource>
+                      <ScreenExpressionTree>
+                        <ChainExpression>
+                          <MemberExpression
+                            Member="cp_lm_pm_eye_ear_nasal_drop/Properties[size]" />
+                        </ChainExpression>
+                      </ScreenExpressionTree>
+                    </ContentItem.DataSource>
+                  </ContentItem>
+                  <ContentItem
                     Name="bottle2"
                     Kind="Value"
                     DataType=":Decimal">
@@ -2518,6 +2583,19 @@
                       <ChainExpression />
                     </ScreenExpressionTree>
                   </ContentItem.DataSource>
+                  <ContentItem
+                    Name="size5"
+                    Kind="Value"
+                    DataType=":String">
+                    <ContentItem.DataSource>
+                      <ScreenExpressionTree>
+                        <ChainExpression>
+                          <MemberExpression
+                            Member="cp_lm_pm_infusion/Properties[size]" />
+                        </ChainExpression>
+                      </ScreenExpressionTree>
+                    </ContentItem.DataSource>
+                  </ContentItem>
                   <ContentItem
                     Name="vial_bottle"
                     Kind="Value"
@@ -2747,6 +2825,19 @@
                     </ScreenExpressionTree>
                   </ContentItem.DataSource>
                   <ContentItem
+                    Name="size6"
+                    Kind="Value"
+                    DataType=":String">
+                    <ContentItem.DataSource>
+                      <ScreenExpressionTree>
+                        <ChainExpression>
+                          <MemberExpression
+                            Member="cp_lm_pm_injection/Properties[size]" />
+                        </ChainExpression>
+                      </ScreenExpressionTree>
+                    </ContentItem.DataSource>
+                  </ContentItem>
+                  <ContentItem
                     Name="vial_ampoule"
                     Kind="Value"
                     DataType=":Decimal">
@@ -2962,6 +3053,19 @@
                     </ScreenExpressionTree>
                   </ContentItem.DataSource>
                   <ContentItem
+                    Name="size7"
+                    Kind="Value"
+                    DataType=":String">
+                    <ContentItem.DataSource>
+                      <ScreenExpressionTree>
+                        <ChainExpression>
+                          <MemberExpression
+                            Member="cp_lm_pm_ointment_gel_cream/Properties[size]" />
+                        </ChainExpression>
+                      </ScreenExpressionTree>
+                    </ContentItem.DataSource>
+                  </ContentItem>
+                  <ContentItem
                     Name="cap5"
                     Kind="Value"
                     DataType=":Decimal">
@@ -3124,6 +3228,19 @@
                       <ChainExpression />
                     </ScreenExpressionTree>
                   </ContentItem.DataSource>
+                  <ContentItem
+                    Name="size8"
+                    Kind="Value"
+                    DataType=":String">
+                    <ContentItem.DataSource>
+                      <ScreenExpressionTree>
+                        <ChainExpression>
+                          <MemberExpression
+                            Member="cp_lm_pm_patch/Properties[size]" />
+                        </ChainExpression>
+                      </ScreenExpressionTree>
+                    </ContentItem.DataSource>
+                  </ContentItem>
                   <ContentItem
                     Name="addhesive_tape"
                     Kind="Value"
@@ -3314,6 +3431,19 @@
                     </ScreenExpressionTree>
                   </ContentItem.DataSource>
                   <ContentItem
+                    Name="size9"
+                    Kind="Value"
+                    DataType=":String">
+                    <ContentItem.DataSource>
+                      <ScreenExpressionTree>
+                        <ChainExpression>
+                          <MemberExpression
+                            Member="cp_lm_pm_sachet/Properties[size]" />
+                        </ChainExpression>
+                      </ScreenExpressionTree>
+                    </ContentItem.DataSource>
+                  </ContentItem>
+                  <ContentItem
                     Name="foil"
                     Kind="Value"
                     DataType=":Decimal">
@@ -3463,6 +3593,19 @@
                       <ChainExpression />
                     </ScreenExpressionTree>
                   </ContentItem.DataSource>
+                  <ContentItem
+                    Name="size10"
+                    Kind="Value"
+                    DataType=":String">
+                    <ContentItem.DataSource>
+                      <ScreenExpressionTree>
+                        <ChainExpression>
+                          <MemberExpression
+                            Member="cp_lm_pm_spray_inhaler/Properties[size]" />
+                        </ChainExpression>
+                      </ScreenExpressionTree>
+                    </ContentItem.DataSource>
+                  </ContentItem>
                   <ContentItem
                     Name="bottle3"
                     Kind="Value"
@@ -3652,6 +3795,19 @@
                       <ChainExpression />
                     </ScreenExpressionTree>
                   </ContentItem.DataSource>
+                  <ContentItem
+                    Name="size11"
+                    Kind="Value"
+                    DataType=":String">
+                    <ContentItem.DataSource>
+                      <ScreenExpressionTree>
+                        <ChainExpression>
+                          <MemberExpression
+                            Member="cp_lm_pm_syrup/Properties[size]" />
+                        </ChainExpression>
+                      </ScreenExpressionTree>
+                    </ContentItem.DataSource>
+                  </ContentItem>
                   <ContentItem
                     Name="bottle4"
                     Kind="Value"
@@ -3868,6 +4024,19 @@
                     </ScreenExpressionTree>
                   </ContentItem.DataSource>
                   <ContentItem
+                    Name="size12"
+                    Kind="Value"
+                    DataType=":String">
+                    <ContentItem.DataSource>
+                      <ScreenExpressionTree>
+                        <ChainExpression>
+                          <MemberExpression
+                            Member="cp_lm_pm_tablets_blister_pack/Properties[size]" />
+                        </ChainExpression>
+                      </ScreenExpressionTree>
+                    </ContentItem.DataSource>
+                  </ContentItem>
+                  <ContentItem
                     Name="aluminium_foil"
                     Kind="Value"
                     DataType=":Decimal">
@@ -4056,6 +4225,19 @@
                       <ChainExpression />
                     </ScreenExpressionTree>
                   </ContentItem.DataSource>
+                  <ContentItem
+                    Name="size13"
+                    Kind="Value"
+                    DataType=":String">
+                    <ContentItem.DataSource>
+                      <ScreenExpressionTree>
+                        <ChainExpression>
+                          <MemberExpression
+                            Member="cp_lm_pm_tablets_bottle_pack/Properties[size]" />
+                        </ChainExpression>
+                      </ScreenExpressionTree>
+                    </ContentItem.DataSource>
+                  </ContentItem>
                   <ContentItem
                     Name="bottle5"
                     Kind="Value"

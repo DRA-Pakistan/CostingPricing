@@ -227,6 +227,9 @@
     </ServiceMetadataReference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\CostingPricing.Server\DataSources\ApplicationData\AuditTrail.lsml.cs">
+      <Link>UserCode\Shared\AuditTrail.lsml.cs</Link>
+    </Compile>
     <Compile Include="..\CostingPricing.Server\DataSources\ApplicationData\cp_lm_api_cost.lsml.cs">
       <Link>UserCode\Shared\cp_lm_api_cost.lsml.cs</Link>
     </Compile>

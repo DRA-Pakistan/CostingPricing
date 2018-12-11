@@ -29,6 +29,17 @@
         </KeyProperty.Attributes>
       </KeyProperty>
       <EntityProperty
+        Name="size"
+        PropertyType=":String">
+        <EntityProperty.Attributes>
+          <Required />
+          <MaxLength
+            Value="255" />
+          <DisplayName
+            Value="Size" />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <EntityProperty
         Name="soft_gelatin_sheets"
         PropertyType=":Decimal">
         <EntityProperty.Attributes>
